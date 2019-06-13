@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    public float time;
+    public int dame;
+
+    private void Start()
+    {
+        Destroy(gameObject, time);
+    }
     //private void OnCollisionEnter(Collision collision)
     //{
     //    Debug.Log(collision.gameObject.tag);
@@ -12,6 +19,11 @@ public class Bullet : MonoBehaviour
     //    Destroy(gameObject);
     //}
 
+    private void Update()
+    {
+        gameObject.GetComponent<Rigidbody>().velocity = gameObject.transform.forward * 6;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
@@ -19,7 +31,10 @@ public class Bullet : MonoBehaviour
             var hit = other.gameObject;
             var health = hit.GetComponent<Health>();
             if (health != null)
-                health.TakeDame(10);
+            {
+                Debug.Log("bbb");
+                health.TakeDame(dame);
+            }
         }
         Destroy(gameObject);
     }

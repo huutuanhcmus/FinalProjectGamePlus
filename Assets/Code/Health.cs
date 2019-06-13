@@ -1,14 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 using UnityEngine.UI;
 
-public class Health : MonoBehaviour
+public class Health : NetworkBehaviour
 {
     public const int maxHealth = 100;
-    public int currentHealth = maxHealth;
+    [SyncVar] public int currentHealth = maxHealth;
     public Transform healthBar;
 
+    [Command]
     public void TakeDame(int amount)
     {
         currentHealth -= amount;
@@ -17,6 +19,10 @@ public class Health : MonoBehaviour
             currentHealth = 0;
             Debug.Log("Dead!");
         }
-        healthBar.localScale = new Vector3(currentHealth / (maxHealth*1.0f), 1, 1);
+    }
+
+    private void Update()
+    {
+        healthBar.localScale = new Vector3(currentHealth / (maxHealth * 1.0f), 1, 1);
     }
 }

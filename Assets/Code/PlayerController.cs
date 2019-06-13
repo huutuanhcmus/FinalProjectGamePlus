@@ -46,10 +46,9 @@ public class PlayerController : NetworkBehaviour
     void Cmdfire()
     {
         var bulletTemp = (GameObject)Instantiate(bullet, bulletspawn.position, bulletspawn.rotation);
-        bulletTemp.GetComponent<Rigidbody>().velocity = bulletTemp.transform.forward * 6;
         NetworkServer.Spawn(bulletTemp);
-        Debug.Log("aaa");
-        Destroy(bulletTemp, 1.0f);
+        bulletTemp.GetComponent<Rigidbody>().velocity = bulletTemp.transform.forward * 6;
+        Destroy(bulletTemp, 3.0f);
     }
 
     public override void OnStartLocalPlayer()

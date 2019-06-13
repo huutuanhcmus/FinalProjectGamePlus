@@ -150,8 +150,9 @@ c08ee204c43044b9314883f8654f6e1a Assembly-CSharp.dll:.sui_demo_trigger
 94017dcc9f00fe671ea7dc427b4da011 Unity.TextMeshPro.dll:TMPro.TMP_SpriteAsset
 e113b9d17139ddc8b67fb840e2b12ecf Assembly-CSharp.dll:.HPPlayerManager
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:Suimono.Core.fx_causticObject
+5fb88b83659041055a49795d5d187213 Assembly-CSharp.dll:.Health
 740e2a55bf8d3a2560b90ee495ddf640 Assembly-CSharp.dll:.sui_demo_LightHandler
-71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.Bullet
+9206a6ee9b0e555efb398c4a890deab7 Assembly-CSharp.dll:.Bullet
 b3ab2106268377ffe25dd18ac23dca28 Unity.TextMeshPro.dll:TMPro.TMP_Asset
 f58faa8c0fb4f70cfd2d1fa0fdac7fdb Assembly-CSharp.dll:.PlayerController
 3a3324b73792dde0ff97dae69b3a3dfb Assembly-CSharp.dll:UnityStandardAssets.ImageEffects.SunShafts
@@ -256,4 +257,9 @@ acad6a5a3e5ce26933e372a3349e72a4 Assembly-CSharp.dll:.sui_demo_InputController
 4ac605da68c11e9cffda27dd05e976fe Assembly-CSharp.dll:.HuongDan
 491820d5e0224270f2832e19f25805ef Assembly-CSharp.dll:Suimono.Core.SuimonoModuleLib
 09d91be4d332285157ef992e11ea8c50 Assembly-CSharp.dll:.Attack
-5fb88b83659041055a49795d5d187213 Assembly-CSharp.dll:.Health
+d98ff123986bc34958b3a38727dc8052 Assembly-CSharp.dll:.FairyDustRandomPosition
+0b198da030fde8aab4c22fbb634bf274 Assembly-CSharp.dll:.FairyMeteorAddForceDemo
+af80edf94a264c213f47054cdb1d1f60 Assembly-CSharp.dll:.DemoManager
+f18a60dc934fc84ac85e593bfc6a61a7 Assembly-CSharp.dll:.Spin
+37db925b48eb8d92ea5261381327316a Assembly-CSharp.dll:.Fireball
+490abd4c02253c5ce6e721ec4ef63e91 Assembly-CSharp.dll:.Test
