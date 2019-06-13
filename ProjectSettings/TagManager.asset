@@ -3,7 +3,10 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Skill
+  - Character
+  - SkillOver
   layers:
   - Default
   - TransparentFX
@@ -18,9 +21,9 @@ TagManager:
   - Suimono_Depth
   - Suimono_Screen
   - Player
-  - 
-  - 
-  - 
+  - Skill
+  - Character
+  - SkillOver
   - 
   - 
   - 

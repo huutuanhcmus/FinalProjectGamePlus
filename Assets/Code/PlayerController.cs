@@ -26,7 +26,6 @@ public class PlayerController : NetworkBehaviour
 
         var x = Input.GetAxis("Horizontal") * Time.deltaTime * 150.0f;
         var z = Input.GetAxis("Vertical") * Time.deltaTime * 3.0f;
-        Debug.Log(z);
         if (z >= 0.01)
         {
             playerAnimation.SetBool("walk", true);
@@ -49,7 +48,8 @@ public class PlayerController : NetworkBehaviour
         var bulletTemp = (GameObject)Instantiate(bullet, bulletspawn.position, bulletspawn.rotation);
         bulletTemp.GetComponent<Rigidbody>().velocity = bulletTemp.transform.forward * 6;
         NetworkServer.Spawn(bulletTemp);
-        Destroy(bulletTemp, 2.0f);
+        Debug.Log("aaa");
+        Destroy(bulletTemp, 1.0f);
     }
 
     public override void OnStartLocalPlayer()
