@@ -66,6 +66,7 @@
     <Compile Include="Assets\Code\CameraFollowRotate.cs" />
     <Compile Include="Assets\Code\ChangeCharacter.cs" />
     <Compile Include="Assets\Code\DongTac.cs" />
+    <Compile Include="Assets\Code\Health.cs" />
     <Compile Include="Assets\Code\PlayerController.cs" />
     <Compile Include="Assets\Code\Rotate.cs" />
     <Compile Include="Assets\Code\SubPlayerController.cs" />

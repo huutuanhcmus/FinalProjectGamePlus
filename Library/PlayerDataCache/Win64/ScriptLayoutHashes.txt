@@ -256,3 +256,4 @@ acad6a5a3e5ce26933e372a3349e72a4 Assembly-CSharp.dll:.sui_demo_InputController
 4ac605da68c11e9cffda27dd05e976fe Assembly-CSharp.dll:.HuongDan
 491820d5e0224270f2832e19f25805ef Assembly-CSharp.dll:Suimono.Core.SuimonoModuleLib
 09d91be4d332285157ef992e11ea8c50 Assembly-CSharp.dll:.Attack
+5fb88b83659041055a49795d5d187213 Assembly-CSharp.dll:.Health
