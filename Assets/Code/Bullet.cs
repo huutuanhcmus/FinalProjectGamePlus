@@ -33,7 +33,7 @@ public class Bullet : MonoBehaviour
             if (health != null)
             {
                 Debug.Log("bbb");
-                health.TakeDame(dame);
+                health.CmdTakeDame(dame);
             }
         }
         Destroy(gameObject);

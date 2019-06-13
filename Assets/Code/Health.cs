@@ -11,7 +11,7 @@ public class Health : NetworkBehaviour
     public Transform healthBar;
 
     [Command]
-    public void TakeDame(int amount)
+    public void CmdTakeDame(int amount)
     {
         currentHealth -= amount;
         if (currentHealth <= 0)

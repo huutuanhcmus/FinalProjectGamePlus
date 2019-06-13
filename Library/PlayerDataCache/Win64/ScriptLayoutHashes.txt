@@ -20,6 +20,7 @@ e1bbf0ab858085e38fae6b12ebbdcd35 UnityEngine.Timeline.dll:UnityEngine.Timeline.C
 e1bbf0ab858085e38fae6b12ebbdcd35 UnityEngine.Timeline.dll:UnityEngine.Timeline.GroupTrack
 e1bbf0ab858085e38fae6b12ebbdcd35 UnityEngine.Timeline.dll:UnityEngine.Timeline.PlayableTrack
 201e3fde670b00545944bb3db215c80a UnityEngine.Timeline.dll:UnityEngine.Timeline.TimelineAsset
+d98ff123986bc34958b3a38727dc8052 Assembly-CSharp.dll:.FairyDustRandomPosition
 172cfdd977ca8a6f32932932c2f0d2ee Assembly-CSharp.dll:UnityStandardAssets.ImageEffects.ImageEffectBase
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.utility_EventTrigger
 c150d9404e6b53770dd5f5e91004bccd Assembly-CSharp.dll:UnityStandardAssets.ImageEffects.BlurOptimized
@@ -163,6 +164,7 @@ c1fb5fa27e739b05514ea7d68b24c684 Assembly-CSharp.dll:.utility_AdjustCulling
 5cf03783ed86c4cab0652963faf2e37f Assembly-CSharp.dll:.Mana
 71bb6a6b6c8f052f948db64c7dd3ca4f Unity.Analytics.Editor.dll:UnityEditor.Analytics.AnalyticsEventTrackerEditor
 86cfcd24b9fc59be9240f6811ea3b2b2 Assembly-CSharp.dll:UnityStandardAssets.ImageEffects.ScreenOverlay
+0b198da030fde8aab4c22fbb634bf274 Assembly-CSharp.dll:.FairyMeteorAddForceDemo
 c70d36ec69db38c618fe45462b706ceb Assembly-CSharp.dll:.NPCHuongDan
 71bb6a6b6c8f052f948db64c7dd3ca4f Unity.TextMeshPro.dll:TMPro.TMP_SpriteAnimator
 3e5852d4c0b2598352912518b5c70cad Assembly-CSharp.dll:.QuaiHuongDan
@@ -171,6 +173,7 @@ b2a649126f7cedb33d28c41f1defd3b7 Assembly-CSharp.dll:.ChangeCharacter
 0cfc1ff62525b93a5c6cba3267daaa87 Assembly-CSharp.dll:.guiFPS
 9cc3904a86f5a119184da7351cdb4e65 Assembly-CSharp.dll:UnityStandardAssets.ImageEffects.DepthOfField
 4fd8bf02e3089425d3502e26c44ba31a Unity.TextMeshPro.dll:TMPro.TextContainer
+af80edf94a264c213f47054cdb1d1f60 Assembly-CSharp.dll:.DemoManager
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:Suimono.Core.fx_EffectTrail
 c81166727ba349da6e8229b783767b8b Assembly-CSharp.dll:Suimono.Core.SuimonoCamera_depth
 edd1f6dd2e95403f536b03c2fbfd6811 Assembly-CSharp.dll:.CameraController
@@ -240,6 +243,7 @@ e517021a3fe0fc359ee085003342439f Assembly-CSharp.dll:.ThietDinh
 140af595e7084588614a4a3c49bc06cf Assembly-CSharp.dll:.sui_demo_ControllerCharacter
 a26fa94e6bedf1fa71b8ecb54b94435e Assembly-CSharp.dll:.OpenMap
 a63738926fb894e489f1ad235a41b0c2 Assembly-CSharp.dll:Suimono.Core.SuimonoDepth
+f18a60dc934fc84ac85e593bfc6a61a7 Assembly-CSharp.dll:.Spin
 d791aa6007fa3640be1164ea75bb087d Unity.TextMeshPro.dll:TMPro.TMP_StyleSheet
 152ebf8179d5ac559fb83ff767011b1e Assembly-CSharp.dll:Suimono.Core.fx_causticModule
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.LevelBar
@@ -251,15 +255,11 @@ acad6a5a3e5ce26933e372a3349e72a4 Assembly-CSharp.dll:.sui_demo_InputController
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:UnityStandardAssets.ImageEffects.PostEffectsBase
 8ccce45a027cfbb02441998345f2c121 Assembly-CSharp.dll:UnityStandardAssets.ImageEffects.EdgeDetection
 8649814970b42d345b89944b862453cc Unity.TextMeshPro.dll:TMPro.TMP_SubMesh
+37db925b48eb8d92ea5261381327316a Assembly-CSharp.dll:.Fireball
 10d40c4c007ed0fe1a397ef11ee530fa Assembly-CSharp.dll:UnityStandardAssets.ImageEffects.ColorCorrectionLookup
 83dffc789cd416ac4ef1fc44f3423e35 Assembly-CSharp.dll:UnityStandardAssets.ImageEffects.Tonemapping
 50aad4c34da674808aa7b045f28911a3 Assembly-CSharp.dll:Suimono.Core.fx_soundModule
 4ac605da68c11e9cffda27dd05e976fe Assembly-CSharp.dll:.HuongDan
 491820d5e0224270f2832e19f25805ef Assembly-CSharp.dll:Suimono.Core.SuimonoModuleLib
-09d91be4d332285157ef992e11ea8c50 Assembly-CSharp.dll:.Attack
-d98ff123986bc34958b3a38727dc8052 Assembly-CSharp.dll:.FairyDustRandomPosition
-0b198da030fde8aab4c22fbb634bf274 Assembly-CSharp.dll:.FairyMeteorAddForceDemo
-af80edf94a264c213f47054cdb1d1f60 Assembly-CSharp.dll:.DemoManager
-f18a60dc934fc84ac85e593bfc6a61a7 Assembly-CSharp.dll:.Spin
-37db925b48eb8d92ea5261381327316a Assembly-CSharp.dll:.Fireball
 490abd4c02253c5ce6e721ec4ef63e91 Assembly-CSharp.dll:.Test
+09d91be4d332285157ef992e11ea8c50 Assembly-CSharp.dll:.Attack
