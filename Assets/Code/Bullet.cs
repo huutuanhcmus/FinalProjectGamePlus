@@ -1,9 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
-public class Bullet : MonoBehaviour
+public class Bullet : NetworkBehaviour
 {
+    [SyncVar]public int Phe;
     public float time;
     public int dame;
 
@@ -26,7 +28,7 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.tag == "Player" && other.GetComponent<PlayerController>().Phe != Phe)
         {
             var hit = other.gameObject;
             var health = hit.GetComponent<Health>();
@@ -35,7 +37,7 @@ public class Bullet : MonoBehaviour
                 Debug.Log("bbb");
                 health.CmdTakeDame(dame);
             }
+            Destroy(gameObject);
         }
-        Destroy(gameObject);
     }
 }

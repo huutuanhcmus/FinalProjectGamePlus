@@ -1315,6 +1315,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 3534632523362113071, guid: 795d2ed39e1791947ba5535ade87a8ff, type: 3}
   bulletspawn: {fileID: 1838503052164943731}
+  Phe: 0
 --- !u!114 &571758553
 MonoBehaviour:
   m_ObjectHideFlags: 0

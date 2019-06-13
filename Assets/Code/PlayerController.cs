@@ -9,6 +9,7 @@ public class PlayerController : NetworkBehaviour
     public GameObject bullet;
     public Transform bulletspawn;
     Animator playerAnimation;
+    [SyncVar] public int Phe = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -40,16 +41,42 @@ public class PlayerController : NetworkBehaviour
         {
             Cmdfire();
         }
+        if (Input.GetKeyDown(KeyCode.F1))
+        {
+            CmdHKM();
+        }
+        if (Input.GetKeyDown(KeyCode.F2))
+        {
+            CmdANC();
+        }
     }
+    
+    
 
     [Command]
     void Cmdfire()
     {
         var bulletTemp = (GameObject)Instantiate(bullet, bulletspawn.position, bulletspawn.rotation);
         NetworkServer.Spawn(bulletTemp);
+        bulletTemp.GetComponent<Bullet>().Phe = Phe;
         bulletTemp.GetComponent<Rigidbody>().velocity = bulletTemp.transform.forward * 6;
-        Destroy(bulletTemp, 3.0f);
     }
+
+
+    [Command]
+    public void CmdANC()
+    {
+        Phe = 2;
+        //Destroy(transform.GetChild(3));
+    }
+
+    [Command]
+    public void CmdHKM()
+    {
+        Phe = 1;
+        //Destroy(transform.GetChild(3));
+    }
+
 
     public override void OnStartLocalPlayer()
     {
