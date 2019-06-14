@@ -13,6 +13,8 @@ public class PlayerController : NetworkBehaviour
     public Transform bulletspawn;
     public Transform Wallspawn;
     public GameObject Stun;
+    public GameObject RemoveStun;
+
     Animator playerAnimation;
     private Thread StunTimeCount;
 
@@ -56,6 +58,10 @@ public class PlayerController : NetworkBehaviour
         {
             CmdStun();
         }
+        if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            CmdRemoveStun();
+        }
         if (Input.GetKeyDown(KeyCode.F1))
         {
             CmdHKM();
@@ -93,6 +99,14 @@ public class PlayerController : NetworkBehaviour
         StunTemp.GetComponent<Stun>().Phe = Phe;
     }
 
+    [Command]
+    void CmdRemoveStun()
+    {
+        var removeStunTemp = (GameObject)Instantiate(RemoveStun, transform.position, transform.rotation, transform);
+        speed = 1;
+        Destroy(removeStunTemp, 3);
+    }
+
 
     [Command]
     public void CmdANC()
@@ -104,8 +118,8 @@ public class PlayerController : NetworkBehaviour
     [Command]
     public void CmdHKM()
     {
+        
         Phe = 1;
-        //Destroy(transform.GetChild(3));
     }
 
     [Command]
