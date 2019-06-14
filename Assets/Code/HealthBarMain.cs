@@ -20,11 +20,14 @@ public class HealthBarMain : MonoBehaviour
                 if (go.name == "MainChar")
                 {
                     mainChar = go;
+                    mainChar.GetComponent<Transform>().GetChild(2).GetComponent<Canvas>().enabled = false;
                     break;
                 }
             }
         }
         else
-            transform.localScale = new Vector3(mainChar.GetComponent<Health>().currentHealth / (mainChar.GetComponent<Health>().showMaxHealth*1.0f),1,1);
+        {
+            transform.localScale = new Vector3(mainChar.GetComponent<Health>().currentHealth / (mainChar.GetComponent<Health>().showMaxHealth * 1.0f), 1, 1);
+        }
     }
 }
