@@ -20,7 +20,8 @@ public class AOESkill : NetworkBehaviour
     {
         if (other.tag == "Player" && other.GetComponent<PlayerController>().Phe != Phe)
         {
-            Debug.Log("1111");
+            Debug.Log(Phe);
+            Debug.Log(other.GetComponent<PlayerController>().Phe);
             var hit = other.gameObject;
             var health = hit.GetComponent<Health>();
             var stun = hit.GetComponent<PlayerController>();

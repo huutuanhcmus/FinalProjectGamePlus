@@ -9374,4 +9374,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Phe: 0
   time: 3
-  timeStun: 3
+  speedFunc: 0

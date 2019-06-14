@@ -102,6 +102,7 @@ abf1930d8126d0b2e00e9449129a0190 UnityEngine.UI.dll:UnityEngine.EventSystems.Tou
 1d8c7346df7d0cd90a0b0770ad4b336c Assembly-CSharp.dll:.sui_demo_animCharacter
 0dfc57eecefcf1072cca82045960f371 Assembly-CSharp.dll:.Rotate
 a4f53786c5e89397b7d34957535b29a9 Assembly-CSharp.dll:UnityStandardAssets.ImageEffects.NoiseAndScratches
+cb31bb31cef6b7f0ad8ae8b885bf38d6 Assembly-CSharp.dll:.AOESkill
 47f7902f8963babdce608bf76d778b9c Assembly-CSharp.dll:UnityStandardAssets.ImageEffects.Antialiasing
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.SubPlayerController
 8037b5a5c2c80155a18a2623b362806b Assembly-CSharp.dll:DigitalRuby.LightningBolt.LightningBoltScript
@@ -157,7 +158,7 @@ e113b9d17139ddc8b67fb840e2b12ecf Assembly-CSharp.dll:.HPPlayerManager
 740e2a55bf8d3a2560b90ee495ddf640 Assembly-CSharp.dll:.sui_demo_LightHandler
 e85f37a86e3a3955a8924a4fc99da03d Assembly-CSharp.dll:.Bullet
 b3ab2106268377ffe25dd18ac23dca28 Unity.TextMeshPro.dll:TMPro.TMP_Asset
-6f170af158306e2dcbba5d9e955e77f5 Assembly-CSharp.dll:.PlayerController
+94a36285ce1e4070060372d343f35021 Assembly-CSharp.dll:.PlayerController
 3a3324b73792dde0ff97dae69b3a3dfb Assembly-CSharp.dll:UnityStandardAssets.ImageEffects.SunShafts
 c1fb5fa27e739b05514ea7d68b24c684 Assembly-CSharp.dll:.utility_AdjustCulling
 4e86c3ef3b0a84abedeeb1f0a6785778 Assembly-CSharp.dll:Suimono.Core.SuimonoModuleFX
@@ -269,4 +270,3 @@ acad6a5a3e5ce26933e372a3349e72a4 Assembly-CSharp.dll:.sui_demo_InputController
 491820d5e0224270f2832e19f25805ef Assembly-CSharp.dll:Suimono.Core.SuimonoModuleLib
 490abd4c02253c5ce6e721ec4ef63e91 Assembly-CSharp.dll:.Test
 09d91be4d332285157ef992e11ea8c50 Assembly-CSharp.dll:.Attack
-cb31bb31cef6b7f0ad8ae8b885bf38d6 Assembly-CSharp.dll:.AOESkill

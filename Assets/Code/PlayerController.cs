@@ -12,9 +12,12 @@ public class PlayerController : NetworkBehaviour
     public GameObject Wall;
     public Transform bulletspawn;
     public Transform Wallspawn;
+    public Transform aoespawn;
+    public Transform circleWallspawn;
     public GameObject Stun;
     public GameObject RemoveStun;
     public GameObject aoeSkill;
+    public GameObject circleWall;
     Animator playerAnimation;
 
     [SyncVar] public int Phe = 0;
@@ -65,6 +68,10 @@ public class PlayerController : NetworkBehaviour
         {
             CmdAoeSkill();
         }
+        if (Input.GetKeyDown(KeyCode.Alpha6))
+        {
+            CmdCircleWall();
+        }
         if (Input.GetKeyDown(KeyCode.F1))
         {
             CmdHKM();
@@ -82,8 +89,8 @@ public class PlayerController : NetworkBehaviour
     {
         var bulletTemp = (GameObject)Instantiate(bullet, bulletspawn.position, bulletspawn.rotation);
         bulletTemp.GetComponent<Rigidbody>().velocity = bulletspawn.forward * 6;
-        NetworkServer.Spawn(bulletTemp);
         bulletTemp.GetComponent<Bullet>().Phe = Phe;
+        NetworkServer.Spawn(bulletTemp);
     }
 
     [Command]
@@ -94,12 +101,19 @@ public class PlayerController : NetworkBehaviour
     }
 
     [Command]
+    void CmdCircleWall()
+    {
+        var CirCleWallTemp = (GameObject)Instantiate(circleWall, circleWallspawn.position, circleWallspawn.rotation);
+        NetworkServer.Spawn(CirCleWallTemp);
+    }
+
+    [Command]
     void CmdStun()
     {
         var StunTemp = (GameObject)Instantiate(Stun, bulletspawn.position, bulletspawn.rotation);
         StunTemp.GetComponent<Rigidbody>().velocity = bulletspawn.forward * 6;
-        NetworkServer.Spawn(StunTemp);
         StunTemp.GetComponent<Stun>().Phe = Phe;
+        NetworkServer.Spawn(StunTemp);
     }
 
     [Command]
@@ -107,16 +121,16 @@ public class PlayerController : NetworkBehaviour
     {
         var removeStunTemp = (GameObject)Instantiate(RemoveStun, transform.position, transform.rotation, transform);
         speed = 1;
-        NetworkServer.Spawn(removeStunTemp);
         Destroy(removeStunTemp, 3);
+        NetworkServer.Spawn(removeStunTemp);
     }
 
     [Command]
     void CmdAoeSkill()
     {
-        var AoeSkillTemp = (GameObject)Instantiate(aoeSkill, transform.position, transform.rotation);
-        NetworkServer.Spawn(AoeSkillTemp);
+        var AoeSkillTemp = (GameObject)Instantiate(aoeSkill, aoespawn.transform.position, aoespawn.transform.rotation);
         AoeSkillTemp.GetComponent<AOESkill>().Phe = Phe;
+        NetworkServer.Spawn(AoeSkillTemp);
     }
 
     [Command]
