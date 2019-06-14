@@ -1,14 +1,21 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 using UnityEngine.Networking;
 
 public class PlayerController : NetworkBehaviour
 {
+    [SyncVar] public float speed = 1.0f;
     public GameObject bullet;
+    public GameObject Wall;
     public Transform bulletspawn;
+    public Transform Wallspawn;
+    public GameObject Stun;
     Animator playerAnimation;
+    private Thread StunTimeCount;
+
     [SyncVar] public int Phe = 0;
     // Start is called before the first frame update
     void Start()
@@ -25,8 +32,8 @@ public class PlayerController : NetworkBehaviour
             return;
         }
 
-        var x = Input.GetAxis("Horizontal") * Time.deltaTime * 150.0f;
-        var z = Input.GetAxis("Vertical") * Time.deltaTime * 3.0f;
+        var x = Input.GetAxis("Horizontal") * Time.deltaTime * 150.0f * speed;
+        var z = Input.GetAxis("Vertical") * Time.deltaTime * 3.0f * speed;
         if (z >= 0.01)
         {
             playerAnimation.SetBool("walk", true);
@@ -37,9 +44,17 @@ public class PlayerController : NetworkBehaviour
         }
         transform.Rotate(0, x, 0);
         transform.Translate(0, 0, z);
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             Cmdfire();
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            CmdWall();
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            CmdStun();
         }
         if (Input.GetKeyDown(KeyCode.F1))
         {
@@ -57,9 +72,25 @@ public class PlayerController : NetworkBehaviour
     void Cmdfire()
     {
         var bulletTemp = (GameObject)Instantiate(bullet, bulletspawn.position, bulletspawn.rotation);
+        bulletTemp.GetComponent<Rigidbody>().velocity = bulletspawn.forward * 6;
         NetworkServer.Spawn(bulletTemp);
         bulletTemp.GetComponent<Bullet>().Phe = Phe;
-        bulletTemp.GetComponent<Rigidbody>().velocity = bulletTemp.transform.forward * 6;
+    }
+
+    [Command]
+    void CmdWall()
+    {
+        var WallTemp = (GameObject)Instantiate(Wall, Wallspawn.position, Wallspawn.rotation);
+        NetworkServer.Spawn(WallTemp);
+    }
+
+    [Command]
+    void CmdStun()
+    {
+        var StunTemp = (GameObject)Instantiate(Stun, bulletspawn.position, bulletspawn.rotation);
+        StunTemp.GetComponent<Rigidbody>().velocity = bulletspawn.forward * 6;
+        NetworkServer.Spawn(StunTemp);
+        StunTemp.GetComponent<Stun>().Phe = Phe;
     }
 
 
@@ -75,6 +106,23 @@ public class PlayerController : NetworkBehaviour
     {
         Phe = 1;
         //Destroy(transform.GetChild(3));
+    }
+
+    [Command]
+    public void CmdStunPlayer(float time)
+    {
+        Debug.Log("3");
+        speed = 0;
+        float startTime = Time.time;
+        StunTimeCount = new Thread(new ThreadStart(CmdcountTimeStun));
+        StunTimeCount.Start();
+    }
+
+    [Command]
+    void CmdcountTimeStun()
+    {
+        Thread.Sleep(3000);
+        speed = 1;
     }
 
 

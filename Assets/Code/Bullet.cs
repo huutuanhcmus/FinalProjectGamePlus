@@ -8,6 +8,7 @@ public class Bullet : NetworkBehaviour
     [SyncVar]public int Phe;
     public float time;
     public int dame;
+    //public Transform spawn;
 
     private void Start()
     {
@@ -21,10 +22,10 @@ public class Bullet : NetworkBehaviour
     //    Destroy(gameObject);
     //}
 
-    private void Update()
-    {
-        gameObject.GetComponent<Rigidbody>().velocity = gameObject.transform.forward * 6;
-    }
+    //private void Update()
+    //{
+    //    gameObject.GetComponent<Rigidbody>().velocity = spawn.forward * 6;
+    //}
 
     private void OnTriggerEnter(Collider other)
     {
@@ -40,4 +41,6 @@ public class Bullet : NetworkBehaviour
             Destroy(gameObject);
         }
     }
+
+
 }
