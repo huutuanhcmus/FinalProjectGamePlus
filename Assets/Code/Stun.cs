@@ -7,7 +7,7 @@ public class Stun : NetworkBehaviour
 {
     [SyncVar] public int Phe;
     public float time;
-    public float timeStun;
+    public float speedFunc;
     //public Transform spawn;
 
     // Start is called before the first frame update
@@ -34,7 +34,7 @@ public class Stun : NetworkBehaviour
             if (stun != null)
             {
                 Debug.Log("2");
-                stun.CmdStunPlayer(timeStun);
+                stun.CmdStunPlayer(speedFunc);
             }
             Destroy(gameObject);
         }

@@ -4650,7 +4650,7 @@ GameObject:
   - component: {fileID: 6395850990461283581}
   - component: {fileID: 428260399693972237}
   - component: {fileID: 823853291650646721}
-  - component: {fileID: 5070246193717792527}
+  - component: {fileID: 8049955704051314040}
   m_Layer: 0
   m_Name: TestParticles_LayeredGreen
   m_TagString: Untagged
@@ -9360,7 +9360,7 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 1.15}
---- !u!114 &5070246193717792527
+--- !u!114 &8049955704051314040
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

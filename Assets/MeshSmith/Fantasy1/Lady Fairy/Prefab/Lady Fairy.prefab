@@ -1323,6 +1323,7 @@ MonoBehaviour:
   Stun: {fileID: 1983042863990862486, guid: b0826b79163ca024d8493bc75551abb3, type: 3}
   RemoveStun: {fileID: 3269495392467128039, guid: 0d457766461b488418de20578fa44c62,
     type: 3}
+  aoeSkill: {fileID: 185999079645611337, guid: 48963d62c0654894ca0bc6d70c909c15, type: 3}
   Phe: 0
 --- !u!114 &571758553
 MonoBehaviour:

@@ -157,7 +157,7 @@ e113b9d17139ddc8b67fb840e2b12ecf Assembly-CSharp.dll:.HPPlayerManager
 740e2a55bf8d3a2560b90ee495ddf640 Assembly-CSharp.dll:.sui_demo_LightHandler
 e85f37a86e3a3955a8924a4fc99da03d Assembly-CSharp.dll:.Bullet
 b3ab2106268377ffe25dd18ac23dca28 Unity.TextMeshPro.dll:TMPro.TMP_Asset
-552afe91dda9667c540ef0924c26089e Assembly-CSharp.dll:.PlayerController
+6f170af158306e2dcbba5d9e955e77f5 Assembly-CSharp.dll:.PlayerController
 3a3324b73792dde0ff97dae69b3a3dfb Assembly-CSharp.dll:UnityStandardAssets.ImageEffects.SunShafts
 c1fb5fa27e739b05514ea7d68b24c684 Assembly-CSharp.dll:.utility_AdjustCulling
 4e86c3ef3b0a84abedeeb1f0a6785778 Assembly-CSharp.dll:Suimono.Core.SuimonoModuleFX
@@ -199,7 +199,7 @@ e0ee4b3d4e27318934cc940a969d3d96 UnityEngine.Networking.dll:UnityEngine.Networki
 ad9173d3a69d99153f38ed4b62226129 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransform
 9b895dcabbc1faf095c000c32d471fd0 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransformChild
 5887ef1bc706b22b773d253fd443ceef UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransformVisualizer
-6496b9f053db16122a319dd0fbe834ec Assembly-CSharp.dll:.Stun
+6013a2beb5fb9f70ac79e6d31668ea0c Assembly-CSharp.dll:.Stun
 510fefd6a544e16a3ffefa557ddcba39 Unity.TextMeshPro.dll:TMPro.PackageResourceImporterWindow
 95b7d12cfc7c40520139c92136aeae0c Assembly-CSharp.dll:Suimono.Core.fx_EffectObject
 21fc9e8fcfeabb0f3ce420aedd6e76d3 Assembly-CSharp.dll:.sui_demo_animBoat
@@ -269,3 +269,4 @@ acad6a5a3e5ce26933e372a3349e72a4 Assembly-CSharp.dll:.sui_demo_InputController
 491820d5e0224270f2832e19f25805ef Assembly-CSharp.dll:Suimono.Core.SuimonoModuleLib
 490abd4c02253c5ce6e721ec4ef63e91 Assembly-CSharp.dll:.Test
 09d91be4d332285157ef992e11ea8c50 Assembly-CSharp.dll:.Attack
+cb31bb31cef6b7f0ad8ae8b885bf38d6 Assembly-CSharp.dll:.AOESkill

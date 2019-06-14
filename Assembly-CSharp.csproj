@@ -60,6 +60,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Code\AOESkill.cs" />
     <Compile Include="Assets\Code\Billboard.cs" />
     <Compile Include="Assets\Code\Bullet.cs" />
     <Compile Include="Assets\Code\CameraController.cs" />

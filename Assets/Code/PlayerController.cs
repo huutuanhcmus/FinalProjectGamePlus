@@ -14,9 +14,8 @@ public class PlayerController : NetworkBehaviour
     public Transform Wallspawn;
     public GameObject Stun;
     public GameObject RemoveStun;
-
+    public GameObject aoeSkill;
     Animator playerAnimation;
-    private Thread StunTimeCount;
 
     [SyncVar] public int Phe = 0;
     // Start is called before the first frame update
@@ -62,6 +61,10 @@ public class PlayerController : NetworkBehaviour
         {
             CmdRemoveStun();
         }
+        if (Input.GetKeyDown(KeyCode.Alpha5))
+        {
+            CmdAoeSkill();
+        }
         if (Input.GetKeyDown(KeyCode.F1))
         {
             CmdHKM();
@@ -104,9 +107,17 @@ public class PlayerController : NetworkBehaviour
     {
         var removeStunTemp = (GameObject)Instantiate(RemoveStun, transform.position, transform.rotation, transform);
         speed = 1;
+        NetworkServer.Spawn(removeStunTemp);
         Destroy(removeStunTemp, 3);
     }
 
+    [Command]
+    void CmdAoeSkill()
+    {
+        var AoeSkillTemp = (GameObject)Instantiate(aoeSkill, transform.position, transform.rotation);
+        NetworkServer.Spawn(AoeSkillTemp);
+        AoeSkillTemp.GetComponent<AOESkill>().Phe = Phe;
+    }
 
     [Command]
     public void CmdANC()
@@ -123,12 +134,19 @@ public class PlayerController : NetworkBehaviour
     }
 
     [Command]
-    public void CmdStunPlayer(float time)
+    public void CmdStunPlayer(float speedFunc)
     {
         Debug.Log("3");
-        speed = 0;
-        float startTime = Time.time;
-        StunTimeCount = new Thread(new ThreadStart(CmdcountTimeStun));
+        speed = speedFunc;
+        Thread StunTimeCount = new Thread(new ThreadStart(CmdcountTimeStun));
+        StunTimeCount.Start();
+    }
+
+    public void CmdStunPlayerSlow(float speedFunc)
+    {
+        Debug.Log("3");
+        speed = speedFunc;
+        Thread StunTimeCount = new Thread(new ThreadStart(CmdcountTimeStunSlow));
         StunTimeCount.Start();
     }
 
@@ -139,6 +157,12 @@ public class PlayerController : NetworkBehaviour
         speed = 1;
     }
 
+    [Command]
+    void CmdcountTimeStunSlow()
+    {
+        Thread.Sleep(5000);
+        speed = 1;
+    }
 
     public override void OnStartLocalPlayer()
     {
