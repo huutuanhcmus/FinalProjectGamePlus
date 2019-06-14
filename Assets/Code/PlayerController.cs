@@ -19,9 +19,23 @@ public class PlayerController : NetworkBehaviour
     public GameObject aoeSkill;
     public GameObject circleWall;
     public GameObject supperDame;
+    public int CDBaseSkill;
+    public int CDWallSkill;
+    public int CDCircleWallSkill;
+    public int CDStunSkill;
+    public int CDRemoveStunSkill;
+    public int CDAOESKill;
+    public int CDSupperDameSkill;
     private bool flag = false;
     Animator playerAnimation;
     Thread StunTimeCount;
+    Thread BeaseSkillThread;
+    Thread WallSkillThread;
+    Thread CircleWallSkillThread;
+    Thread StunSkillThread;
+    Thread RemoveStunSkillThread;
+    Thread AOESkillThread;
+    Thread SupperDameSkillThread;
 
     [SyncVar] public int Phe = 0;
     // Start is called before the first frame update
@@ -61,32 +75,73 @@ public class PlayerController : NetworkBehaviour
         transform.Translate(0, 0, z);
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            Cmdfire();
+            if (CDBaseSkill == 0)
+            {
+                CDBaseSkill = 3;
+                Cmdfire();
+                BeaseSkillThread = new Thread(new ThreadStart(countTimeBaseSkill));
+                BeaseSkillThread.Start();
+            }
         }
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            CmdWall();
+            if (CDWallSkill == 0)
+            {
+                CDWallSkill = 30;
+                CmdWall();
+                WallSkillThread = new Thread(new ThreadStart(countTimeWallSkill));
+                WallSkillThread.Start();
+            }
         }
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
-            CmdStun();
+            if (CDStunSkill == 0)
+            {
+                CDStunSkill = 15;
+                CmdStun();
+                StunSkillThread = new Thread(new ThreadStart(countStunSkill));
+                StunSkillThread.Start();
+            }
         }
         if (Input.GetKeyDown(KeyCode.Alpha4))
         {
-            CmdRemoveStun();
+            if (CDRemoveStunSkill == 0)
+            {
+                CDRemoveStunSkill = 25;
+                CmdRemoveStun();
+                RemoveStunSkillThread = new Thread(new ThreadStart(countRemoveStunSkill));
+                RemoveStunSkillThread.Start();
+            }
         }
         if (Input.GetKeyDown(KeyCode.Alpha5))
         {
-            CmdAoeSkill();
+            if (CDAOESKill == 0)
+            {
+                CDAOESKill = 15;
+                CmdAoeSkill();
+                AOESkillThread = new Thread(new ThreadStart(countAOESkill));
+                AOESkillThread.Start();
+            }
         }
         if (Input.GetKeyDown(KeyCode.Alpha6))
         {
-            CmdCircleWall();
+            if (CDCircleWallSkill == 0)
+            {
+                CDCircleWallSkill = 30;
+                CmdCircleWall();
+                CircleWallSkillThread = new Thread(new ThreadStart(countTimeCircleWallSkill));
+                CircleWallSkillThread.Start();
+            }
         }
         if (Input.GetKeyDown(KeyCode.Alpha7))
         {
-            Debug.Log("vvv");
-            CmdSupperDame(); //CmdSupperDame();
+            if (CDSupperDameSkill == 0)
+            {
+                CDSupperDameSkill = 15;
+                CmdSupperDame();
+                SupperDameSkillThread = new Thread(new ThreadStart(countTimeSupperDame));
+                SupperDameSkillThread.Start();
+            }
         }
         if (Input.GetKeyDown(KeyCode.F1))
         {
@@ -229,6 +284,62 @@ public class PlayerController : NetworkBehaviour
         Camera.main.GetComponent<CameraController>().setTarget(gameObject.transform);
         transform.position = new Vector3(-540.13f, 14.39f, 222.06f);
         base.OnStartLocalPlayer();
+    }
+
+    void countTimeBaseSkill()
+    {
+       for(int i = CDBaseSkill; i > 0; i--) { 
+            Thread.Sleep(1000);
+            CDBaseSkill--;
+       }
+    }
+    void countTimeWallSkill()
+    {
+        for (int i = CDWallSkill; i > 0; i--)
+        {
+            Thread.Sleep(1000);
+            CDWallSkill--;
+        }
+    }
+    void countTimeCircleWallSkill()
+    {
+        for (int i = CDCircleWallSkill; i > 0; i--)
+        {
+            Thread.Sleep(1000);
+            CDCircleWallSkill--;
+        }
+    }
+    void countStunSkill()
+    {
+        for (int i = CDStunSkill; i > 0; i--)
+        {
+            Thread.Sleep(1000);
+            CDStunSkill--;
+        }
+    }
+    void countRemoveStunSkill()
+    {
+        for (int i = CDRemoveStunSkill; i > 0; i--)
+        {
+            Thread.Sleep(1000);
+            CDRemoveStunSkill--;
+        }
+    }
+    void countAOESkill()
+    {
+        for (int i = CDAOESKill; i > 0; i--)
+        {
+            Thread.Sleep(1000);
+            CDAOESKill--;
+        }
+    }
+    void countSuperSkillSkill()
+    {
+        for (int i = CDSupperDameSkill; i > 0; i--)
+        {
+            Thread.Sleep(1000);
+            CDSupperDameSkill--;
+        }
     }
 }
 
