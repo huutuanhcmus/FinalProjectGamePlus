@@ -18,7 +18,10 @@ public class PlayerController : NetworkBehaviour
     public GameObject RemoveStun;
     public GameObject aoeSkill;
     public GameObject circleWall;
+    public GameObject supperDame;
+    private bool flag = false;
     Animator playerAnimation;
+    Thread StunTimeCount;
 
     [SyncVar] public int Phe = 0;
     // Start is called before the first frame update
@@ -27,6 +30,7 @@ public class PlayerController : NetworkBehaviour
         //transform.position = new Vector3(-540.13f, 14.39f, 222.06f);
         playerAnimation = GetComponent<Animator>();
     }
+
 
     // Update is called once per frame
     void Update()
@@ -38,9 +42,16 @@ public class PlayerController : NetworkBehaviour
 
         var x = Input.GetAxis("Horizontal") * Time.deltaTime * 150.0f * speed;
         var z = Input.GetAxis("Vertical") * Time.deltaTime * 3.0f * speed;
-        if (z >= 0.01)
+        Debug.Log(z);
+        if (z >= 0.01 || z <= -0.01)
         {
             playerAnimation.SetBool("walk", true);
+            if (StunTimeCount != null)
+            {
+                Debug.Log("hello");
+                StunTimeCount.Abort();
+                StunTimeCount = null;
+            }
         }
         else
         {
@@ -72,6 +83,11 @@ public class PlayerController : NetworkBehaviour
         {
             CmdCircleWall();
         }
+        if (Input.GetKeyDown(KeyCode.Alpha7))
+        {
+            Debug.Log("vvv");
+            CmdSupperDame(); //CmdSupperDame();
+        }
         if (Input.GetKeyDown(KeyCode.F1))
         {
             CmdHKM();
@@ -80,6 +96,8 @@ public class PlayerController : NetworkBehaviour
         {
             CmdANC();
         }
+        Debug.Log("4");
+        CmdPlaySupperDame();
     }
     
     
@@ -134,6 +152,35 @@ public class PlayerController : NetworkBehaviour
     }
 
     [Command]
+    void CmdSupperDame()
+    {
+        Debug.Log("0");
+        StunTimeCount = new Thread(new ThreadStart(countTimeSupperDame));
+        StunTimeCount.Start();
+    }
+
+    [Command]
+    void CmdPlaySupperDame()
+    {
+        Debug.Log("3");
+        if (flag)
+        {
+            var SupperDameTemp = (GameObject)Instantiate(supperDame, bulletspawn.position, bulletspawn.rotation);
+            SupperDameTemp.GetComponent<Rigidbody>().velocity = bulletspawn.forward * 6;
+            SupperDameTemp.GetComponent<Bullet>().Phe = Phe;
+            NetworkServer.Spawn(SupperDameTemp);
+            flag = false;
+        }
+    }
+
+    void countTimeSupperDame()
+    {
+        Debug.Log("2");
+        Thread.Sleep(2000);
+        flag = true;
+    }
+
+    [Command]
     public void CmdANC()
     {
         Phe = 2;
@@ -164,7 +211,6 @@ public class PlayerController : NetworkBehaviour
         StunTimeCount.Start();
     }
 
-    [Command]
     void CmdcountTimeStun()
     {
         Thread.Sleep(3000);

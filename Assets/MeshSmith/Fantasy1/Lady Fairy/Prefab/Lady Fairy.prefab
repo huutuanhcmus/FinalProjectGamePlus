@@ -1329,6 +1329,8 @@ MonoBehaviour:
   aoeSkill: {fileID: 185999079645611337, guid: 48963d62c0654894ca0bc6d70c909c15, type: 3}
   circleWall: {fileID: 2852762419370003044, guid: da576b0350e067e45a475762eb9642b6,
     type: 3}
+  supperDame: {fileID: 1232900231999581648, guid: 368a21d1201153449a0ed9aeed272328,
+    type: 3}
   Phe: 0
 --- !u!114 &571758553
 MonoBehaviour:
