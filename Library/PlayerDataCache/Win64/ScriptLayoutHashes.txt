@@ -154,11 +154,11 @@ c08ee204c43044b9314883f8654f6e1a Assembly-CSharp.dll:.sui_demo_trigger
 94017dcc9f00fe671ea7dc427b4da011 Unity.TextMeshPro.dll:TMPro.TMP_SpriteAsset
 e113b9d17139ddc8b67fb840e2b12ecf Assembly-CSharp.dll:.HPPlayerManager
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:Suimono.Core.fx_causticObject
-5fb88b83659041055a49795d5d187213 Assembly-CSharp.dll:.Health
+b09bc4077e5211b409b4678f122504b4 Assembly-CSharp.dll:.Health
 740e2a55bf8d3a2560b90ee495ddf640 Assembly-CSharp.dll:.sui_demo_LightHandler
 e85f37a86e3a3955a8924a4fc99da03d Assembly-CSharp.dll:.Bullet
 b3ab2106268377ffe25dd18ac23dca28 Unity.TextMeshPro.dll:TMPro.TMP_Asset
-cfe670e83070b2194b012a8373d584b2 Assembly-CSharp.dll:.PlayerController
+17068fab4a2ddf89bff0900a860afd7f Assembly-CSharp.dll:.PlayerController
 3a3324b73792dde0ff97dae69b3a3dfb Assembly-CSharp.dll:UnityStandardAssets.ImageEffects.SunShafts
 c1fb5fa27e739b05514ea7d68b24c684 Assembly-CSharp.dll:.utility_AdjustCulling
 4e86c3ef3b0a84abedeeb1f0a6785778 Assembly-CSharp.dll:Suimono.Core.SuimonoModuleFX
@@ -270,3 +270,4 @@ acad6a5a3e5ce26933e372a3349e72a4 Assembly-CSharp.dll:.sui_demo_InputController
 491820d5e0224270f2832e19f25805ef Assembly-CSharp.dll:Suimono.Core.SuimonoModuleLib
 490abd4c02253c5ce6e721ec4ef63e91 Assembly-CSharp.dll:.Test
 09d91be4d332285157ef992e11ea8c50 Assembly-CSharp.dll:.Attack
+040ce2f25a360705cf7323609b242ae5 Assembly-CSharp.dll:.HealthBarMain

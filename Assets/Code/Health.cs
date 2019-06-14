@@ -7,9 +7,9 @@ using UnityEngine.UI;
 public class Health : NetworkBehaviour
 {
     public const int maxHealth = 100;
+    public int showMaxHealth = maxHealth;
     [SyncVar] public int currentHealth = maxHealth;
     public Transform healthBar;
-
     [Command]
     public void CmdTakeDame(int amount)
     {
@@ -20,6 +20,8 @@ public class Health : NetworkBehaviour
             Debug.Log("Dead!");
         }
     }
+
+
 
     private void Update()
     {

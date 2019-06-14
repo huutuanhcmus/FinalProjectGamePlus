@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
 using UnityEngine.Networking;
+using UnityEngine.UI;
+//using static System.Net.Mime.MediaTypeNames;
 
 public class PlayerController : NetworkBehaviour
 {
@@ -36,6 +38,22 @@ public class PlayerController : NetworkBehaviour
     Thread RemoveStunSkillThread;
     Thread AOESkillThread;
     Thread SupperDameSkillThread;
+    Thread TwoSecon;
+    public Text textBaseSkill;
+    public Text textWallSkill;
+    public Text textStunSkill;
+    public Text textRemoveStunSkill;
+    public Text textCircleWallSkill;
+    public Text textAOESkill;
+    public Text textSuperDameSkill;
+    public bool flagBaseDameSkill = false;
+    public bool flagWallSkill = false;
+    public bool flagStunSkill = false;
+    public bool flagRemoveStunDameSkill = false;
+    public bool flagCircleWallSkill = false;
+    public bool flagAOESkill = false;
+    public bool flagSuperDameSkill = false;
+    public List<Text> gos;
 
     [SyncVar] public int Phe = 0;
     // Start is called before the first frame update
@@ -43,6 +61,24 @@ public class PlayerController : NetworkBehaviour
     {
         //transform.position = new Vector3(-540.13f, 14.39f, 222.06f);
         playerAnimation = GetComponent<Animator>();
+        gos = new List<Text>();
+        foreach (Text go in Resources.FindObjectsOfTypeAll(typeof(Text)))
+        {
+            if (go.name == "CDBaseDame")
+                textBaseSkill = go;
+            else if (go.name == "CDWallSkill")
+                textWallSkill = go;
+            else if (go.name == "CDStunSkill")
+                textStunSkill = go;
+            else if (go.name == "CDRemoveStun")
+                textRemoveStunSkill = go;
+            else if (go.name == "CDCircleWall")
+                textCircleWallSkill = go;
+            else if (go.name == "CDAOESkill")
+                textAOESkill = go;
+            else if (go.name == "CDSuperDame")
+                textSuperDameSkill = go;
+        }
     }
 
 
@@ -53,18 +89,45 @@ public class PlayerController : NetworkBehaviour
         {
             return;
         }
-
+        if (flagBaseDameSkill)
+            textBaseSkill.text = ConvertTime(CDBaseSkill);
+        else
+            textBaseSkill.text = "";
+        if (flagWallSkill)
+            textWallSkill.text = ConvertTime(CDWallSkill);
+        else
+            textWallSkill.text = "";
+        if (flagStunSkill)
+            textStunSkill.text = ConvertTime(CDStunSkill);
+        else
+            textStunSkill.text = "";
+        if (flagRemoveStunDameSkill)
+            textRemoveStunSkill.text = ConvertTime(CDRemoveStunSkill);
+        else
+            textRemoveStunSkill.text = "";
+        if (flagCircleWallSkill)
+            textCircleWallSkill.text = ConvertTime(CDCircleWallSkill);
+        else
+            textCircleWallSkill.text = "";
+        if (flagAOESkill)
+            textAOESkill.text = ConvertTime(CDAOESKill);
+        else
+            textAOESkill.text = "";
+        if (flagSuperDameSkill)
+            textSuperDameSkill.text = ConvertTime(CDSupperDameSkill);
+        else
+            textSuperDameSkill.text = "";
         var x = Input.GetAxis("Horizontal") * Time.deltaTime * 150.0f * speed;
         var z = Input.GetAxis("Vertical") * Time.deltaTime * 3.0f * speed;
         Debug.Log(z);
         if (z >= 0.01 || z <= -0.01)
         {
             playerAnimation.SetBool("walk", true);
-            if (StunTimeCount != null)
+            if (TwoSecon != null)
             {
                 Debug.Log("hello");
-                StunTimeCount.Abort();
-                StunTimeCount = null;
+                TwoSecon.Abort();
+                TwoSecon = null;
             }
         }
         else
@@ -75,18 +138,22 @@ public class PlayerController : NetworkBehaviour
         transform.Translate(0, 0, z);
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            if (CDBaseSkill == 0)
+            if (flagBaseDameSkill == false)
             {
+                flagBaseDameSkill = true;
                 CDBaseSkill = 3;
                 Cmdfire();
                 BeaseSkillThread = new Thread(new ThreadStart(countTimeBaseSkill));
                 BeaseSkillThread.Start();
             }
+            
+
         }
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            if (CDWallSkill == 0)
+            if (flagWallSkill == false)
             {
+                flagWallSkill = true;
                 CDWallSkill = 30;
                 CmdWall();
                 WallSkillThread = new Thread(new ThreadStart(countTimeWallSkill));
@@ -95,8 +162,9 @@ public class PlayerController : NetworkBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
-            if (CDStunSkill == 0)
+            if (flagStunSkill == false)
             {
+                flagStunSkill = true;
                 CDStunSkill = 15;
                 CmdStun();
                 StunSkillThread = new Thread(new ThreadStart(countStunSkill));
@@ -105,8 +173,9 @@ public class PlayerController : NetworkBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Alpha4))
         {
-            if (CDRemoveStunSkill == 0)
+            if (flagRemoveStunDameSkill == false)
             {
+                flagRemoveStunDameSkill = true;
                 CDRemoveStunSkill = 25;
                 CmdRemoveStun();
                 RemoveStunSkillThread = new Thread(new ThreadStart(countRemoveStunSkill));
@@ -115,8 +184,9 @@ public class PlayerController : NetworkBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Alpha5))
         {
-            if (CDAOESKill == 0)
+            if (flagAOESkill == false)
             {
+                flagAOESkill = true;
                 CDAOESKill = 15;
                 CmdAoeSkill();
                 AOESkillThread = new Thread(new ThreadStart(countAOESkill));
@@ -125,8 +195,9 @@ public class PlayerController : NetworkBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Alpha6))
         {
-            if (CDCircleWallSkill == 0)
+            if (flagCircleWallSkill == false)
             {
+                flagCircleWallSkill = true;
                 CDCircleWallSkill = 30;
                 CmdCircleWall();
                 CircleWallSkillThread = new Thread(new ThreadStart(countTimeCircleWallSkill));
@@ -135,12 +206,11 @@ public class PlayerController : NetworkBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Alpha7))
         {
-            if (CDSupperDameSkill == 0)
+            if (flagSuperDameSkill == false)
             {
                 CDSupperDameSkill = 15;
-                CmdSupperDame();
-                SupperDameSkillThread = new Thread(new ThreadStart(countTimeSupperDame));
-                SupperDameSkillThread.Start();
+                TwoSecon = new Thread(new ThreadStart(countTimeSupperDame));
+                TwoSecon.Start();
             }
         }
         if (Input.GetKeyDown(KeyCode.F1))
@@ -220,6 +290,9 @@ public class PlayerController : NetworkBehaviour
         Debug.Log("3");
         if (flag)
         {
+            flagSuperDameSkill = true;
+            SupperDameSkillThread = new Thread(new ThreadStart(countSuperSkillSkill));
+            SupperDameSkillThread.Start();
             var SupperDameTemp = (GameObject)Instantiate(supperDame, bulletspawn.position, bulletspawn.rotation);
             SupperDameTemp.GetComponent<Rigidbody>().velocity = bulletspawn.forward * 6;
             SupperDameTemp.GetComponent<Bullet>().Phe = Phe;
@@ -281,6 +354,7 @@ public class PlayerController : NetworkBehaviour
 
     public override void OnStartLocalPlayer()
     {
+        name = "MainChar";
         Camera.main.GetComponent<CameraController>().setTarget(gameObject.transform);
         transform.position = new Vector3(-540.13f, 14.39f, 222.06f);
         base.OnStartLocalPlayer();
@@ -288,57 +362,77 @@ public class PlayerController : NetworkBehaviour
 
     void countTimeBaseSkill()
     {
-       for(int i = CDBaseSkill; i > 0; i--) { 
+       for(int i = CDBaseSkill; i >= 0; i--) { 
             Thread.Sleep(1000);
             CDBaseSkill--;
        }
+        flagBaseDameSkill = false;
     }
     void countTimeWallSkill()
     {
-        for (int i = CDWallSkill; i > 0; i--)
+        for (int i = CDWallSkill; i >= 0; i--)
         {
             Thread.Sleep(1000);
             CDWallSkill--;
         }
+        flagWallSkill = false;
     }
     void countTimeCircleWallSkill()
     {
-        for (int i = CDCircleWallSkill; i > 0; i--)
+        for (int i = CDCircleWallSkill; i >= 0; i--)
         {
             Thread.Sleep(1000);
             CDCircleWallSkill--;
         }
+        flagCircleWallSkill = false;
     }
     void countStunSkill()
     {
-        for (int i = CDStunSkill; i > 0; i--)
+        for (int i = CDStunSkill; i >= 0; i--)
         {
             Thread.Sleep(1000);
-            CDStunSkill--;
+            CDStunSkill--;           
         }
+        flagStunSkill = false;
     }
     void countRemoveStunSkill()
     {
-        for (int i = CDRemoveStunSkill; i > 0; i--)
+        for (int i = CDRemoveStunSkill; i >= 0; i--)
         {
             Thread.Sleep(1000);
             CDRemoveStunSkill--;
         }
+        flagRemoveStunDameSkill = false;
     }
     void countAOESkill()
     {
-        for (int i = CDAOESKill; i > 0; i--)
+        for (int i = CDAOESKill; i >= 0; i--)
         {
             Thread.Sleep(1000);
             CDAOESKill--;
         }
+        flagAOESkill = false;
     }
     void countSuperSkillSkill()
     {
-        for (int i = CDSupperDameSkill; i > 0; i--)
+        for (int i = CDSupperDameSkill; i >= 0; i--)
         {
             Thread.Sleep(1000);
             CDSupperDameSkill--;
+        }
+        flagSuperDameSkill = false;
+    }
+    private string ConvertTime(int second)
+    {
+        TimeSpan t = TimeSpan.FromSeconds(second);
+        // Converts the total miliseconds to the human readable time format
+        if (t.Minutes != 0)
+        {
+            return t.Minutes.ToString() + "m";
+        }
+        else
+        {
+            return t.Seconds.ToString();
         }
     }
 }

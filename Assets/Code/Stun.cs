@@ -24,8 +24,6 @@ public class Stun : NetworkBehaviour
     // Update is called once per frame
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other.tag);
-        Debug.Log(other.GetComponent<PlayerController>().Phe);
         if (other.tag == "Player" && other.GetComponent<PlayerController>().Phe != Phe)
         {
             Debug.Log("1");
