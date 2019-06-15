@@ -21,6 +21,16 @@ public class Health : NetworkBehaviour
         }
     }
 
+    [Command]
+    public void CmdPushHealth(int amount)
+    {
+        currentHealth += amount;
+        if (currentHealth >= maxHealth)
+        {
+            currentHealth = maxHealth;
+        }
+    }
+
 
 
     private void Update()

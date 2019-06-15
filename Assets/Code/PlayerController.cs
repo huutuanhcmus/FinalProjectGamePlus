@@ -64,6 +64,10 @@ public class PlayerController : NetworkBehaviour
     public bool flagTemp = false;
     public bool flagTemp2 = false;
     [SyncVar] public int Phe = 0;
+    public bool walk = false;
+    public bool flagPush = false;
+    Thread HoiMau;
+    public bool flagVanCong = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -137,6 +141,12 @@ public class PlayerController : NetworkBehaviour
                 TwoSecon.Abort();
                 TwoSecon = null;
             }
+            if(HoiMau != null)
+            {
+                HoiMau.Abort();
+                HoiMau = null;
+            }
+            flagVanCong = true;
         }
         else
         {
@@ -240,8 +250,9 @@ public class PlayerController : NetworkBehaviour
             if (GetComponent<Mancharacter>().currentMana >= manaSuperDameSkill)
             {
                 Debug.Log("3");
-                if (flagSuperDameSkill == false)
+                if (flagSuperDameSkill == false && flagVanCong == true)
                 {
+                    flagVanCong = false;
                     Debug.Log("4");
                     GetComponent<Mancharacter>().CmdTakeMana(manaSuperDameSkill);
                     CDSupperDameSkill = 15;
@@ -250,6 +261,14 @@ public class PlayerController : NetworkBehaviour
                 }
             }
         }
+        if (Input.GetKeyDown(KeyCode.V))
+        {
+            HoiMau = new Thread(new ThreadStart(PushHealth));
+            HoiMau.Start();
+        }
+
+        
+
         if (Input.GetKeyDown(KeyCode.F1))
         {
             CmdHKM();
@@ -260,9 +279,27 @@ public class PlayerController : NetworkBehaviour
         }
         Debug.Log("4");
         PlaySupperDame();
+        HoiMauChar();
     }
-   
-    
+
+    void HoiMauChar()
+    {
+        if(flagPush == true)
+        {
+            GetComponent<Health>().CmdPushHealth(10);
+            GetComponent<Mancharacter>().CmdPushMana(10);
+            flagPush = false;
+        }
+    }
+
+    void PushHealth()
+    {
+        while (true)
+        {
+            Thread.Sleep(5000);
+            flagPush = true;
+        }
+    }
 
     [Command]
     void Cmdfire()
@@ -345,6 +382,7 @@ public class PlayerController : NetworkBehaviour
     {
         Debug.Log("2");
         Thread.Sleep(2000);
+        flagVanCong = true;
         flag = true;
     }
 

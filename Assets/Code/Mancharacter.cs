@@ -19,6 +19,16 @@ public class Mancharacter : NetworkBehaviour
             
     }
 
+    [Command]
+    public void CmdPushMana(int amount)
+    {
+        currentMana += amount;
+        if (currentMana >= maxMana)
+        {
+            currentMana = maxMana;
+        }
+    }
+
     public int getManaCurrent()
     {
         return currentMana;
