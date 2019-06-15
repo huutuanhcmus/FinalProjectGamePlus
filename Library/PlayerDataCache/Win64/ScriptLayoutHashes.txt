@@ -1,6 +1,6 @@
 Win64
 PlayerPath?
-C:/Users/HuuTuan/Desktop/MaiHuuTuan/1512635.exe
+C:/Users/HuuTuan/Desktop/1512635.exe
 SceneListBegin?
 Assets/SUIMONO - WATER SYSTEM 2/_DEMO/Suimono2_Advanced_Demo.unity
 SceneListEnd?
