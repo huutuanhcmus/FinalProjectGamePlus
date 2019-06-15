@@ -1378,6 +1378,12 @@ MonoBehaviour:
   manaAOEBuff: 10
   buffAOEOb: {fileID: 644534206834755882, guid: 53503305fa5f3e745ad56ee1ed2bb758,
     type: 3}
+  manabuffManaSingle: 5
+  buffManaSingleOb: {fileID: 7604306187011759180, guid: d2f8ea44e943e5042bfc3e0e4df55ba4,
+    type: 3}
+  manabuffManaAOE: 10
+  buffManaAOEOb: {fileID: 1057418948117026442, guid: 37ffff54f95995d488bab3c4f9d96017,
+    type: 3}
 --- !u!114 &571758553
 MonoBehaviour:
   m_ObjectHideFlags: 0

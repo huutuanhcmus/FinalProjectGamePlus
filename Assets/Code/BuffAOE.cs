@@ -41,6 +41,7 @@ public class BuffAOE : NetworkBehaviour
             {
                 Debug.Log("222");
                 health.CmdPushHealth(HPHealth);
+                hit.GetComponent<PlayerController>().CmdStunPlayerSlow(speed);
             }
         }
     }

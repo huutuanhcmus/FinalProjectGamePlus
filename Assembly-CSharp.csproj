@@ -63,6 +63,8 @@
     <Compile Include="Assets\Code\AOESkill.cs" />
     <Compile Include="Assets\Code\Billboard.cs" />
     <Compile Include="Assets\Code\BuffAOE.cs" />
+    <Compile Include="Assets\Code\buffManaAOE.cs" />
+    <Compile Include="Assets\Code\buffManaSingle.cs" />
     <Compile Include="Assets\Code\BuffSingle.cs" />
     <Compile Include="Assets\Code\Bullet.cs" />
     <Compile Include="Assets\Code\CameraController.cs" />

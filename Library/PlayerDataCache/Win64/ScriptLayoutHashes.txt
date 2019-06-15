@@ -31,6 +31,7 @@ cefc42c2cb25819ed10824bfe940c3dc Assembly-CSharp.dll:UnityStandardAssets.ImageEf
 a5e44188ccd983bb228b74d4b7419ecf Assembly-CSharp.dll:UnityStandardAssets.ImageEffects.ContrastStretch
 b2119094b0083707a0b6ff356d4a1f66 Assembly-CSharp.dll:UnityStandardAssets.ImageEffects.VignetteAndChromaticAberration
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.Billboard
+ccb6785cefea2e0ab2fafdcbe99d8671 Assembly-CSharp.dll:.BuffAOE
 a69d65f02683f48a67cbb15f990b36af Assembly-CSharp.dll:.TienNhapDiaDo
 f0adccffaa460cb5c8914229276bfa0d Assembly-CSharp.dll:UnityStandardAssets.ImageEffects.ColorCorrectionCurves
 cf9f5cf2c3145a37ac07f00e50e460f9 UnityEngine.UI.dll:UnityEngine.UI.AspectRatioFitter
@@ -159,13 +160,14 @@ b09bc4077e5211b409b4678f122504b4 Assembly-CSharp.dll:.Health
 740e2a55bf8d3a2560b90ee495ddf640 Assembly-CSharp.dll:.sui_demo_LightHandler
 e85f37a86e3a3955a8924a4fc99da03d Assembly-CSharp.dll:.Bullet
 b3ab2106268377ffe25dd18ac23dca28 Unity.TextMeshPro.dll:TMPro.TMP_Asset
-3c04d2ad9b782452dcbbec85a3be388b Assembly-CSharp.dll:.PlayerController
+f995ef9079f07b6a77551a35e3690b57 Assembly-CSharp.dll:.PlayerController
 3a3324b73792dde0ff97dae69b3a3dfb Assembly-CSharp.dll:UnityStandardAssets.ImageEffects.SunShafts
 c1fb5fa27e739b05514ea7d68b24c684 Assembly-CSharp.dll:.utility_AdjustCulling
 4e86c3ef3b0a84abedeeb1f0a6785778 Assembly-CSharp.dll:Suimono.Core.SuimonoModuleFX
 97e3e2b740323d29d0ba1dcedce399ec Assembly-CSharp.dll:.utility_ConvertToSurface
 418a74ebd184d1d745a5f83b20d63eef Assembly-CSharp.dll:.sui_demo_ControllerBoat
 5cf03783ed86c4cab0652963faf2e37f Assembly-CSharp.dll:.Mana
+10e05cf2a0c12b05365494b6a23a5f3d Assembly-CSharp.dll:.BuffSingle
 71bb6a6b6c8f052f948db64c7dd3ca4f Unity.Analytics.Editor.dll:UnityEditor.Analytics.AnalyticsEventTrackerEditor
 86cfcd24b9fc59be9240f6811ea3b2b2 Assembly-CSharp.dll:UnityStandardAssets.ImageEffects.ScreenOverlay
 0b198da030fde8aab4c22fbb634bf274 Assembly-CSharp.dll:.FairyMeteorAddForceDemo
@@ -273,5 +275,5 @@ acad6a5a3e5ce26933e372a3349e72a4 Assembly-CSharp.dll:.sui_demo_InputController
 491820d5e0224270f2832e19f25805ef Assembly-CSharp.dll:Suimono.Core.SuimonoModuleLib
 490abd4c02253c5ce6e721ec4ef63e91 Assembly-CSharp.dll:.Test
 09d91be4d332285157ef992e11ea8c50 Assembly-CSharp.dll:.Attack
-10e05cf2a0c12b05365494b6a23a5f3d Assembly-CSharp.dll:.BuffSingle
-ccb6785cefea2e0ab2fafdcbe99d8671 Assembly-CSharp.dll:.BuffAOE
+47c569454989385c1a7012d6161766f8 Assembly-CSharp.dll:.buffManaSingle
+47c569454989385c1a7012d6161766f8 Assembly-CSharp.dll:.buffManaAOE

@@ -74,6 +74,10 @@ public class PlayerController : NetworkBehaviour
     public GameObject buffSingleOb;
     public int manaAOEBuff;
     public GameObject buffAOEOb;
+    public int manabuffManaSingle;
+    public GameObject buffManaSingleOb;
+    public int manabuffManaAOE;
+    public GameObject buffManaAOEOb;
     // Start is called before the first frame update
     void Start()
     {
@@ -212,26 +216,58 @@ public class PlayerController : NetworkBehaviour
             }
             else
             {
-                
-            }
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha3) && dameOrBuff == 1)
-        {
-            if (GetComponent<Mancharacter>().getManaCurrent() >= manaStunSkill)
-            {
-                if (flagStunSkill == false)
+                if (GetComponent<Mancharacter>().getManaCurrent() >= manabuffManaSingle)
                 {
-                    GetComponent<Mancharacter>().CmdTakeMana(manaStunSkill);
-                    flagStunSkill = true;
-                    CDStunSkill = 15;
-                    CmdStun();
-                    StunSkillThread = new Thread(new ThreadStart(countStunSkill));
-                    StunSkillThread.Start();
+                    if (flagWallSkill == false)
+                    {
+                        GetComponent<Mancharacter>().CmdTakeMana(manabuffManaSingle);
+                        flagWallSkill = true;
+                        CDWallSkill = 3;
+                        CmdBuffManaSingle();
+                        Debug.Log("dddd");
+                        WallSkillThread = new Thread(new ThreadStart(countTimeWallSkill));
+                        WallSkillThread.Start();
+                    }
                 }
-
             }
         }
-        if (Input.GetKeyDown(KeyCode.Alpha4) && dameOrBuff == 1)
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            if (dameOrBuff == 1)
+            {
+                if (GetComponent<Mancharacter>().getManaCurrent() >= manaStunSkill)
+                {
+                    if (flagStunSkill == false)
+                    {
+                        GetComponent<Mancharacter>().CmdTakeMana(manaStunSkill);
+                        flagStunSkill = true;
+                        CDStunSkill = 15;
+                        CmdStun();
+                        StunSkillThread = new Thread(new ThreadStart(countStunSkill));
+                        StunSkillThread.Start();
+                    }
+
+                }
+            }
+            else if(dameOrBuff == 2)
+            {
+                if (GetComponent<Mancharacter>().getManaCurrent() >= manabuffManaAOE)
+                {
+                    if (flagStunSkill == false)
+                    {
+                        GetComponent<Mancharacter>().CmdTakeMana(manabuffManaAOE);
+                        flagStunSkill = true;
+                        CDStunSkill = 15;
+                        CmdBuffManaAOE();
+                        Debug.Log("ccccccc");
+                        StunSkillThread = new Thread(new ThreadStart(countStunSkill));
+                        StunSkillThread.Start();
+                    }
+
+                }
+            }
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha4))
         {
             if (GetComponent<Mancharacter>().getManaCurrent() >= manaRemoveStun)
             {
@@ -412,6 +448,16 @@ public class PlayerController : NetworkBehaviour
     }
 
     [Command]
+    void CmdBuffManaSingle()
+    {
+        var bulletTemp = (GameObject)Instantiate(buffManaSingleOb, bulletspawn.position, bulletspawn.rotation);
+        bulletTemp.GetComponent<Rigidbody>().velocity = bulletspawn.forward * 6;
+        bulletTemp.GetComponent<buffManaSingle>().Phe = Phe;
+        NetworkServer.Spawn(bulletTemp);
+
+    }
+
+    [Command]
     void CmdCircleWall()
     {
         var CirCleWallTemp = (GameObject)Instantiate(circleWall, circleWallspawn.position, circleWallspawn.rotation);
@@ -425,6 +471,14 @@ public class PlayerController : NetworkBehaviour
         StunTemp.GetComponent<Rigidbody>().velocity = bulletspawn.forward * 6;
         StunTemp.GetComponent<Stun>().Phe = Phe;
         NetworkServer.Spawn(StunTemp);
+    }
+
+    [Command]
+    void CmdBuffManaAOE()
+    {
+        var AoeSkillTemp = (GameObject)Instantiate(buffManaAOEOb, aoespawn.transform.position, aoespawn.transform.rotation);
+        AoeSkillTemp.GetComponent<buffManaAOE>().Phe = Phe;
+        NetworkServer.Spawn(AoeSkillTemp);
     }
 
     [Command]
@@ -550,6 +604,7 @@ public class PlayerController : NetworkBehaviour
     }
     void countTimeWallSkill()
     {
+        Debug.Log("111100");
         for (int i = CDWallSkill; i >= 0; i--)
         {
             Thread.Sleep(1000);
