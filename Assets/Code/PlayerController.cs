@@ -423,18 +423,34 @@ public class PlayerController : NetworkBehaviour
         {
             if (Player.tag == "Player")
             {
-                
-                if(Player.GetComponent<PlayerController>().Phe != Phe)
+
+                if (Player.GetComponent<PlayerController>().Phe != Phe)
                 {
-                    Debug.Log(Phe);
-                    Debug.Log((Player.GetComponent<PlayerController>().Phe));
-                    Player.GetComponent<Transform>().GetChild(7).GetChild(0).GetComponent<ParticleSystem>().startColor = Color.red;
-                    Player.GetComponent<Transform>().GetChild(7).GetComponent<ParticleSystem>().startColor = Color.red;
+                    if (Player.GetComponent<PlayerController>().dameOrBuff == 1)
+                    {
+                        Debug.Log(Phe);
+                        Debug.Log((Player.GetComponent<PlayerController>().Phe));
+                        Player.GetComponent<Transform>().GetChild(7).GetChild(0).GetComponent<ParticleSystem>().startColor = Color.red;
+                        Player.GetComponent<Transform>().GetChild(7).GetComponent<ParticleSystem>().startColor = Color.red;
+                    }
+                    else if(Player.GetComponent<PlayerController>().dameOrBuff == 2)
+                    {
+                        Player.GetComponent<Transform>().GetChild(7).GetChild(0).GetComponent<ParticleSystem>().startColor = new Color(255,0,255);
+                        Player.GetComponent<Transform>().GetChild(7).GetComponent<ParticleSystem>().startColor = new Color(255, 0, 255);
+                    }
                 }
                 else
                 {
-                    Player.GetComponent<Transform>().GetChild(7).GetChild(0).GetComponent<ParticleSystem>().startColor = new Color(255,255,0);
-                    Player.GetComponent<Transform>().GetChild(7).GetComponent<ParticleSystem>().startColor = new Color(255, 255, 0);
+                    if (Player.GetComponent<PlayerController>().dameOrBuff == 1)
+                    {
+                        Player.GetComponent<Transform>().GetChild(7).GetChild(0).GetComponent<ParticleSystem>().startColor = new Color(255, 255, 0);
+                        Player.GetComponent<Transform>().GetChild(7).GetComponent<ParticleSystem>().startColor = new Color(255, 255, 0);
+                    }
+                    else if(Player.GetComponent<PlayerController>().dameOrBuff == 2)
+                    {
+                        Player.GetComponent<Transform>().GetChild(7).GetChild(0).GetComponent<ParticleSystem>().startColor = Color.green;
+                        Player.GetComponent<Transform>().GetChild(7).GetComponent<ParticleSystem>().startColor = Color.green;
+                    }
                 }
             }
         }

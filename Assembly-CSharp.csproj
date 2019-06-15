@@ -63,6 +63,7 @@
     <Compile Include="Assets\Code\AOESkill.cs" />
     <Compile Include="Assets\Code\Billboard.cs" />
     <Compile Include="Assets\Code\BuffAOE.cs" />
+    <Compile Include="Assets\Code\BuffLogo.cs" />
     <Compile Include="Assets\Code\buffManaAOE.cs" />
     <Compile Include="Assets\Code\buffManaSingle.cs" />
     <Compile Include="Assets\Code\BuffSingle.cs" />
@@ -70,6 +71,7 @@
     <Compile Include="Assets\Code\CameraController.cs" />
     <Compile Include="Assets\Code\CameraFollowRotate.cs" />
     <Compile Include="Assets\Code\ChangeCharacter.cs" />
+    <Compile Include="Assets\Code\DameLogo.cs" />
     <Compile Include="Assets\Code\DongTac.cs" />
     <Compile Include="Assets\Code\Health.cs" />
     <Compile Include="Assets\Code\HealthBarMain.cs" />

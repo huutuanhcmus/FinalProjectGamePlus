@@ -114,7 +114,7 @@ MonoBehaviour:
   m_MinSize: {x: 683, y: 498}
   m_MaxSize: {x: 14004, y: 14048}
   vertical: 0
-  controlID: 113
+  controlID: 60
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -184,8 +184,8 @@ MonoBehaviour:
     y: 0
     width: 230
     height: 444
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 202, y: 224}
+  m_MaxSize: {x: 4002, y: 4024}
   m_ActualView: {fileID: 13}
   m_Panes:
   - {fileID: 13}
@@ -306,9 +306,9 @@ MonoBehaviour:
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -538.6085, y: 14.651779, z: 224.43248}
+    m_Target: {x: 856.70386, y: 296.29947, z: -2.4432678}
     speed: 2
-    m_Value: {x: -538.6085, y: 14.651779, z: 224.43248}
+    m_Value: {x: 856.70386, y: 296.29947, z: -2.4432678}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -336,13 +336,13 @@ MonoBehaviour:
       speed: 2
       m_Value: 0
   m_Rotation:
-    m_Target: {x: 0.016560273, y: -0.6034481, z: 0.012544282, w: 0.79713166}
+    m_Target: {x: 0.06568278, y: -0.03739184, z: 0.0024692083, w: 0.9971367}
     speed: 2
-    m_Value: {x: 0.016560273, y: -0.6034481, z: 0.012544282, w: 0.79713166}
+    m_Value: {x: 0.06568278, y: -0.03739184, z: 0.0024692083, w: 0.9971367}
   m_Size:
-    m_Target: 4.2457213
+    m_Target: 278.7947
     speed: 2
-    m_Value: 4.2457213
+    m_Value: 278.7947
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -382,24 +382,24 @@ MonoBehaviour:
   m_PersistentViewDataDictionary: {fileID: 0}
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
-      m_LastClickedID: 0
-      m_ExpandedIDs: 0c5affff285affff165cffffd6fbffff3a200000
+      scrollPos: {x: 0, y: 233}
+      m_SelectedIDs: 7444ffff
+      m_LastClickedID: -48012
+      m_ExpandedIDs: cec8ffff70c9ffff3edeffff5adeffff52e0ffffd6fbffff0c3c0000123c0000fa600000bc64000066690000046b0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: 
-        m_OriginalName: 
+        m_Name: ANC
+        m_OriginalName: ANC
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: 0
+        m_UserData: 27396
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 11
+        m_OriginalEventType: 0
         m_IsRenamingFilename: 0
         m_ClientGUIView: {fileID: 8}
       m_SearchString: 
@@ -553,20 +553,20 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/MeshSmith/Fantasy1/Lady Fairy/Prefab
+    - Assets/Data
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/MeshSmith/Fantasy1/Lady Fairy/Prefab
+  - Assets/Data
   m_LastFoldersGridSize: -1
   m_LastProjectPath: "E:\\H\u1ECDc t\u1EADp\\Final\\FinalProjectGamePlus2"
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 660}
-    m_SelectedIDs: 58160000
-    m_LastClickedID: 5720
-    m_ExpandedIDs: 000000009e0c00007e0d0000ac0d0000440f0000b40f000004100000521000000411000038120000561200006e130000ca1300002e14000096140000ca14000022150000101600004417000098180000e4180000e6180000f01800004a190000c01900006e42000070420000724200007442000000ca9a3b
+    scrollPos: {x: 0, y: 211}
+    m_SelectedIDs: 3a340000
+    m_LastClickedID: 13370
+    m_ExpandedIDs: 000000004a2900002a2a0000582a0000f02b0000602c0000b02c0000fe2c0000b02d0000e42e0000042f00001c30000078300000de300000463100007a310000d2310000c0320000f4330000483500009435000096350000a0350000fa35000070360000ea420000ec420000ee420000f042000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -594,7 +594,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000009e0c00007e0d0000ac0d0000440f0000b40f000004100000521000000411000038120000561200006e130000ca1300002e14000096140000ca14000022150000101600004417000098180000e4180000e6180000f01800004a190000c01900006e420000704200007242000074420000
+    m_ExpandedIDs: 000000004a2900002a2a0000582a0000f02b0000602c0000b02c0000fe2c0000b02d0000e42e0000042f00001c30000078300000de300000463100007a310000d2310000c0320000f4330000483500009435000096350000a0350000fa35000070360000ea420000ec420000ee420000f0420000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -703,7 +703,7 @@ MonoBehaviour:
   m_PersistentViewDataDictionary: {fileID: 0}
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 17998
+  m_LastSelectedObjectID: -13968
 --- !u!114 &19
 MonoBehaviour:
   m_ObjectHideFlags: 52
