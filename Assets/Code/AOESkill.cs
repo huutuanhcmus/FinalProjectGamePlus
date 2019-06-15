@@ -14,7 +14,20 @@ public class AOESkill : NetworkBehaviour
     void Start()
     {
         Destroy(gameObject, time);
+        foreach (GameObject go in Resources.FindObjectsOfTypeAll(typeof(GameObject)))
+        {
+            if (go.name == "MainChar")
+            {
+                if (go.GetComponent<PlayerController>().Phe != Phe)
+                {
+                    GetComponent<Transform>().GetChild(0).GetComponent<ParticleSystem>().startColor = Color.red;
+                    GetComponent<Transform>().GetChild(1).GetComponent<ParticleSystem>().startColor = Color.red;
+                    break;
+                }
+            }
+        }
     }
+
 
     private void OnTriggerEnter(Collider other)
     {

@@ -68,6 +68,7 @@ public class PlayerController : NetworkBehaviour
     public bool flagPush = false;
     Thread HoiMau;
     public bool flagVanCong = true;
+    public List<GameObject> Players;
     // Start is called before the first frame update
     void Start()
     {
@@ -280,6 +281,32 @@ public class PlayerController : NetworkBehaviour
         Debug.Log("4");
         PlaySupperDame();
         HoiMauChar();
+        ChangeColorPlayer();
+    }
+
+    void ChangeColorPlayer()
+    {
+        Players = new List<GameObject>();
+        foreach (GameObject Player in Resources.FindObjectsOfTypeAll(typeof(GameObject)))
+        {
+            if (Player.tag == "Player")
+            {
+                
+                if(Player.GetComponent<PlayerController>().Phe != Phe)
+                {
+                    Debug.Log(Phe);
+                    Debug.Log((Player.GetComponent<PlayerController>().Phe));
+                    Player.GetComponent<Transform>().GetChild(7).GetChild(0).GetComponent<ParticleSystem>().startColor = Color.red;
+                    Player.GetComponent<Transform>().GetChild(7).GetComponent<ParticleSystem>().startColor = Color.red;
+                }
+                else
+                {
+                    Player.GetComponent<Transform>().GetChild(7).GetChild(0).GetComponent<ParticleSystem>().startColor = new Color(255,255,0);
+                    Player.GetComponent<Transform>().GetChild(7).GetComponent<ParticleSystem>().startColor = new Color(255, 255, 0);
+                }
+            }
+        }
+
     }
 
     void HoiMauChar()
