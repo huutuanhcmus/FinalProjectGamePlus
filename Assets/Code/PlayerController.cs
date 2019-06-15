@@ -28,7 +28,7 @@ public class PlayerController : NetworkBehaviour
     public int CDRemoveStunSkill;
     public int CDAOESKill;
     public int CDSupperDameSkill;
-    private bool flag = false;
+    public bool flag = false;
     Animator playerAnimation;
     Thread StunTimeCount;
     Thread BeaseSkillThread;
@@ -54,7 +54,15 @@ public class PlayerController : NetworkBehaviour
     public bool flagAOESkill = false;
     public bool flagSuperDameSkill = false;
     public List<Text> gos;
-
+    public int manaBaseDameSkill;
+    public int manaWallSkill;
+    public int manaStunSkill;
+    public int manaRemoveStun;
+    public int manaCircleWall;
+    public int manaAOESkill;
+    public int manaSuperDameSkill;
+    public bool flagTemp = false;
+    public bool flagTemp2 = false;
     [SyncVar] public int Phe = 0;
     // Start is called before the first frame update
     void Start()
@@ -138,79 +146,108 @@ public class PlayerController : NetworkBehaviour
         transform.Translate(0, 0, z);
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            if (flagBaseDameSkill == false)
+            if (GetComponent<Mancharacter>().getManaCurrent() >= manaBaseDameSkill)
             {
-                flagBaseDameSkill = true;
-                CDBaseSkill = 3;
-                Cmdfire();
-                BeaseSkillThread = new Thread(new ThreadStart(countTimeBaseSkill));
-                BeaseSkillThread.Start();
+                if (flagBaseDameSkill == false)
+                {
+                    GetComponent<Mancharacter>().CmdTakeMana(manaBaseDameSkill);
+                    flagBaseDameSkill = true;
+                    CDBaseSkill = 3;
+                    Cmdfire();
+                    BeaseSkillThread = new Thread(new ThreadStart(countTimeBaseSkill));
+                    BeaseSkillThread.Start();
+                }
             }
-            
-
         }
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            if (flagWallSkill == false)
+            if (GetComponent<Mancharacter>().getManaCurrent() >= manaWallSkill)
             {
-                flagWallSkill = true;
-                CDWallSkill = 30;
-                CmdWall();
-                WallSkillThread = new Thread(new ThreadStart(countTimeWallSkill));
-                WallSkillThread.Start();
+                if (flagWallSkill == false)
+                {
+                    GetComponent<Mancharacter>().CmdTakeMana(manaWallSkill);
+                    flagWallSkill = true;
+                    CDWallSkill = 30;
+                    CmdWall();
+                    WallSkillThread = new Thread(new ThreadStart(countTimeWallSkill));
+                    WallSkillThread.Start();
+                }
             }
         }
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
-            if (flagStunSkill == false)
+            if (GetComponent<Mancharacter>().getManaCurrent() >= manaStunSkill)
             {
-                flagStunSkill = true;
-                CDStunSkill = 15;
-                CmdStun();
-                StunSkillThread = new Thread(new ThreadStart(countStunSkill));
-                StunSkillThread.Start();
+                if (flagStunSkill == false)
+                {
+                    GetComponent<Mancharacter>().CmdTakeMana(manaStunSkill);
+                    flagStunSkill = true;
+                    CDStunSkill = 15;
+                    CmdStun();
+                    StunSkillThread = new Thread(new ThreadStart(countStunSkill));
+                    StunSkillThread.Start();
+                }
+
             }
         }
         if (Input.GetKeyDown(KeyCode.Alpha4))
         {
-            if (flagRemoveStunDameSkill == false)
+            if (GetComponent<Mancharacter>().getManaCurrent() >= manaRemoveStun)
             {
-                flagRemoveStunDameSkill = true;
-                CDRemoveStunSkill = 25;
-                CmdRemoveStun();
-                RemoveStunSkillThread = new Thread(new ThreadStart(countRemoveStunSkill));
-                RemoveStunSkillThread.Start();
+                if (flagRemoveStunDameSkill == false)
+                {
+                    GetComponent<Mancharacter>().CmdTakeMana(manaRemoveStun);
+                    flagRemoveStunDameSkill = true;
+                    CDRemoveStunSkill = 25;
+                    CmdRemoveStun();
+                    RemoveStunSkillThread = new Thread(new ThreadStart(countRemoveStunSkill));
+                    RemoveStunSkillThread.Start();
+                }
             }
         }
         if (Input.GetKeyDown(KeyCode.Alpha5))
         {
-            if (flagAOESkill == false)
+            if (GetComponent<Mancharacter>().getManaCurrent() >= manaAOESkill)
             {
-                flagAOESkill = true;
-                CDAOESKill = 15;
-                CmdAoeSkill();
-                AOESkillThread = new Thread(new ThreadStart(countAOESkill));
-                AOESkillThread.Start();
+                if (flagAOESkill == false)
+                {
+                    GetComponent<Mancharacter>().CmdTakeMana(manaAOESkill);
+                    flagAOESkill = true;
+                    CDAOESKill = 15;
+                    CmdAoeSkill();
+                    AOESkillThread = new Thread(new ThreadStart(countAOESkill));
+                    AOESkillThread.Start();
+                }
             }
         }
         if (Input.GetKeyDown(KeyCode.Alpha6))
         {
-            if (flagCircleWallSkill == false)
+            if (GetComponent<Mancharacter>().getManaCurrent() >= manaCircleWall)
             {
-                flagCircleWallSkill = true;
-                CDCircleWallSkill = 30;
-                CmdCircleWall();
-                CircleWallSkillThread = new Thread(new ThreadStart(countTimeCircleWallSkill));
-                CircleWallSkillThread.Start();
+                if (flagCircleWallSkill == false)
+                {
+                    GetComponent<Mancharacter>().CmdTakeMana(manaCircleWall);
+                    flagCircleWallSkill = true;
+                    CDCircleWallSkill = 30;
+                    CmdCircleWall();
+                    CircleWallSkillThread = new Thread(new ThreadStart(countTimeCircleWallSkill));
+                    CircleWallSkillThread.Start();
+                }
             }
         }
         if (Input.GetKeyDown(KeyCode.Alpha7))
         {
-            if (flagSuperDameSkill == false)
+            if (GetComponent<Mancharacter>().currentMana >= manaSuperDameSkill)
             {
-                CDSupperDameSkill = 15;
-                TwoSecon = new Thread(new ThreadStart(countTimeSupperDame));
-                TwoSecon.Start();
+                Debug.Log("3");
+                if (flagSuperDameSkill == false)
+                {
+                    Debug.Log("4");
+                    GetComponent<Mancharacter>().CmdTakeMana(manaSuperDameSkill);
+                    CDSupperDameSkill = 15;
+                    TwoSecon = new Thread(new ThreadStart(countTimeSupperDame));
+                    TwoSecon.Start();
+                }
             }
         }
         if (Input.GetKeyDown(KeyCode.F1))
@@ -222,9 +259,9 @@ public class PlayerController : NetworkBehaviour
             CmdANC();
         }
         Debug.Log("4");
-        CmdPlaySupperDame();
+        PlaySupperDame();
     }
-    
+   
     
 
     [Command]
@@ -285,19 +322,22 @@ public class PlayerController : NetworkBehaviour
     }
 
     [Command]
-    void CmdPlaySupperDame()
+    void CmdCreateSuperDame()
     {
-        Debug.Log("3");
+        var SupperDameTemp = (GameObject)Instantiate(supperDame, bulletspawn.position, bulletspawn.rotation);
+        SupperDameTemp.GetComponent<Rigidbody>().velocity = bulletspawn.forward * 6;
+        SupperDameTemp.GetComponent<Bullet>().Phe = Phe;
+        NetworkServer.Spawn(SupperDameTemp);
+    }
+    void PlaySupperDame()
+    {
         if (flag)
         {
+            flag = false;
             flagSuperDameSkill = true;
             SupperDameSkillThread = new Thread(new ThreadStart(countSuperSkillSkill));
             SupperDameSkillThread.Start();
-            var SupperDameTemp = (GameObject)Instantiate(supperDame, bulletspawn.position, bulletspawn.rotation);
-            SupperDameTemp.GetComponent<Rigidbody>().velocity = bulletspawn.forward * 6;
-            SupperDameTemp.GetComponent<Bullet>().Phe = Phe;
-            NetworkServer.Spawn(SupperDameTemp);
-            flag = false;
+            CmdCreateSuperDame();
         }
     }
 
