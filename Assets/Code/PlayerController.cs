@@ -9,6 +9,7 @@ using UnityEngine.UI;
 
 public class PlayerController : NetworkBehaviour
 {
+    [SyncVar] public int dameOrBuff = 1;
     [SyncVar] public float speed = 1.0f;
     public GameObject bullet;
     public GameObject Wall;
@@ -69,6 +70,10 @@ public class PlayerController : NetworkBehaviour
     Thread HoiMau;
     public bool flagVanCong = true;
     public List<GameObject> Players;
+    public int manaSingleBuff;
+    public GameObject buffSingleOb;
+    public int manaAOEBuff;
+    public GameObject buffAOEOb;
     // Start is called before the first frame update
     void Start()
     {
@@ -157,35 +162,60 @@ public class PlayerController : NetworkBehaviour
         transform.Translate(0, 0, z);
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            if (GetComponent<Mancharacter>().getManaCurrent() >= manaBaseDameSkill)
+            if (dameOrBuff == 1)
             {
-                if (flagBaseDameSkill == false)
+                if (GetComponent<Mancharacter>().getManaCurrent() >= manaBaseDameSkill)
                 {
-                    GetComponent<Mancharacter>().CmdTakeMana(manaBaseDameSkill);
-                    flagBaseDameSkill = true;
-                    CDBaseSkill = 3;
-                    Cmdfire();
-                    BeaseSkillThread = new Thread(new ThreadStart(countTimeBaseSkill));
-                    BeaseSkillThread.Start();
+                    if (flagBaseDameSkill == false)
+                    {
+                        GetComponent<Mancharacter>().CmdTakeMana(manaBaseDameSkill);
+                        flagBaseDameSkill = true;
+                        CDBaseSkill = 3;
+                        Cmdfire();
+                        BeaseSkillThread = new Thread(new ThreadStart(countTimeBaseSkill));
+                        BeaseSkillThread.Start();
+                    }
+                }
+            }
+            else if(dameOrBuff == 2)
+            {
+                if (GetComponent<Mancharacter>().getManaCurrent() >= manaSingleBuff)
+                {
+                    if (flagBaseDameSkill == false)
+                    {
+                        GetComponent<Mancharacter>().CmdTakeMana(manaSingleBuff);
+                        flagBaseDameSkill = true;
+                        CDBaseSkill = 3;
+                        CmdbuffSingle();
+                        BeaseSkillThread = new Thread(new ThreadStart(countTimeBaseSkill));
+                        BeaseSkillThread.Start();
+                    }
                 }
             }
         }
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            if (GetComponent<Mancharacter>().getManaCurrent() >= manaWallSkill)
+            if (dameOrBuff == 1)
             {
-                if (flagWallSkill == false)
+                if (GetComponent<Mancharacter>().getManaCurrent() >= manaWallSkill)
                 {
-                    GetComponent<Mancharacter>().CmdTakeMana(manaWallSkill);
-                    flagWallSkill = true;
-                    CDWallSkill = 30;
-                    CmdWall();
-                    WallSkillThread = new Thread(new ThreadStart(countTimeWallSkill));
-                    WallSkillThread.Start();
+                    if (flagWallSkill == false)
+                    {
+                        GetComponent<Mancharacter>().CmdTakeMana(manaWallSkill);
+                        flagWallSkill = true;
+                        CDWallSkill = 30;
+                        CmdWall();
+                        WallSkillThread = new Thread(new ThreadStart(countTimeWallSkill));
+                        WallSkillThread.Start();
+                    }
                 }
             }
+            else
+            {
+                
+            }
         }
-        if (Input.GetKeyDown(KeyCode.Alpha3))
+        if (Input.GetKeyDown(KeyCode.Alpha3) && dameOrBuff == 1)
         {
             if (GetComponent<Mancharacter>().getManaCurrent() >= manaStunSkill)
             {
@@ -201,7 +231,7 @@ public class PlayerController : NetworkBehaviour
 
             }
         }
-        if (Input.GetKeyDown(KeyCode.Alpha4))
+        if (Input.GetKeyDown(KeyCode.Alpha4) && dameOrBuff == 1)
         {
             if (GetComponent<Mancharacter>().getManaCurrent() >= manaRemoveStun)
             {
@@ -218,20 +248,41 @@ public class PlayerController : NetworkBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Alpha5))
         {
-            if (GetComponent<Mancharacter>().getManaCurrent() >= manaAOESkill)
+            if (dameOrBuff == 1)
             {
-                if (flagAOESkill == false)
+                if (GetComponent<Mancharacter>().getManaCurrent() >= manaAOESkill)
                 {
-                    GetComponent<Mancharacter>().CmdTakeMana(manaAOESkill);
-                    flagAOESkill = true;
-                    CDAOESKill = 15;
-                    CmdAoeSkill();
-                    AOESkillThread = new Thread(new ThreadStart(countAOESkill));
-                    AOESkillThread.Start();
+                    if (flagAOESkill == false)
+                    {
+                        GetComponent<Mancharacter>().CmdTakeMana(manaAOESkill);
+                        flagAOESkill = true;
+                        CDAOESKill = 15;
+                        CmdAoeSkill();
+                        AOESkillThread = new Thread(new ThreadStart(countAOESkill));
+                        AOESkillThread.Start();
+                    }
+                }
+            }
+            else if(dameOrBuff == 2)
+            {
+                Debug.Log("buff2");
+                if (GetComponent<Mancharacter>().getManaCurrent() >= manaAOEBuff)
+                {
+                    Debug.Log("buff1");
+                    if (flagAOESkill == false)
+                    {
+                        Debug.Log("buff");
+                        GetComponent<Mancharacter>().CmdTakeMana(manaAOEBuff);
+                        flagAOESkill = true;
+                        CDAOESKill = 15;
+                        CmdAoeBuff();
+                        AOESkillThread = new Thread(new ThreadStart(countAOESkill));
+                        AOESkillThread.Start();
+                    }
                 }
             }
         }
-        if (Input.GetKeyDown(KeyCode.Alpha6))
+        if (Input.GetKeyDown(KeyCode.Alpha6) && dameOrBuff == 1)
         {
             if (GetComponent<Mancharacter>().getManaCurrent() >= manaCircleWall)
             {
@@ -246,7 +297,7 @@ public class PlayerController : NetworkBehaviour
                 }
             }
         }
-        if (Input.GetKeyDown(KeyCode.Alpha7))
+        if (Input.GetKeyDown(KeyCode.Alpha7) && dameOrBuff == 1)
         {
             if (GetComponent<Mancharacter>().currentMana >= manaSuperDameSkill)
             {
@@ -268,8 +319,15 @@ public class PlayerController : NetworkBehaviour
             HoiMau.Start();
         }
 
-        
 
+        if (Input.GetKeyDown(KeyCode.F3))
+        {
+            dameOrBuff = 1;
+        }
+        if (Input.GetKeyDown(KeyCode.F4))
+        {
+            dameOrBuff = 2;
+        }
         if (Input.GetKeyDown(KeyCode.F1))
         {
             CmdHKM();
@@ -329,6 +387,15 @@ public class PlayerController : NetworkBehaviour
     }
 
     [Command]
+    void CmdbuffSingle()
+    {
+        var bulletTemp = (GameObject)Instantiate(buffSingleOb, bulletspawn.position, bulletspawn.rotation);
+        bulletTemp.GetComponent<Rigidbody>().velocity = bulletspawn.forward * 6;
+        bulletTemp.GetComponent<BuffSingle>().Phe = Phe;
+        NetworkServer.Spawn(bulletTemp);
+    }
+
+    [Command]
     void Cmdfire()
     {
         var bulletTemp = (GameObject)Instantiate(bullet, bulletspawn.position, bulletspawn.rotation);
@@ -374,6 +441,14 @@ public class PlayerController : NetworkBehaviour
     {
         var AoeSkillTemp = (GameObject)Instantiate(aoeSkill, aoespawn.transform.position, aoespawn.transform.rotation);
         AoeSkillTemp.GetComponent<AOESkill>().Phe = Phe;
+        NetworkServer.Spawn(AoeSkillTemp);
+    }
+
+    [Command]
+    void CmdAoeBuff()
+    {
+        var AoeSkillTemp = (GameObject)Instantiate(buffAOEOb, aoespawn.transform.position, aoespawn.transform.rotation);
+        AoeSkillTemp.GetComponent<BuffAOE>().Phe = Phe;
         NetworkServer.Spawn(AoeSkillTemp);
     }
 
