@@ -150,6 +150,7 @@ cac94d8be0bcbfb6e72c4a30eed9cd3d Assembly-CSharp.dll:.sui_demo_ControllerOrbit
 7fb9de8dcf73854b6b328eca1f7a6e6d Unity.Analytics.Tracker.dll:UnityEngine.Analytics.AnalyticsTracker
 122d7ffab68b4eedc72a1fce03e63c2f Assembly-CSharp.dll:UnityStandardAssets.ImageEffects.BloomOptimized
 97fe134eac2fe13c13700463060d6909 Assembly-CSharp.dll:.ui_suimonoHandler
+47c569454989385c1a7012d6161766f8 Assembly-CSharp.dll:.buffManaSingle
 4e9dc17ee67d08ccba4f39dde79b3679 Assembly-CSharp.dll:.PheHKMLogo
 c08ee204c43044b9314883f8654f6e1a Assembly-CSharp.dll:.sui_demo_trigger
 94017dcc9f00fe671ea7dc427b4da011 Unity.TextMeshPro.dll:TMPro.TMP_SpriteAsset
@@ -160,7 +161,7 @@ b09bc4077e5211b409b4678f122504b4 Assembly-CSharp.dll:.Health
 740e2a55bf8d3a2560b90ee495ddf640 Assembly-CSharp.dll:.sui_demo_LightHandler
 e85f37a86e3a3955a8924a4fc99da03d Assembly-CSharp.dll:.Bullet
 b3ab2106268377ffe25dd18ac23dca28 Unity.TextMeshPro.dll:TMPro.TMP_Asset
-f995ef9079f07b6a77551a35e3690b57 Assembly-CSharp.dll:.PlayerController
+a31ff6a662645a0a9c430ac3a147d945 Assembly-CSharp.dll:.PlayerController
 3a3324b73792dde0ff97dae69b3a3dfb Assembly-CSharp.dll:UnityStandardAssets.ImageEffects.SunShafts
 c1fb5fa27e739b05514ea7d68b24c684 Assembly-CSharp.dll:.utility_AdjustCulling
 4e86c3ef3b0a84abedeeb1f0a6785778 Assembly-CSharp.dll:Suimono.Core.SuimonoModuleFX
@@ -203,6 +204,7 @@ e0ee4b3d4e27318934cc940a969d3d96 UnityEngine.Networking.dll:UnityEngine.Networki
 ad9173d3a69d99153f38ed4b62226129 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransform
 9b895dcabbc1faf095c000c32d471fd0 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransformChild
 5887ef1bc706b22b773d253fd443ceef UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransformVisualizer
+47c569454989385c1a7012d6161766f8 Assembly-CSharp.dll:.buffManaAOE
 6013a2beb5fb9f70ac79e6d31668ea0c Assembly-CSharp.dll:.Stun
 510fefd6a544e16a3ffefa557ddcba39 Unity.TextMeshPro.dll:TMPro.PackageResourceImporterWindow
 95b7d12cfc7c40520139c92136aeae0c Assembly-CSharp.dll:Suimono.Core.fx_EffectObject
@@ -275,5 +277,3 @@ acad6a5a3e5ce26933e372a3349e72a4 Assembly-CSharp.dll:.sui_demo_InputController
 491820d5e0224270f2832e19f25805ef Assembly-CSharp.dll:Suimono.Core.SuimonoModuleLib
 490abd4c02253c5ce6e721ec4ef63e91 Assembly-CSharp.dll:.Test
 09d91be4d332285157ef992e11ea8c50 Assembly-CSharp.dll:.Attack
-47c569454989385c1a7012d6161766f8 Assembly-CSharp.dll:.buffManaSingle
-47c569454989385c1a7012d6161766f8 Assembly-CSharp.dll:.buffManaAOE

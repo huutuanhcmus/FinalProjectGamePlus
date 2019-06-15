@@ -1355,6 +1355,7 @@ MonoBehaviour:
   flagStunSkill: 0
   flagRemoveStunDameSkill: 0
   flagCircleWallSkill: 0
+  flagCircleWallSkill1: 0
   flagAOESkill: 0
   flagSuperDameSkill: 0
   gos: []
@@ -1383,6 +1384,11 @@ MonoBehaviour:
     type: 3}
   manabuffManaAOE: 10
   buffManaAOEOb: {fileID: 1057418948117026442, guid: 37ffff54f95995d488bab3c4f9d96017,
+    type: 3}
+  manajibunBuffHealth: 3
+  jibunBuffHealthOb: {fileID: 8420414747806074079, guid: 95659fb866a34294f8176d40880b5a44,
+    type: 3}
+  jibunBuffManahOb: {fileID: 4166693966897151360, guid: 74a0ace6f41bd5a419ef8f606e1475df,
     type: 3}
 --- !u!114 &571758553
 MonoBehaviour:

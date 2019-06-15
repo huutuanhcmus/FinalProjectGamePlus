@@ -35,6 +35,7 @@ public class PlayerController : NetworkBehaviour
     Thread BeaseSkillThread;
     Thread WallSkillThread;
     Thread CircleWallSkillThread;
+    Thread CircleWallSkillThread1;
     Thread StunSkillThread;
     Thread RemoveStunSkillThread;
     Thread AOESkillThread;
@@ -52,6 +53,7 @@ public class PlayerController : NetworkBehaviour
     public bool flagStunSkill = false;
     public bool flagRemoveStunDameSkill = false;
     public bool flagCircleWallSkill = false;
+    public bool flagCircleWallSkill1 = false;
     public bool flagAOESkill = false;
     public bool flagSuperDameSkill = false;
     public List<Text> gos;
@@ -78,6 +80,9 @@ public class PlayerController : NetworkBehaviour
     public GameObject buffManaSingleOb;
     public int manabuffManaAOE;
     public GameObject buffManaAOEOb;
+    public int manajibunBuffHealth;
+    public GameObject jibunBuffHealthOb;
+    public GameObject jibunBuffManahOb;
     // Start is called before the first frame update
     void Start()
     {
@@ -318,34 +323,67 @@ public class PlayerController : NetworkBehaviour
                 }
             }
         }
-        if (Input.GetKeyDown(KeyCode.Alpha6) && dameOrBuff == 1)
+        if (Input.GetKeyDown(KeyCode.Alpha6))
         {
-            if (GetComponent<Mancharacter>().getManaCurrent() >= manaCircleWall)
+            if (dameOrBuff == 1)
             {
-                if (flagCircleWallSkill == false)
+                if (GetComponent<Mancharacter>().getManaCurrent() >= manaCircleWall)
                 {
-                    GetComponent<Mancharacter>().CmdTakeMana(manaCircleWall);
-                    flagCircleWallSkill = true;
-                    CDCircleWallSkill = 30;
-                    CmdCircleWall();
-                    CircleWallSkillThread = new Thread(new ThreadStart(countTimeCircleWallSkill));
-                    CircleWallSkillThread.Start();
+                    if (flagCircleWallSkill == false)
+                    {
+                        GetComponent<Mancharacter>().CmdTakeMana(manaCircleWall);
+                        flagCircleWallSkill = true;
+                        CDCircleWallSkill = 30;
+                        CmdCircleWall();
+                        CircleWallSkillThread = new Thread(new ThreadStart(countTimeCircleWallSkill));
+                        CircleWallSkillThread.Start();
+                    }
+                }
+            }
+            else if(dameOrBuff == 2)
+            {
+                if (GetComponent<Mancharacter>().getManaCurrent() >= manajibunBuffHealth)
+                {
+                    if (flagCircleWallSkill == false)
+                    {
+                        GetComponent<Mancharacter>().CmdTakeMana(manajibunBuffHealth);
+                        flagCircleWallSkill = true;
+                        CDCircleWallSkill = 5;
+                        CmdJibunBuffHealth();
+                        CircleWallSkillThread = new Thread(new ThreadStart(countTimeCircleWallSkill));
+                        CircleWallSkillThread.Start();
+                    }
                 }
             }
         }
-        if (Input.GetKeyDown(KeyCode.Alpha7) && dameOrBuff == 1)
+        if (Input.GetKeyDown(KeyCode.Alpha7))
         {
-            if (GetComponent<Mancharacter>().currentMana >= manaSuperDameSkill)
+            if (dameOrBuff == 1)
             {
-                Debug.Log("3");
-                if (flagSuperDameSkill == false && flagVanCong == true)
+                if (GetComponent<Mancharacter>().currentMana >= manaSuperDameSkill)
                 {
-                    flagVanCong = false;
-                    Debug.Log("4");
-                    GetComponent<Mancharacter>().CmdTakeMana(manaSuperDameSkill);
-                    CDSupperDameSkill = 15;
-                    TwoSecon = new Thread(new ThreadStart(countTimeSupperDame));
-                    TwoSecon.Start();
+                    Debug.Log("3");
+                    if (flagSuperDameSkill == false && flagVanCong == true)
+                    {
+                        flagVanCong = false;
+                        Debug.Log("4");
+                        GetComponent<Mancharacter>().CmdTakeMana(manaSuperDameSkill);
+                        CDSupperDameSkill = 15;
+                        TwoSecon = new Thread(new ThreadStart(countTimeSupperDame));
+                        TwoSecon.Start();
+                    }
+                }
+            }
+            else if(dameOrBuff == 2)
+            {
+                if (flagSuperDameSkill == false)
+                {
+                    flagSuperDameSkill = true;
+                    CDSupperDameSkill = 5;
+                    //CmdJibunBuffHealth();
+                    CmdJibunBuffMana();
+                    CircleWallSkillThread1 = new Thread(new ThreadStart(countTimeCircleWallSkill1));
+                    CircleWallSkillThread1.Start();
                 }
             }
         }
@@ -461,6 +499,22 @@ public class PlayerController : NetworkBehaviour
     void CmdCircleWall()
     {
         var CirCleWallTemp = (GameObject)Instantiate(circleWall, circleWallspawn.position, circleWallspawn.rotation);
+        NetworkServer.Spawn(CirCleWallTemp);
+    }
+
+    [Command]
+    void CmdJibunBuffHealth()
+    {
+        var CirCleWallTemp = (GameObject)Instantiate(jibunBuffHealthOb, circleWallspawn.position, circleWallspawn.rotation);
+        GetComponent<Health>().CmdPushHealth(10);
+        NetworkServer.Spawn(CirCleWallTemp);
+    }
+
+    [Command]
+    void CmdJibunBuffMana()
+    {
+        var CirCleWallTemp = (GameObject)Instantiate(jibunBuffHealthOb, circleWallspawn.position, circleWallspawn.rotation);
+        GetComponent<Mancharacter>().CmdPushMana(10);
         NetworkServer.Spawn(CirCleWallTemp);
     }
 
@@ -620,6 +674,15 @@ public class PlayerController : NetworkBehaviour
             CDCircleWallSkill--;
         }
         flagCircleWallSkill = false;
+    }
+    void countTimeCircleWallSkill1()
+    {
+        for (int i = CDSupperDameSkill; i >= 0; i--)
+        {
+            Thread.Sleep(1000);
+            CDSupperDameSkill--;
+        }
+        flagSuperDameSkill = false;
     }
     void countStunSkill()
     {
