@@ -437,11 +437,11 @@ public class PlayerController : NetworkBehaviour
 
         if (Input.GetKeyDown(KeyCode.F3))
         {
-            dameOrBuff = 1;
+            CmdChuyenDame();
         }
         if (Input.GetKeyDown(KeyCode.F4))
         {
-            dameOrBuff = 2;
+            CmdChuyenBuff();
         }
         if (Input.GetKeyDown(KeyCode.F1))
         {
@@ -455,6 +455,18 @@ public class PlayerController : NetworkBehaviour
         PlaySupperDame();
         HoiMauChar();
         ChangeColorPlayer();
+    }
+
+    [Command]
+    void CmdChuyenDame()
+    {
+        dameOrBuff = 1;
+    }
+
+    [Command]
+    void CmdChuyenBuff()
+    {
+        dameOrBuff = 2;
     }
 
     void ChangeColorPlayer()
