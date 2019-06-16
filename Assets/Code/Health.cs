@@ -16,8 +16,9 @@ public class Health : NetworkBehaviour
         currentHealth -= amount;
         if (currentHealth <= 0)
         {
-            currentHealth = 0;
-            Debug.Log("Dead!");
+            currentHealth = maxHealth;
+            //RpcRepawn(new Vector3(-540.13f, 14.39f, 222.06f));
+            transform.position = new Vector3(-540.13f, 14.39f, 222.06f);
         }
     }
 

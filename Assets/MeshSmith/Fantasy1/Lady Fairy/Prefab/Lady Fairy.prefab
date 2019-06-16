@@ -1264,8 +1264,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.7502624, y: 0.82116836, z: 0.25701237}
-  m_Center: {x: 0.024495538, y: 0.6706124, z: -0.021880211}
+  m_Size: {x: 0.7502624, y: 0.85953236, z: 0.25701237}
+  m_Center: {x: 0.024495538, y: 0.6514302, z: -0.021880211}
 --- !u!114 &571758551
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1279,7 +1279,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Animator: {fileID: 95618185085212864}
-  m_ParameterSendBits: 2
+  m_ParameterSendBits: 131070
   param0: 
   param1: 
   param2: 
@@ -1438,7 +1438,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 126
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!114 &1314753350534838410
 MonoBehaviour:
@@ -1477,7 +1477,7 @@ SphereCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1600525113962944}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 93c818a0e0c305c4095ced684007d6a4, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
