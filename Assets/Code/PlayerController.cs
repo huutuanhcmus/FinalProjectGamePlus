@@ -70,7 +70,7 @@ public class PlayerController : NetworkBehaviour
     public bool walk = false;
     public bool flagPush = false;
     Thread HoiMau;
-    public bool flagVanCong = true;
+    public bool flagVanCong = false;
     public List<GameObject> Players;
     public int manaSingleBuff;
     public GameObject buffSingleOb;
@@ -156,7 +156,7 @@ public class PlayerController : NetworkBehaviour
                 TwoSecon.Abort();
                 TwoSecon = null;
             }
-            if(HoiMau != null)
+            if (HoiMau != null)
             {
                 HoiMau.Abort();
                 HoiMau = null;
@@ -167,6 +167,33 @@ public class PlayerController : NetworkBehaviour
         {
             playerAnimation.SetBool("walk", false);
         }
+        if (dameOrBuff == 1)
+        {
+            playerAnimation.SetInteger("BaseSkill", CDBaseSkill);
+            playerAnimation.SetInteger("CircleWall", CDCircleWallSkill);
+            playerAnimation.SetInteger("Wall", CDWallSkill);
+            playerAnimation.SetInteger("MakeStun", CDStunSkill);
+            playerAnimation.SetInteger("AOEDame", CDAOESKill);
+            playerAnimation.SetBool("VanCong", !flagVanCong);
+        }
+        else if (dameOrBuff == 2)
+        {
+            playerAnimation.SetInteger("BuffHealthSingle", CDBaseSkill);
+            playerAnimation.SetInteger("BuffHealthAOE", CDAOESKill);
+            playerAnimation.SetInteger("BuffManaAOE", CDStunSkill);
+            playerAnimation.SetInteger("BuffManaSingle", CDWallSkill);
+            playerAnimation.SetInteger("JiBunHealth", CDCircleWallSkill);
+            playerAnimation.SetInteger("JibunMana", CDSupperDameSkill);
+        }
+        playerAnimation.SetInteger("RemoveStun", CDRemoveStunSkill);
+        if (speed == 0)
+            playerAnimation.SetBool("Stun", true);
+        else
+            playerAnimation.SetBool("Stun", false);
+        if (HoiMau != null)
+            playerAnimation.SetBool("Sleep", true);
+        else
+            playerAnimation.SetBool("Sleep", false);
         transform.Rotate(0, x, 0);
         transform.Translate(0, 0, z);
         if (Input.GetKeyDown(KeyCode.Alpha1))
@@ -177,6 +204,7 @@ public class PlayerController : NetworkBehaviour
                 {
                     if (flagBaseDameSkill == false)
                     {
+                        PauseAllAnimationCurDame();
                         GetComponent<Mancharacter>().CmdTakeMana(manaBaseDameSkill);
                         flagBaseDameSkill = true;
                         CDBaseSkill = 3;
@@ -186,12 +214,13 @@ public class PlayerController : NetworkBehaviour
                     }
                 }
             }
-            else if(dameOrBuff == 2)
+            else if (dameOrBuff == 2)
             {
                 if (GetComponent<Mancharacter>().getManaCurrent() >= manaSingleBuff)
                 {
                     if (flagBaseDameSkill == false)
                     {
+                        PauseAllAnimationCurBuff();
                         GetComponent<Mancharacter>().CmdTakeMana(manaSingleBuff);
                         flagBaseDameSkill = true;
                         CDBaseSkill = 3;
@@ -210,6 +239,7 @@ public class PlayerController : NetworkBehaviour
                 {
                     if (flagWallSkill == false)
                     {
+                        PauseAllAnimationCurDame();
                         GetComponent<Mancharacter>().CmdTakeMana(manaWallSkill);
                         flagWallSkill = true;
                         CDWallSkill = 30;
@@ -225,6 +255,7 @@ public class PlayerController : NetworkBehaviour
                 {
                     if (flagWallSkill == false)
                     {
+                        PauseAllAnimationCurBuff();
                         GetComponent<Mancharacter>().CmdTakeMana(manabuffManaSingle);
                         flagWallSkill = true;
                         CDWallSkill = 3;
@@ -244,6 +275,7 @@ public class PlayerController : NetworkBehaviour
                 {
                     if (flagStunSkill == false)
                     {
+                        PauseAllAnimationCurDame();
                         GetComponent<Mancharacter>().CmdTakeMana(manaStunSkill);
                         flagStunSkill = true;
                         CDStunSkill = 15;
@@ -254,12 +286,13 @@ public class PlayerController : NetworkBehaviour
 
                 }
             }
-            else if(dameOrBuff == 2)
+            else if (dameOrBuff == 2)
             {
                 if (GetComponent<Mancharacter>().getManaCurrent() >= manabuffManaAOE)
                 {
                     if (flagStunSkill == false)
                     {
+                        PauseAllAnimationCurBuff();
                         GetComponent<Mancharacter>().CmdTakeMana(manabuffManaAOE);
                         flagStunSkill = true;
                         CDStunSkill = 15;
@@ -278,6 +311,8 @@ public class PlayerController : NetworkBehaviour
             {
                 if (flagRemoveStunDameSkill == false)
                 {
+                    PauseAllAnimationCurDame();
+                    PauseAllAnimationCurBuff();
                     GetComponent<Mancharacter>().CmdTakeMana(manaRemoveStun);
                     flagRemoveStunDameSkill = true;
                     CDRemoveStunSkill = 25;
@@ -295,6 +330,7 @@ public class PlayerController : NetworkBehaviour
                 {
                     if (flagAOESkill == false)
                     {
+                        PauseAllAnimationCurDame();
                         GetComponent<Mancharacter>().CmdTakeMana(manaAOESkill);
                         flagAOESkill = true;
                         CDAOESKill = 15;
@@ -304,7 +340,7 @@ public class PlayerController : NetworkBehaviour
                     }
                 }
             }
-            else if(dameOrBuff == 2)
+            else if (dameOrBuff == 2)
             {
                 Debug.Log("buff2");
                 if (GetComponent<Mancharacter>().getManaCurrent() >= manaAOEBuff)
@@ -312,6 +348,7 @@ public class PlayerController : NetworkBehaviour
                     Debug.Log("buff1");
                     if (flagAOESkill == false)
                     {
+                        PauseAllAnimationCurBuff();
                         Debug.Log("buff");
                         GetComponent<Mancharacter>().CmdTakeMana(manaAOEBuff);
                         flagAOESkill = true;
@@ -331,6 +368,7 @@ public class PlayerController : NetworkBehaviour
                 {
                     if (flagCircleWallSkill == false)
                     {
+                        PauseAllAnimationCurDame();
                         GetComponent<Mancharacter>().CmdTakeMana(manaCircleWall);
                         flagCircleWallSkill = true;
                         CDCircleWallSkill = 30;
@@ -340,12 +378,13 @@ public class PlayerController : NetworkBehaviour
                     }
                 }
             }
-            else if(dameOrBuff == 2)
+            else if (dameOrBuff == 2)
             {
                 if (GetComponent<Mancharacter>().getManaCurrent() >= manajibunBuffHealth)
                 {
                     if (flagCircleWallSkill == false)
                     {
+                        PauseAllAnimationCurBuff();
                         GetComponent<Mancharacter>().CmdTakeMana(manajibunBuffHealth);
                         flagCircleWallSkill = true;
                         CDCircleWallSkill = 5;
@@ -365,6 +404,7 @@ public class PlayerController : NetworkBehaviour
                     Debug.Log("3");
                     if (flagSuperDameSkill == false && flagVanCong == true)
                     {
+                        PauseAllAnimationCurDame();
                         flagVanCong = false;
                         Debug.Log("4");
                         GetComponent<Mancharacter>().CmdTakeMana(manaSuperDameSkill);
@@ -374,10 +414,11 @@ public class PlayerController : NetworkBehaviour
                     }
                 }
             }
-            else if(dameOrBuff == 2)
+            else if (dameOrBuff == 2)
             {
                 if (flagSuperDameSkill == false)
                 {
+                    PauseAllAnimationCurBuff();
                     flagSuperDameSkill = true;
                     CDSupperDameSkill = 5;
                     //CmdJibunBuffHealth();
@@ -433,9 +474,9 @@ public class PlayerController : NetworkBehaviour
                         Player.GetComponent<Transform>().GetChild(7).GetChild(0).GetComponent<ParticleSystem>().startColor = Color.red;
                         Player.GetComponent<Transform>().GetChild(7).GetComponent<ParticleSystem>().startColor = Color.red;
                     }
-                    else if(Player.GetComponent<PlayerController>().dameOrBuff == 2)
+                    else if (Player.GetComponent<PlayerController>().dameOrBuff == 2)
                     {
-                        Player.GetComponent<Transform>().GetChild(7).GetChild(0).GetComponent<ParticleSystem>().startColor = new Color(255,0,255);
+                        Player.GetComponent<Transform>().GetChild(7).GetChild(0).GetComponent<ParticleSystem>().startColor = new Color(255, 0, 255);
                         Player.GetComponent<Transform>().GetChild(7).GetComponent<ParticleSystem>().startColor = new Color(255, 0, 255);
                     }
                 }
@@ -446,7 +487,7 @@ public class PlayerController : NetworkBehaviour
                         Player.GetComponent<Transform>().GetChild(7).GetChild(0).GetComponent<ParticleSystem>().startColor = new Color(255, 255, 0);
                         Player.GetComponent<Transform>().GetChild(7).GetComponent<ParticleSystem>().startColor = new Color(255, 255, 0);
                     }
-                    else if(Player.GetComponent<PlayerController>().dameOrBuff == 2)
+                    else if (Player.GetComponent<PlayerController>().dameOrBuff == 2)
                     {
                         Player.GetComponent<Transform>().GetChild(7).GetChild(0).GetComponent<ParticleSystem>().startColor = Color.green;
                         Player.GetComponent<Transform>().GetChild(7).GetComponent<ParticleSystem>().startColor = Color.green;
@@ -459,7 +500,7 @@ public class PlayerController : NetworkBehaviour
 
     void HoiMauChar()
     {
-        if(flagPush == true)
+        if (flagPush == true)
         {
             GetComponent<Health>().CmdPushHealth(10);
             GetComponent<Mancharacter>().CmdPushMana(10);
@@ -529,7 +570,7 @@ public class PlayerController : NetworkBehaviour
     [Command]
     void CmdJibunBuffMana()
     {
-        var CirCleWallTemp = (GameObject)Instantiate(jibunBuffHealthOb, circleWallspawn.position, circleWallspawn.rotation);
+        var CirCleWallTemp = (GameObject)Instantiate(jibunBuffManahOb, circleWallspawn.position, circleWallspawn.rotation);
         GetComponent<Mancharacter>().CmdPushMana(10);
         NetworkServer.Spawn(CirCleWallTemp);
     }
@@ -622,7 +663,7 @@ public class PlayerController : NetworkBehaviour
     [Command]
     public void CmdHKM()
     {
-        
+
         Phe = 1;
     }
 
@@ -666,10 +707,11 @@ public class PlayerController : NetworkBehaviour
 
     void countTimeBaseSkill()
     {
-       for(int i = CDBaseSkill; i >= 0; i--) { 
+        for (int i = CDBaseSkill; i >= 0; i--)
+        {
             Thread.Sleep(1000);
             CDBaseSkill--;
-       }
+        }
         flagBaseDameSkill = false;
     }
     void countTimeWallSkill()
@@ -705,7 +747,7 @@ public class PlayerController : NetworkBehaviour
         for (int i = CDStunSkill; i >= 0; i--)
         {
             Thread.Sleep(1000);
-            CDStunSkill--;           
+            CDStunSkill--;
         }
         flagStunSkill = false;
     }
@@ -748,6 +790,28 @@ public class PlayerController : NetworkBehaviour
         {
             return t.Seconds.ToString();
         }
+    }
+
+    void PauseAllAnimationCurDame()
+    {
+        playerAnimation.SetInteger("BaseSkill", 0);
+        playerAnimation.SetInteger("CircleWall", 0);
+        playerAnimation.SetInteger("Wall", 0);
+        playerAnimation.SetInteger("MakeStun", 0);
+        playerAnimation.SetInteger("AOEDame", 0);
+        playerAnimation.SetBool("VanCong", false);
+        playerAnimation.SetInteger("RemoveStun", 0);
+    }
+
+    void PauseAllAnimationCurBuff()
+    {
+        playerAnimation.SetInteger("BuffHealthSingle", 0);
+        playerAnimation.SetInteger("BuffHealthAOE", 0);
+        playerAnimation.SetInteger("BuffManaAOE", 0);
+        playerAnimation.SetInteger("BuffManaSingle", 0);
+        playerAnimation.SetInteger("JiBunHealth", 0);
+        playerAnimation.SetInteger("JibunMana", 0);
+        playerAnimation.SetInteger("RemoveStun", 0);
     }
 }
 
