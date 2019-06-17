@@ -1391,6 +1391,7 @@ MonoBehaviour:
     type: 3}
   jibunBuffManahOb: {fileID: 4166693966897151360, guid: 74a0ace6f41bd5a419ef8f606e1475df,
     type: 3}
+  jumpSpeed: 5
 --- !u!114 &571758553
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2901,7 +2902,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 0, b: 0, a: 1}
+      maxColor: {r: 255, g: 255, b: 0, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -7563,7 +7564,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 0, b: 0, a: 1}
+      maxColor: {r: 255, g: 255, b: 0, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}

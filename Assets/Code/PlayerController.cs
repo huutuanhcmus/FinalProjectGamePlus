@@ -83,6 +83,9 @@ public class PlayerController : NetworkBehaviour
     public int manajibunBuffHealth;
     public GameObject jibunBuffHealthOb;
     public GameObject jibunBuffManahOb;
+    public float jumpSpeed = 5;
+    Thread jumpCountTime;
+    int timeJump = 1;
     // Start is called before the first frame update
     void Start()
     {
@@ -166,6 +169,17 @@ public class PlayerController : NetworkBehaviour
         else
         {
             playerAnimation.SetBool("walk", false);
+        }
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            if (GetComponent<Rigidbody>().useGravity == true && timeJump > 0)
+            {
+                timeJump--;
+                GetComponent<Rigidbody>().velocity += jumpSpeed * Vector3.up;
+                GetComponent<Rigidbody>().useGravity = false;
+                jumpCountTime = new Thread(new ThreadStart(TrongLuc));
+                jumpCountTime.Start();
+            }
         }
         if (dameOrBuff == 1)
         {
@@ -825,5 +839,12 @@ public class PlayerController : NetworkBehaviour
         playerAnimation.SetInteger("JibunMana", 0);
         playerAnimation.SetInteger("RemoveStun", 0);
     }
-}
 
+    void TrongLuc()
+    {
+        Thread.Sleep(1000);
+        GetComponent<Rigidbody>().useGravity = true;
+        Thread.Sleep(1800);
+        timeJump++;
+    }
+}
