@@ -4792,7 +4792,7 @@ GameObject:
   - component: {fileID: 1412045785555602274}
   - component: {fileID: 2772717821774382892}
   - component: {fileID: 7476939983628564249}
-  - component: {fileID: 8620864379093533285}
+  - component: {fileID: 6172077192750239608}
   m_Layer: 0
   m_Name: HKMFlag
   m_TagString: NPC
@@ -4926,7 +4926,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Phe: 1
---- !u!114 &8620864379093533285
+  PheDich: {fileID: 4879189857093855842, guid: 11454f873a742b2438a1614778bc0a5d, type: 3}
+--- !u!114 &6172077192750239608
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4935,7 +4936,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5015981443416784428}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4b54006c68f3f447a47b7c8a9810d3c, type: 3}
+  m_Script: {fileID: 11500000, guid: ebfcc936da9d2794a8b956d92e1973c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 1000

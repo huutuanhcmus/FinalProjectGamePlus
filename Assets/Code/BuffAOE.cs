@@ -47,7 +47,7 @@ public class BuffAOE : NetworkBehaviour
         if(other.tag == "NPC" && other.GetComponent<NPCControler>().Phe == Phe)
         {
             var hit = other.gameObject;
-            var health = hit.GetComponent<Health>();
+            var health = hit.GetComponent<HealthNPC>();
             if (health != null)
             {
                 health.CmdPushHealth(HPHealth);

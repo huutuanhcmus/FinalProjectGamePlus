@@ -14046,8 +14046,8 @@ GameObject:
   - component: {fileID: 4976209492203791624}
   - component: {fileID: 4149583016719516692}
   - component: {fileID: 743441291918609617}
-  - component: {fileID: 4704016341683801420}
   - component: {fileID: 1138401893210068810}
+  - component: {fileID: 371061294282008069}
   m_Layer: 0
   m_Name: HKMFlagChild
   m_TagString: NPC
@@ -14168,22 +14168,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Phe: 1
---- !u!114 &4704016341683801420
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4976209492203792284}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4b54006c68f3f447a47b7c8a9810d3c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 400
-  showMaxHealth: 400
-  currentHealth: 400
-  healthBar: {fileID: 6019651774184965951}
+  PheDich: {fileID: 2365197099003900528, guid: 8d7d98730f987bd4db570126ade065ec, type: 3}
 --- !u!65 &1138401893210068810
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14197,6 +14182,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3, y: 52.524147, z: 3}
   m_Center: {x: 0, y: -32.22166, z: 0}
+--- !u!114 &371061294282008069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4976209492203792284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebfcc936da9d2794a8b956d92e1973c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 1
+  showMaxHealth: 1
+  currentHealth: 1
+  healthBar: {fileID: 6019651774184965951}
 --- !u!1 &4976209492203792285
 GameObject:
   m_ObjectHideFlags: 0

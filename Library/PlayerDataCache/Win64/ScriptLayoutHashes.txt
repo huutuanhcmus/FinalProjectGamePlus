@@ -27,6 +27,7 @@ c150d9404e6b53770dd5f5e91004bccd Assembly-CSharp.dll:UnityStandardAssets.ImageEf
 e7a73f5f78ba6445195ec23b74a1ce2d Unity.TextMeshPro.dll:TMPro.TMP_ScrollbarEventHandler
 3be44a2db6d88fbd38974ec17d992028 Assembly-CSharp.dll:Suimono.Core.Suimono_DistanceBlur
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.SelectMap
+47bfbb5e9895fa3ca45aeaa89824fef2 Assembly-CSharp.dll:.NPCControler
 cefc42c2cb25819ed10824bfe940c3dc Assembly-CSharp.dll:UnityStandardAssets.ImageEffects.GlobalFog
 a5e44188ccd983bb228b74d4b7419ecf Assembly-CSharp.dll:UnityStandardAssets.ImageEffects.ContrastStretch
 b2119094b0083707a0b6ff356d4a1f66 Assembly-CSharp.dll:UnityStandardAssets.ImageEffects.VignetteAndChromaticAberration
@@ -280,4 +281,4 @@ feb84bcce1f5af2798ac32e70417eb3f Assembly-CSharp.dll:.FlagNPC
 491820d5e0224270f2832e19f25805ef Assembly-CSharp.dll:Suimono.Core.SuimonoModuleLib
 490abd4c02253c5ce6e721ec4ef63e91 Assembly-CSharp.dll:.Test
 09d91be4d332285157ef992e11ea8c50 Assembly-CSharp.dll:.Attack
-4d3005a2a39d77d85443c800439e637a Assembly-CSharp.dll:.NPCControler
+79fa27ed07a0e7c53f109868161a5791 Assembly-CSharp.dll:.HealthNPC

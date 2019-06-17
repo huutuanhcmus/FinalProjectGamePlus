@@ -76,6 +76,7 @@
     <Compile Include="Assets\Code\FlagNPC.cs" />
     <Compile Include="Assets\Code\Health.cs" />
     <Compile Include="Assets\Code\HealthBarMain.cs" />
+    <Compile Include="Assets\Code\HealthNPC.cs" />
     <Compile Include="Assets\Code\ManachacracterBar.cs" />
     <Compile Include="Assets\Code\Mancharacter.cs" />
     <Compile Include="Assets\Code\NPCControler.cs" />
