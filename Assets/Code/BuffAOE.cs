@@ -44,5 +44,14 @@ public class BuffAOE : NetworkBehaviour
                 hit.GetComponent<PlayerController>().CmdStunPlayerSlow(speed);
             }
         }
+        if(other.tag == "NPC" && other.GetComponent<NPCControler>().Phe == Phe)
+        {
+            var hit = other.gameObject;
+            var health = hit.GetComponent<Health>();
+            if (health != null)
+            {
+                health.CmdPushHealth(HPHealth);
+            }
+        }
     }
 }

@@ -45,5 +45,14 @@ public class AOESkill : NetworkBehaviour
                 stun.CmdStunPlayerSlow(speed);
             }
         }
+        if (other.tag == "NPC" && other.GetComponent<NPCControler>().Phe != Phe)
+        {
+            var hit = other.gameObject;
+            var health = hit.GetComponent<Health>();
+            if (health != null)
+            {
+                health.CmdTakeDame(dame);
+            }
+        }
     }
 }

@@ -52,6 +52,16 @@ public class Bullet : NetworkBehaviour
             }
             Destroy(gameObject);
         }
+        if (other.tag == "NPC" && other.GetComponent<NPCControler>().Phe != Phe)
+        {
+            var hit = other.gameObject;
+            var health = hit.GetComponent<Health>();
+            if (health != null)
+            {
+                health.CmdTakeDame(dame);
+            }
+            Destroy(gameObject);
+        }
     }
 
 

@@ -490,7 +490,6 @@ public class PlayerController : NetworkBehaviour
         {
             if (Player.tag == "Player")
             {
-
                 if (Player.GetComponent<PlayerController>().Phe != Phe)
                 {
                     if (Player.GetComponent<PlayerController>().dameOrBuff == 1)
@@ -518,6 +517,21 @@ public class PlayerController : NetworkBehaviour
                         Player.GetComponent<Transform>().GetChild(7).GetChild(0).GetComponent<ParticleSystem>().startColor = Color.green;
                         Player.GetComponent<Transform>().GetChild(7).GetComponent<ParticleSystem>().startColor = Color.green;
                     }
+                }
+            }
+            else if (Player.tag == "NPC")
+            {
+                if (Player.GetComponent<NPCControler>().Phe != Phe)
+                {
+                    Player.GetComponent<Transform>().GetChild(1).GetChild(0).GetChild(0).GetComponent<ParticleSystem>().startColor = Color.red;
+                    Player.GetComponent<Transform>().GetChild(1).GetChild(0).GetChild(1).GetComponent<ParticleSystem>().startColor = Color.red;
+
+                }
+                else
+                {
+                    Player.GetComponent<Transform>().GetChild(1).GetChild(0).GetChild(0).GetComponent<ParticleSystem>().startColor = new Color(255,255,0);
+                    Player.GetComponent<Transform>().GetChild(1).GetChild(0).GetChild(1).GetComponent<ParticleSystem>().startColor = new Color(255,255,0);
+
                 }
             }
         }

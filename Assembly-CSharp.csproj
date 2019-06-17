@@ -73,10 +73,12 @@
     <Compile Include="Assets\Code\ChangeCharacter.cs" />
     <Compile Include="Assets\Code\DameLogo.cs" />
     <Compile Include="Assets\Code\DongTac.cs" />
+    <Compile Include="Assets\Code\FlagNPC.cs" />
     <Compile Include="Assets\Code\Health.cs" />
     <Compile Include="Assets\Code\HealthBarMain.cs" />
     <Compile Include="Assets\Code\ManachacracterBar.cs" />
     <Compile Include="Assets\Code\Mancharacter.cs" />
+    <Compile Include="Assets\Code\NPCControler.cs" />
     <Compile Include="Assets\Code\PheANCLogo.cs" />
     <Compile Include="Assets\Code\PheHKMLogo.cs" />
     <Compile Include="Assets\Code\PhePhai.cs" />

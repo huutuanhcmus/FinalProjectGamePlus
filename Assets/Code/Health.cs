@@ -6,10 +6,17 @@ using UnityEngine.UI;
 
 public class Health : NetworkBehaviour
 {
-    public const int maxHealth = 100;
-    public int showMaxHealth = maxHealth;
-    [SyncVar] public int currentHealth = maxHealth;
+    public int maxHealth = 100;
+    public int showMaxHealth;
+    [SyncVar] public int currentHealth;
     public Transform healthBar;
+
+    private void Start()
+    {
+        showMaxHealth = maxHealth;
+        currentHealth = maxHealth;
+    }
+
     [Command]
     public void CmdTakeDame(int amount)
     {

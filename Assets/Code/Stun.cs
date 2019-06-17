@@ -48,5 +48,9 @@ public class Stun : NetworkBehaviour
             }
             Destroy(gameObject);
         }
+        if (other.tag == "NPC" && other.GetComponent<NPCControler>().Phe != Phe)
+        {
+            Destroy(gameObject);
+        }
     }
 }
