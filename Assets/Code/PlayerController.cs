@@ -739,6 +739,7 @@ public class PlayerController : NetworkBehaviour
 
     public override void OnStartLocalPlayer()
     {
+        Debug.Log("----------");
         name = "MainChar";
         Camera.main.GetComponent<CameraController>().setTarget(gameObject.transform);
         transform.position = new Vector3(-540.13f, 14.39f, 222.06f);

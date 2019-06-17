@@ -1457,6 +1457,7 @@ MonoBehaviour:
   showMaxHealth: 100
   currentHealth: 100
   healthBar: {fileID: 5423812021466931961}
+  flagList: []
 --- !u!114 &8294219348060720809
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -10,6 +10,7 @@ public class Health : NetworkBehaviour
     public int showMaxHealth;
     [SyncVar] public int currentHealth;
     public Transform healthBar;
+    public List<GameObject> flagList;
 
     private void Start()
     {
@@ -23,9 +24,28 @@ public class Health : NetworkBehaviour
         currentHealth -= amount;
         if (currentHealth <= 0)
         {
+            flagList = new List<GameObject>();
+            foreach (GameObject Flag in Resources.FindObjectsOfTypeAll(typeof(GameObject)))
+            {
+                if (Flag.tag == "NPC" && Flag.GetComponent<NPCControler>().Phe == GetComponent<PlayerController>().Phe)
+                {
+                    flagList.Add(Flag);
+                }
+            }
+            float minDistance = Vector3.Distance(GetComponent<Transform>().position, flagList[0].GetComponent<Transform>().position);
+            GameObject posMinDistance = flagList[0];
+            foreach (GameObject flag in flagList)
+            {
+                if (Vector3.Distance(GetComponent<Transform>().position, flag.GetComponent<Transform>().position) < minDistance)
+                {
+                    minDistance = Vector3.Distance(GetComponent<Transform>().position, flag.GetComponent<Transform>().position);
+                    posMinDistance = flag;
+                    Debug.Log(minDistance);
+                }
+            }
             currentHealth = maxHealth;
-            //RpcRepawn(new Vector3(-540.13f, 14.39f, 222.06f));
-            transform.position = new Vector3(-540.13f, 14.39f, 222.06f);
+            GetComponent<Mancharacter>().currentMana = GetComponent<Mancharacter>().showMaxMana;
+            RpcMoveTo(posMinDistance.GetComponent<Transform>().position);
         }
     }
 
@@ -33,13 +53,16 @@ public class Health : NetworkBehaviour
     public void CmdPushHealth(int amount)
     {
         currentHealth += amount;
-        if (currentHealth >= maxHealth)
-        {
+        if (currentHealth > maxHealth)
             currentHealth = maxHealth;
-        }
+        
     }
 
-
+    [ClientRpc]
+    void RpcMoveTo(Vector3 newPosition)
+    {
+        transform.position = newPosition; //this will run in all clients
+    }
 
     private void Update()
     {

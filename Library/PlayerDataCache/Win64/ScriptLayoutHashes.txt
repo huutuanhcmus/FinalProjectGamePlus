@@ -160,8 +160,9 @@ e113b9d17139ddc8b67fb840e2b12ecf Assembly-CSharp.dll:.HPPlayerManager
 4e9dc17ee67d08ccba4f39dde79b3679 Assembly-CSharp.dll:.DameLogo
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:Suimono.Core.fx_causticObject
 040ce2f25a360705cf7323609b242ae5 Assembly-CSharp.dll:.ManachacracterBar
-79fa27ed07a0e7c53f109868161a5791 Assembly-CSharp.dll:.Health
+4ce7d8907c4c7d7689ecd87feecd1c82 Assembly-CSharp.dll:.Health
 740e2a55bf8d3a2560b90ee495ddf640 Assembly-CSharp.dll:.sui_demo_LightHandler
+79fa27ed07a0e7c53f109868161a5791 Assembly-CSharp.dll:.HealthNPC
 e85f37a86e3a3955a8924a4fc99da03d Assembly-CSharp.dll:.Bullet
 b3ab2106268377ffe25dd18ac23dca28 Unity.TextMeshPro.dll:TMPro.TMP_Asset
 6bcbc15f179e8c905f52f6cc37291a76 Assembly-CSharp.dll:.PlayerController
@@ -281,4 +282,3 @@ feb84bcce1f5af2798ac32e70417eb3f Assembly-CSharp.dll:.FlagNPC
 491820d5e0224270f2832e19f25805ef Assembly-CSharp.dll:Suimono.Core.SuimonoModuleLib
 490abd4c02253c5ce6e721ec4ef63e91 Assembly-CSharp.dll:.Test
 09d91be4d332285157ef992e11ea8c50 Assembly-CSharp.dll:.Attack
-79fa27ed07a0e7c53f109868161a5791 Assembly-CSharp.dll:.HealthNPC
