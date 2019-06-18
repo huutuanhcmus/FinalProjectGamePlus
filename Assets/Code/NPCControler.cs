@@ -18,6 +18,5 @@ public class NPCControler : NetworkBehaviour
     // Update is called once per frame
     void Update()
     {
-        
     }
 }

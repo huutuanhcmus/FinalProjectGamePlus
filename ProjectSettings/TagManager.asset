@@ -8,6 +8,8 @@ TagManager:
   - Character
   - SkillOver
   - NPC
+  - ServerController
+  - NPCMain
   layers:
   - Default
   - TransparentFX

@@ -270,7 +270,7 @@ c6666661329916e218bee7f5e79e60f5 Unity.TextMeshPro.dll:TMPro.TextMeshPro
 3165968ba45c74472d279ba04455fccb Unity.TextMeshPro.dll:TMPro.TMP_ColorGradient
 acad6a5a3e5ce26933e372a3349e72a4 Assembly-CSharp.dll:.sui_demo_InputController
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:UnityStandardAssets.ImageEffects.PostEffectsBase
-feb84bcce1f5af2798ac32e70417eb3f Assembly-CSharp.dll:.FlagNPC
+06a1071a6383387df2f1ffed4821b376 Assembly-CSharp.dll:.FlagNPC
 8ccce45a027cfbb02441998345f2c121 Assembly-CSharp.dll:UnityStandardAssets.ImageEffects.EdgeDetection
 8649814970b42d345b89944b862453cc Unity.TextMeshPro.dll:TMPro.TMP_SubMesh
 37db925b48eb8d92ea5261381327316a Assembly-CSharp.dll:.Fireball
