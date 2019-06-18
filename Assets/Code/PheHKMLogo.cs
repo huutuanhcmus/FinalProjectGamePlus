@@ -10,27 +10,41 @@ public class PheHKMLogo : MonoBehaviour
     public Transform HKMPos;
     public GameObject DoiPhuong;
     // Update is called once per frame
+    public GameObject mainChar;
+
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F1))
+        if (mainChar == null)
         {
             foreach (GameObject go in Resources.FindObjectsOfTypeAll(typeof(GameObject)))
             {
                 if (go.name == "MainChar")
                 {
-                    go.GetComponent<PlayerController>().CmdHKM();
-                    go.GetComponent<Transform>().position = HKMPos.position;
+                    mainChar = go;
                     break;
                 }
             }
-            testImage.enabled = false;
-            GetComponent<PheHKMLogo>().enabled = false;
-            DoiPhuong.GetComponent<PheANCLogo>().enabled = false;
         }
-        if (Input.GetKeyDown(KeyCode.F2))
+        else
         {
-            Debug.Log("vvvvvv");
-            testImage.enabled = true;
+            if (Input.GetKeyDown(KeyCode.F1) && mainChar.GetComponent<PlayerController>().Ready == true)
+            {
+                mainChar.GetComponent<PlayerController>().CmdHKM();
+                //mainChar.GetComponent<Transform>().position = HKMPos.position;
+                //testImage.enabled = false;
+                //GetComponent<PheHKMLogo>().enabled = false;
+                //DoiPhuong.GetComponent<PheANCLogo>().enabled = false;
+            }
+            /*if (Input.GetKeyDown(KeyCode.F2))
+            {
+                Debug.Log("vvvvvv");
+                testImage.enabled = true;
+            }*/
+            if (mainChar.GetComponent<PlayerController>().Phe == 1)
+            {
+                testImage.enabled = false;
+                GetComponent<RawImage>().enabled = true;
+            }
         }
     }
 }

@@ -16,7 +16,7 @@ public class HealthNPC : NetworkBehaviour
         currentHealth = maxHealth;
     }
 
-    [Command]
+    //[Command]
     public void CmdTakeDame(int amount)
     {
         currentHealth -= amount;

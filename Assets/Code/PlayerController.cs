@@ -9,6 +9,7 @@ using UnityEngine.UI;
 
 public class PlayerController : NetworkBehaviour
 {
+    [SyncVar] public bool Ready = true;
     [SyncVar] public int dameOrBuff = 1;
     [SyncVar] public float speed = 1.0f;
     public GameObject bullet;
@@ -607,7 +608,6 @@ public class PlayerController : NetworkBehaviour
         NetworkServer.Spawn(CirCleWallTemp);
     }
 
-    [Command]
     void CmdJibunBuffMana()
     {
         var CirCleWallTemp = (GameObject)Instantiate(jibunBuffManahOb, circleWallspawn.position, circleWallspawn.rotation);
@@ -707,7 +707,6 @@ public class PlayerController : NetworkBehaviour
         Phe = 1;
     }
 
-    [Command]
     public void CmdStunPlayer(float speedFunc)
     {
         Debug.Log("3");
@@ -737,8 +736,15 @@ public class PlayerController : NetworkBehaviour
         speed = 1;
     }
 
+    [Command]
+    void CmdsetReady()
+    {
+        Ready = true;
+    }
+
     public override void OnStartLocalPlayer()
     {
+        CmdsetReady();
         Debug.Log("----------");
         name = "MainChar";
         Camera.main.GetComponent<CameraController>().setTarget(gameObject.transform);
@@ -831,6 +837,11 @@ public class PlayerController : NetworkBehaviour
         {
             return t.Seconds.ToString();
         }
+    }
+
+    public void changePos(Vector3 pos)
+    {
+        transform.position = pos;
     }
 
     void PauseAllAnimationCurDame()

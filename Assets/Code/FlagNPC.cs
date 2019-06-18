@@ -6,6 +6,8 @@ using UnityEngine.Networking;
 
 public class FlagNPC : NetworkBehaviour
 {
+    public Transform posHKM;
+    public Transform posANC;
     public List<GameObject> HKMFlagOb;
     public List<GameObject> ANCFlagOb;
     public List<Transform> HKMPos;
@@ -30,10 +32,15 @@ public class FlagNPC : NetworkBehaviour
     public List<GameObject> listPlayer;
     public int numberANCPlayer = 0;
     public int numberHKMPlayer = 0;
+    public List<GameObject> listPlayerHKM;
+    public List<GameObject> listPlayerANC;
+
     public override void OnStartServer()
     {
         base.OnStartServer();
         listPlayer = new List<GameObject>();
+        listPlayerHKM = new List<GameObject>();
+        listPlayerANC = new List<GameObject>();
         for (int i = 0; i < HKMPos.Count; i++)
         {
             HKMFlag.Add((GameObject)Instantiate(HKMFlagOb[i], HKMPos[i].position, HKMPos[i].rotation));
@@ -70,44 +77,116 @@ public class FlagNPC : NetworkBehaviour
                 if (HKMTime > ANCTime)
                 {
                     var temp = (GameObject)Instantiate(obHKMLogo);
-                    NetworkServer.Spawn(obHKMLogo);
+                    NetworkServer.Spawn(temp);
                 }
                 else if (ANCTime > HKMTime)
                 {
                     var temp = (GameObject)Instantiate(obANCLogo);
-                    NetworkServer.Spawn(obANCLogo);
+                    NetworkServer.Spawn(temp);
                 }
             }
         }
         else
         {
-            /*foreach (GameObject Player in Resources.FindObjectsOfTypeAll(typeof(GameObject)))
+            listPlayer.Clear();
+            listPlayerANC.Clear();
+            listPlayerHKM.Clear();
+            if(NetworkServer.connections.Count == numberPlayer + 1)
             {
-                if(Player.tag == "Player" && !listPlayer.Contains(Player))
+                foreach (GameObject Player in Resources.FindObjectsOfTypeAll(typeof(GameObject)))
                 {
-                    listPlayer.Add(Player);
+                    if (Player.tag == "Player" && !listPlayer.Contains(Player))
+                    {
+                        listPlayer.Add(Player);
+                    }
                 }
-            }*/
+                foreach (GameObject Player in listPlayer)
+                {
+                    Debug.Log("Do day roi");
+                    if (Player.GetComponent<PlayerController>().Phe == 1 && !listPlayerHKM.Contains(Player))
+                    {
+                        listPlayerHKM.Add(Player);
+                    }
+                    else if (Player.GetComponent<PlayerController>().Phe == 2 && !listPlayerANC.Contains(Player))
+                    {
+                        listPlayerANC.Add(Player);
+                    }
+                }
+                if(listPlayerHKM.Count > (numberPlayer / 2))
+                {
+                    for (int i = numberPlayer / 2; i < listPlayerHKM.Count; i++)
+                    {
+                        Debug.Log(listPlayerHKM.Count);
+                        //RpcChuyenPhe(listPlayerHKM[i], 2);
+                        listPlayerHKM[i].GetComponent<PlayerController>().Phe = 2;
+                        listPlayerANC.Add(listPlayerHKM[i]);
+                        listPlayerHKM.RemoveAt(i);
+                        i--;
+                    }
+                }
+                if (listPlayerANC.Count > (numberPlayer / 2))
+                {
 
-            /*foreach (GameObject Player in listPlayer)
-            {
-                if(Player.GetComponent<PlayerController>().Phe == 1)
-                {
-                    numberHKMPlayer++;
+                    for (int i = numberPlayer / 2; i < listPlayerANC.Count; i++)
+                    {
+                        Debug.Log(listPlayerANC.Count);
+
+                        //RpcChuyenPhe(listPlayerANC[i], 1);
+                        listPlayerANC[i].GetComponent<PlayerController>().Phe = 1;
+                        listPlayerHKM.Add(listPlayerANC[i]);
+                        listPlayerANC.RemoveAt(i);
+                        i--;
+                    }
                 }
-                else if (Player.GetComponent<PlayerController>().Phe == 2)
+                if(listPlayerANC.Count == numberPlayer/2 && listPlayerHKM.Count == numberPlayer / 2)
                 {
-                    numberANCPlayer++;
+                    for(int i=0;i< listPlayerHKM.Count; i++)
+                    {
+                        listPlayerHKM[i].GetComponent<PlayerController>().Ready = false;
+                        listPlayerHKM[i].GetComponent<Health>().RpcMoveTo(posHKM.position);
+                    }
+                    for (int i = 0; i < listPlayerANC.Count; i++)
+                    {
+                        listPlayerANC[i].GetComponent<PlayerController>().Ready = false;
+                        listPlayerANC[i].GetComponent<Health>().RpcMoveTo(posANC.position);
+                    }
+                    /*Debug.Log("do dc day r");
+                    foreach (GameObject Player in listPlayer)
+                    {
+                        Debug.Log("cbbb");
+                        Player.GetComponent<PlayerController>().Ready = false;
+                        if (Player.GetComponent<PlayerController>().Phe == 1)
+                        {
+                            Debug.Log("cbbb1");
+                            //Player.GetComponent<Transform>().position = posHKM.position;
+                            RpcMoveTo(Player, posHKM.position);
+                        }
+                        else if (Player.GetComponent<PlayerController>().Phe == 2)
+                        {
+                            Debug.Log("cbbb2");
+                            //Player.GetComponent<Transform>().position = posANC.position;
+                            RpcMoveTo(Player, posANC.position);
+                            
+                        }
+                    }*/
+                    start = true;
                 }
-            }*/
-            /*if(NetworkServer.connections.Count >= numberPlayer)
-            {
-                
-            }*/
+            }
         }
     }
 
-    [Command]
+    [ClientRpc]
+    void RpcMoveTo(GameObject ob, Vector3 pos)
+    {
+        Debug.Log("bccc");
+        ob.GetComponent<Transform>().position = pos; //this will run in all clients
+    }
+    [ClientRpc]
+    void RpcChuyenPhe(GameObject player, int phe)
+    {
+        player.GetComponent<PlayerController>().Phe = phe;
+    }
+
     void CmdPushTime()
     {
         foreach (GameObject NPC in Resources.FindObjectsOfTypeAll(typeof(GameObject)))

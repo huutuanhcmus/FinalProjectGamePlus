@@ -7,25 +7,35 @@ public class BuffLogo : MonoBehaviour
 {
     public RawImage testImage;
     public GameObject DoiPhuong;
-    // Update is called once per frame
+    public GameObject mainChar;
+
+    
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F3))
-        {
-            testImage.enabled = true;
-        }
-        if (Input.GetKeyDown(KeyCode.F4))
+        if (mainChar == null)
         {
             foreach (GameObject go in Resources.FindObjectsOfTypeAll(typeof(GameObject)))
             {
                 if (go.name == "MainChar")
                 {
-                    go.GetComponent<PlayerController>().CmdChuyenBuff();
+                    mainChar = go;
+                    break;
                 }
             }
-            testImage.enabled = false;
-            GetComponent<BuffLogo>().enabled = false;
-            DoiPhuong.GetComponent<DameLogo>().enabled = false;
+        }
+        else
+        {
+            if (Input.GetKeyDown(KeyCode.F3) && mainChar.GetComponent<PlayerController>().Ready == true)
+            {
+                testImage.enabled = true;
+            }
+            if (Input.GetKeyDown(KeyCode.F4) && mainChar.GetComponent<PlayerController>().Ready == true)
+            {
+                mainChar.GetComponent<PlayerController>().CmdChuyenBuff();
+                testImage.enabled = false;
+                //GetComponent<BuffLogo>().enabled = false;
+                //DoiPhuong.GetComponent<DameLogo>().enabled = false;
+            }
         }
     }
 }

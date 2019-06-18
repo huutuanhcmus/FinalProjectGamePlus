@@ -107,7 +107,7 @@ a4f53786c5e89397b7d34957535b29a9 Assembly-CSharp.dll:UnityStandardAssets.ImageEf
 cb31bb31cef6b7f0ad8ae8b885bf38d6 Assembly-CSharp.dll:.AOESkill
 47f7902f8963babdce608bf76d778b9c Assembly-CSharp.dll:UnityStandardAssets.ImageEffects.Antialiasing
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.SubPlayerController
-4e9dc17ee67d08ccba4f39dde79b3679 Assembly-CSharp.dll:.BuffLogo
+9c537c7a686723578c91300fbcafaa5e Assembly-CSharp.dll:.BuffLogo
 8037b5a5c2c80155a18a2623b362806b Assembly-CSharp.dll:DigitalRuby.LightningBolt.LightningBoltScript
 b6abddfe81ce7709fd679f1ea0433cf7 Assembly-CSharp.dll:UnityStandardAssets.ImageEffects.BloomAndFlares
 71bb6a6b6c8f052f948db64c7dd3ca4f UnityEngine.Timeline.dll:UnityEngine.Timeline.ActivationPlayableAsset
@@ -153,11 +153,11 @@ cac94d8be0bcbfb6e72c4a30eed9cd3d Assembly-CSharp.dll:.sui_demo_ControllerOrbit
 122d7ffab68b4eedc72a1fce03e63c2f Assembly-CSharp.dll:UnityStandardAssets.ImageEffects.BloomOptimized
 97fe134eac2fe13c13700463060d6909 Assembly-CSharp.dll:.ui_suimonoHandler
 47c569454989385c1a7012d6161766f8 Assembly-CSharp.dll:.buffManaSingle
-bed538cc994baf3d24c49e930499f703 Assembly-CSharp.dll:.PheHKMLogo
+679e99da7eaea63f27f18152c94c3828 Assembly-CSharp.dll:.PheHKMLogo
 c08ee204c43044b9314883f8654f6e1a Assembly-CSharp.dll:.sui_demo_trigger
 94017dcc9f00fe671ea7dc427b4da011 Unity.TextMeshPro.dll:TMPro.TMP_SpriteAsset
 e113b9d17139ddc8b67fb840e2b12ecf Assembly-CSharp.dll:.HPPlayerManager
-4e9dc17ee67d08ccba4f39dde79b3679 Assembly-CSharp.dll:.DameLogo
+9c537c7a686723578c91300fbcafaa5e Assembly-CSharp.dll:.DameLogo
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:Suimono.Core.fx_causticObject
 040ce2f25a360705cf7323609b242ae5 Assembly-CSharp.dll:.ManachacracterBar
 4ce7d8907c4c7d7689ecd87feecd1c82 Assembly-CSharp.dll:.Health
@@ -165,7 +165,7 @@ e113b9d17139ddc8b67fb840e2b12ecf Assembly-CSharp.dll:.HPPlayerManager
 79fa27ed07a0e7c53f109868161a5791 Assembly-CSharp.dll:.HealthNPC
 e85f37a86e3a3955a8924a4fc99da03d Assembly-CSharp.dll:.Bullet
 b3ab2106268377ffe25dd18ac23dca28 Unity.TextMeshPro.dll:TMPro.TMP_Asset
-6bcbc15f179e8c905f52f6cc37291a76 Assembly-CSharp.dll:.PlayerController
+c248416eb835ffe2f9d4e03756f7289e Assembly-CSharp.dll:.PlayerController
 3a3324b73792dde0ff97dae69b3a3dfb Assembly-CSharp.dll:UnityStandardAssets.ImageEffects.SunShafts
 c1fb5fa27e739b05514ea7d68b24c684 Assembly-CSharp.dll:.utility_AdjustCulling
 4e86c3ef3b0a84abedeeb1f0a6785778 Assembly-CSharp.dll:Suimono.Core.SuimonoModuleFX
@@ -192,7 +192,7 @@ c81166727ba349da6e8229b783767b8b Assembly-CSharp.dll:Suimono.Core.SuimonoCamera_
 edd1f6dd2e95403f536b03c2fbfd6811 Assembly-CSharp.dll:.CameraController
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:UnityStandardAssets.ImageEffects.PostEffectsHelper
 c70d36ec69db38c618fe45462b706ceb Assembly-CSharp.dll:.NPC
-1b49730799e8b71ab9ae041686ccdb7e Assembly-CSharp.dll:.PheANCLogo
+3c66a2fe6732bebd1973271115f74c2b Assembly-CSharp.dll:.PheANCLogo
 1a9e52e2ff472238deaebe06595ba637 Assembly-CSharp.dll:UnityStandardAssets.ImageEffects.ScreenSpaceAmbientOcclusion
 e6ae40841db498b6e673877ac45ad208 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkAnimator
 71bb6a6b6c8f052f948db64c7dd3ca4f UnityEngine.Networking.dll:UnityEngine.Networking.NetworkBehaviour
@@ -270,7 +270,7 @@ c6666661329916e218bee7f5e79e60f5 Unity.TextMeshPro.dll:TMPro.TextMeshPro
 3165968ba45c74472d279ba04455fccb Unity.TextMeshPro.dll:TMPro.TMP_ColorGradient
 acad6a5a3e5ce26933e372a3349e72a4 Assembly-CSharp.dll:.sui_demo_InputController
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:UnityStandardAssets.ImageEffects.PostEffectsBase
-b40f761e62ecc04d4f121e71b4afc10e Assembly-CSharp.dll:.FlagNPC
+172a2c3a43032f3d281b77e9aded9f10 Assembly-CSharp.dll:.FlagNPC
 8ccce45a027cfbb02441998345f2c121 Assembly-CSharp.dll:UnityStandardAssets.ImageEffects.EdgeDetection
 8649814970b42d345b89944b862453cc Unity.TextMeshPro.dll:TMPro.TMP_SubMesh
 37db925b48eb8d92ea5261381327316a Assembly-CSharp.dll:.Fireball
@@ -282,3 +282,4 @@ b40f761e62ecc04d4f121e71b4afc10e Assembly-CSharp.dll:.FlagNPC
 491820d5e0224270f2832e19f25805ef Assembly-CSharp.dll:Suimono.Core.SuimonoModuleLib
 490abd4c02253c5ce6e721ec4ef63e91 Assembly-CSharp.dll:.Test
 09d91be4d332285157ef992e11ea8c50 Assembly-CSharp.dll:.Attack
+21e871d89bbce53c038fc75ad1b7c7f3 Assembly-CSharp.dll:.DangKyTK

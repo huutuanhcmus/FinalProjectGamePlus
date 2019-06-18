@@ -18,7 +18,7 @@ public class Health : NetworkBehaviour
         currentHealth = maxHealth;
     }
 
-    [Command]
+    //[Command]
     public void CmdTakeDame(int amount)
     {
         currentHealth -= amount;
@@ -49,7 +49,6 @@ public class Health : NetworkBehaviour
         }
     }
 
-    [Command]
     public void CmdPushHealth(int amount)
     {
         currentHealth += amount;
@@ -59,9 +58,10 @@ public class Health : NetworkBehaviour
     }
 
     [ClientRpc]
-    void RpcMoveTo(Vector3 newPosition)
+    public void RpcMoveTo(Vector3 newPosition)
     {
         transform.position = newPosition; //this will run in all clients
+
     }
 
     private void Update()

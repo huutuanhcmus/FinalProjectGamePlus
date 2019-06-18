@@ -72,6 +72,7 @@
     <Compile Include="Assets\Code\CameraFollowRotate.cs" />
     <Compile Include="Assets\Code\ChangeCharacter.cs" />
     <Compile Include="Assets\Code\DameLogo.cs" />
+    <Compile Include="Assets\Code\DangKyTK.cs" />
     <Compile Include="Assets\Code\DongTac.cs" />
     <Compile Include="Assets\Code\FlagNPC.cs" />
     <Compile Include="Assets\Code\Health.cs" />

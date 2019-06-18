@@ -19,7 +19,6 @@ public class Mancharacter : NetworkBehaviour
             
     }
 
-    [Command]
     public void CmdPushMana(int amount)
     {
         currentMana += amount;
