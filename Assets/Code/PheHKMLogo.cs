@@ -8,6 +8,7 @@ public class PheHKMLogo : MonoBehaviour
     // Start is called before the first frame update
     public RawImage testImage;
     public Transform HKMPos;
+    public GameObject DoiPhuong;
     // Update is called once per frame
     void Update()
     {
@@ -23,6 +24,8 @@ public class PheHKMLogo : MonoBehaviour
                 }
             }
             testImage.enabled = false;
+            GetComponent<PheHKMLogo>().enabled = false;
+            DoiPhuong.GetComponent<PheANCLogo>().enabled = false;
         }
         if (Input.GetKeyDown(KeyCode.F2))
         {

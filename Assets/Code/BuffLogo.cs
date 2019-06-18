@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class BuffLogo : MonoBehaviour
 {
     public RawImage testImage;
+    public GameObject DoiPhuong;
     // Update is called once per frame
     void Update()
     {
@@ -15,7 +16,16 @@ public class BuffLogo : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.F4))
         {
+            foreach (GameObject go in Resources.FindObjectsOfTypeAll(typeof(GameObject)))
+            {
+                if (go.name == "MainChar")
+                {
+                    go.GetComponent<PlayerController>().CmdChuyenBuff();
+                }
+            }
             testImage.enabled = false;
+            GetComponent<BuffLogo>().enabled = false;
+            DoiPhuong.GetComponent<DameLogo>().enabled = false;
         }
     }
 }

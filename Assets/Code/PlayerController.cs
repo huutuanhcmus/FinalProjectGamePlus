@@ -449,14 +449,14 @@ public class PlayerController : NetworkBehaviour
         }
 
 
-        if (Input.GetKeyDown(KeyCode.F3))
+        /*if (Input.GetKeyDown(KeyCode.F3))
         {
             CmdChuyenDame();
         }
         if (Input.GetKeyDown(KeyCode.F4))
         {
             CmdChuyenBuff();
-        }
+        }*/
         /*if (Input.GetKeyDown(KeyCode.F1))
         {
             CmdHKM();
@@ -472,13 +472,13 @@ public class PlayerController : NetworkBehaviour
     }
 
     [Command]
-    void CmdChuyenDame()
+    public void CmdChuyenDame()
     {
         dameOrBuff = 1;
     }
 
     [Command]
-    void CmdChuyenBuff()
+    public void CmdChuyenBuff()
     {
         dameOrBuff = 2;
     }

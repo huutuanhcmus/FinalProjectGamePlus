@@ -7,6 +7,7 @@ public class PheANCLogo : MonoBehaviour
 {
     public RawImage testImage;
     public Transform ANCPos;
+    public GameObject DoiPhuong;
     // Update is called once per frame
     void Update()
     {
@@ -26,6 +27,8 @@ public class PheANCLogo : MonoBehaviour
                 }
             }
             testImage.enabled = false;
+            GetComponent<PheANCLogo>().enabled = false;
+            DoiPhuong.GetComponent<PheHKMLogo>().enabled = false;
         }
     }
 }
