@@ -457,14 +457,14 @@ public class PlayerController : NetworkBehaviour
         {
             CmdChuyenBuff();
         }
-        if (Input.GetKeyDown(KeyCode.F1))
+        /*if (Input.GetKeyDown(KeyCode.F1))
         {
             CmdHKM();
         }
         if (Input.GetKeyDown(KeyCode.F2))
         {
             CmdANC();
-        }
+        }*/
         Debug.Log("4");
         PlaySupperDame();
         HoiMauChar();
@@ -742,7 +742,7 @@ public class PlayerController : NetworkBehaviour
         Debug.Log("----------");
         name = "MainChar";
         Camera.main.GetComponent<CameraController>().setTarget(gameObject.transform);
-        transform.position = new Vector3(-540.13f, 14.39f, 222.06f);
+        transform.position = new Vector3(-477f, 29.32f, 240.93f);
         base.OnStartLocalPlayer();
     }
 

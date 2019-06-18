@@ -25,9 +25,15 @@ public class FlagNPC : NetworkBehaviour
     public bool flagTotal = false;
     public int time;
     public int totalTime;
+    public int numberPlayer = 4;
+    public bool start = false;
+    public List<GameObject> listPlayer;
+    public int numberANCPlayer = 0;
+    public int numberHKMPlayer = 0;
     public override void OnStartServer()
     {
         base.OnStartServer();
+        listPlayer = new List<GameObject>();
         for (int i = 0; i < HKMPos.Count; i++)
         {
             HKMFlag.Add((GameObject)Instantiate(HKMFlagOb[i], HKMPos[i].position, HKMPos[i].rotation));
@@ -46,29 +52,58 @@ public class FlagNPC : NetworkBehaviour
 
     private void Update()
     {
-        if (flag)
+        if (start)
         {
-            flag = false;
-            CmdPushTime();
-            HKMTime -= 4;
-            ANCTime -= 4;
+            if (flag)
+            {
+                flag = false;
+                CmdPushTime();
+                HKMTime -= 4;
+                ANCTime -= 4;
+            }
+            if (flagTotal)
+            {
+                countTimeThread.Abort();
+                countTotalTimeThread.Abort();
+                flagTotal = false;
+                Debug.Log("abcdef");
+                if (HKMTime > ANCTime)
+                {
+                    var temp = (GameObject)Instantiate(obHKMLogo);
+                    NetworkServer.Spawn(obHKMLogo);
+                }
+                else if (ANCTime > HKMTime)
+                {
+                    var temp = (GameObject)Instantiate(obANCLogo);
+                    NetworkServer.Spawn(obANCLogo);
+                }
+            }
         }
-        if (flagTotal)
+        else
         {
-            countTimeThread.Abort();
-            countTotalTimeThread.Abort();
-            flagTotal = false;
-            Debug.Log("abcdef");
-            if (HKMTime > ANCTime)
+            /*foreach (GameObject Player in Resources.FindObjectsOfTypeAll(typeof(GameObject)))
             {
-                var temp = (GameObject)Instantiate(obHKMLogo);
-                NetworkServer.Spawn(obHKMLogo);
-            }
-            else if(ANCTime > HKMTime)
+                if(Player.tag == "Player" && !listPlayer.Contains(Player))
+                {
+                    listPlayer.Add(Player);
+                }
+            }*/
+
+            /*foreach (GameObject Player in listPlayer)
             {
-                var temp = (GameObject)Instantiate(obANCLogo);
-                NetworkServer.Spawn(obANCLogo);
-            }
+                if(Player.GetComponent<PlayerController>().Phe == 1)
+                {
+                    numberHKMPlayer++;
+                }
+                else if (Player.GetComponent<PlayerController>().Phe == 2)
+                {
+                    numberANCPlayer++;
+                }
+            }*/
+            /*if(NetworkServer.connections.Count >= numberPlayer)
+            {
+                
+            }*/
         }
     }
 

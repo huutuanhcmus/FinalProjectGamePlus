@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class PheANCLogo : MonoBehaviour
 {
     public RawImage testImage;
+    public Transform ANCPos;
     // Update is called once per frame
     void Update()
     {
@@ -15,6 +16,15 @@ public class PheANCLogo : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.F2))
         {
+            foreach (GameObject go in Resources.FindObjectsOfTypeAll(typeof(GameObject)))
+            {
+                if (go.name == "MainChar")
+                {
+                    go.GetComponent<PlayerController>().CmdANC();
+                    go.GetComponent<Transform>().position = ANCPos.position;
+                    break;
+                }
+            }
             testImage.enabled = false;
         }
     }
