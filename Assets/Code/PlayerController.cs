@@ -87,6 +87,12 @@ public class PlayerController : NetworkBehaviour
     public float jumpSpeed = 5;
     Thread jumpCountTime;
     int timeJump = 1;
+    public float speedH = 2.0f;
+    public float speedV = 2.0f;
+
+    private float yaw = 0.0f;
+    private float pitch = 0.0f;
+    public bool flagMouse = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -113,9 +119,25 @@ public class PlayerController : NetworkBehaviour
     }
 
 
+
+
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetMouseButton(1))
+        {
+            flagMouse = true;
+        }
+        else {
+            flagMouse = false;
+        }
+        if (flagMouse)
+        {
+
+            yaw += speedH * Input.GetAxis("Mouse X");
+            pitch += speedV * Input.GetAxis("Mouse Y");
+            transform.eulerAngles = new Vector3(-pitch, yaw, 0.0f);
+        }
         if (!isLocalPlayer)
         {
             return;

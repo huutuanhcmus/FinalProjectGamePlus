@@ -1393,6 +1393,9 @@ MonoBehaviour:
   jibunBuffManahOb: {fileID: 4166693966897151360, guid: 74a0ace6f41bd5a419ef8f606e1475df,
     type: 3}
   jumpSpeed: 5
+  speedH: 2
+  speedV: 2
+  flagMouse: 0
 --- !u!114 &571758553
 MonoBehaviour:
   m_ObjectHideFlags: 0

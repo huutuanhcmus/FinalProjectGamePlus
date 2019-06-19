@@ -5,41 +5,70 @@ using UnityEngine.UI;
 
 public class DangKyTK : NetworkManager
 {
-    public void StartupHost()
+    public class CustomMeesageTypes
     {
-        SetPort();
-        StartHost(); //Unity method
+        public static short AuthenticationMsgType = short.MaxValue;
+        public static short AuthenticationReplyType = short.MaxValue - 1;
     }
 
-    public void JoinGame()
+    public enum AuthenticationResponse
     {
-        SetIPAddress();
-        SetPort();
-        StartClient(); //Unity method
+        UnknownError = -1,
+        Authenticated = 0,
+        WrongUsernameOrPassword = 1
     }
 
-    void SetIPAddress()
+    public class AuthenticationParameters
     {
-        string ipAddress = GameObject.Find("InputFieldIPAddress").transform.FindChild("Text").GetComponent<Text>().text;
-        networkAddress = ipAddress;
+        public static string UserName { get; set; }
+        public static string Password { get; set; }
     }
 
-    void SetPort()
+    public override void OnClientConnect(NetworkConnection conn)
     {
-        networkPort = 4444;
+        Debug.LogWarning("Dev: Started OnClientConnect");
+        conn.RegisterHandler(CustomMeesageTypes.AuthenticationReplyType, AuthenticateResponse);
+        SendAuthentication(conn);
+        Debug.LogWarning("Dev: Finished OnClientConnect");
+        base.OnClientConnect(conn);
     }
 
-    void OnLevelWasLoaded(int level)
+    void SendAuthentication(NetworkConnection conn)
     {
-        if (level == 0)
+        Debug.LogWarning("Dev: Started SendAuthentication");
+        AuthenticationMessage message = new AuthenticationMessage()
         {
-            GameObject.Find("ButtonStartHost").GetComponent<Button>().onClick.AddListener(StartupHost);
-            GameObject.Find("ButtonJoinGame").GetComponent<Button>().onClick.AddListener(JoinGame);
-        }
+            username = AuthenticationParameters.UserName,
+            password = AuthenticationParameters.Password
+        };
+        conn.Send(CustomMeesageTypes.AuthenticationMsgType, message);
+        Debug.LogWarning("Dev: Finished SendAuthentication");
+    }
 
+    void AuthenticateResponse(NetworkMessage message)
+    {
+        Debug.LogWarning("Dev: Started AuthenticateResponse");
+        AuthenticationReplyMessage msg = message.ReadMessage<AuthenticationReplyMessage>();
+        if (msg.ResponseCode == AuthenticationResponse.Authenticated)
+        {
+            Debug.Log("Authenticated");
+            //base.OnClientConnect (message.conn);
+            return;
+        }
+        else if (msg.ResponseCode == AuthenticationResponse.WrongUsernameOrPassword)
+            Debug.Log(msg.ResponseCode);
         else
-        {
-            GameObject.Find("ButtonDisconnect").GetComponent<Button>().onClick.AddListener(StopHost); //Unity method
-        }
+            Debug.Log("Error: @" + msg + " : " + msg.ResponseCode);
+        message.conn.Disconnect();
+    }
+
+    public class AuthenticationMessage : MessageBase
+    {
+        public string username, password;
+    }
+
+    public class AuthenticationReplyMessage : MessageBase
+    {
+        public AuthenticationResponse ResponseCode;
     }
 }
