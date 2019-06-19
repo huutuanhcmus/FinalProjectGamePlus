@@ -17,10 +17,14 @@ public class CameraController : MonoBehaviour
         z = -2.22f;
         m = 1.18f;
     }
+    public float speedH = 2.0f;
+    public float speedV = 2.0f;
 
+    private float yaw = 0.0f;
+    private float pitch = 0.0f;
     // Update is called once per frame
     void Update()
-    {
+    {       
         if (playerTransform != null)
         {
             //transform.position = playerTransform.position + new Vector3(playerTransform.localRotation.x, playerTransform.localRotation.y, playerTransform.localRotation.z-5F);//new Vector3(0.4f,-3);
@@ -45,4 +49,6 @@ public class CameraController : MonoBehaviour
         Debug.Log("Tuan");
         playerTransform = target;
     }
+
+
 }

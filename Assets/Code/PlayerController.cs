@@ -92,7 +92,6 @@ public class PlayerController : NetworkBehaviour
 
     private float yaw = 0.0f;
     private float pitch = 0.0f;
-    public bool flagMouse = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -126,18 +125,13 @@ public class PlayerController : NetworkBehaviour
     {
         if (Input.GetMouseButton(1))
         {
-            flagMouse = true;
-        }
-        else {
-            flagMouse = false;
-        }
-        if (flagMouse)
-        {
-
+            Cursor.visible = false;
             yaw += speedH * Input.GetAxis("Mouse X");
             pitch += speedV * Input.GetAxis("Mouse Y");
             transform.eulerAngles = new Vector3(-pitch, yaw, 0.0f);
         }
+        else
+            Cursor.visible = true;
         if (!isLocalPlayer)
         {
             return;

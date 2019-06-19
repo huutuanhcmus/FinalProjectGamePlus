@@ -69,6 +69,7 @@ abf1930d8126d0b2e00e9449129a0190 UnityEngine.UI.dll:UnityEngine.EventSystems.Tou
 64e54c0cbb0177c5ea26f340efb9ff85 UnityEngine.UI.dll:UnityEngine.UI.VerticalLayoutGroup
 9189c1e4b80e8fff1d59da70829e541f Assembly-CSharp.dll:Suimono.Core.Suimono_ShorelineObject
 98ad81e9f689a492509f07e75b810aaa Unity.TextMeshPro.dll:TMPro.TMP_InputField
+21e871d89bbce53c038fc75ad1b7c7f3 Assembly-CSharp.dll:.DangKyTK
 cf9f5cf2c3145a37ac07f00e50e460f9 UnityEngine.UI.dll:UnityEngine.UI.AspectRatioFitter
 71bb6a6b6c8f052f948db64c7dd3ca4f UnityEngine.UI.dll:UnityEngine.EventSystems.BaseInput
 5fc094978ce3e3591a7500ed380d854a UnityEngine.UI.dll:UnityEngine.UI.Button
@@ -165,7 +166,7 @@ e113b9d17139ddc8b67fb840e2b12ecf Assembly-CSharp.dll:.HPPlayerManager
 79fa27ed07a0e7c53f109868161a5791 Assembly-CSharp.dll:.HealthNPC
 e85f37a86e3a3955a8924a4fc99da03d Assembly-CSharp.dll:.Bullet
 b3ab2106268377ffe25dd18ac23dca28 Unity.TextMeshPro.dll:TMPro.TMP_Asset
-c248416eb835ffe2f9d4e03756f7289e Assembly-CSharp.dll:.PlayerController
+51ac33f1909321b9b73d1b7c7daacaf4 Assembly-CSharp.dll:.PlayerController
 3a3324b73792dde0ff97dae69b3a3dfb Assembly-CSharp.dll:UnityStandardAssets.ImageEffects.SunShafts
 c1fb5fa27e739b05514ea7d68b24c684 Assembly-CSharp.dll:.utility_AdjustCulling
 4e86c3ef3b0a84abedeeb1f0a6785778 Assembly-CSharp.dll:Suimono.Core.SuimonoModuleFX
@@ -189,7 +190,7 @@ b2a649126f7cedb33d28c41f1defd3b7 Assembly-CSharp.dll:.ChangeCharacter
 af80edf94a264c213f47054cdb1d1f60 Assembly-CSharp.dll:.DemoManager
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:Suimono.Core.fx_EffectTrail
 c81166727ba349da6e8229b783767b8b Assembly-CSharp.dll:Suimono.Core.SuimonoCamera_depth
-edd1f6dd2e95403f536b03c2fbfd6811 Assembly-CSharp.dll:.CameraController
+6cbca63405aa018d911a057e99cf229c Assembly-CSharp.dll:.CameraController
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:UnityStandardAssets.ImageEffects.PostEffectsHelper
 c70d36ec69db38c618fe45462b706ceb Assembly-CSharp.dll:.NPC
 3c66a2fe6732bebd1973271115f74c2b Assembly-CSharp.dll:.PheANCLogo
@@ -282,4 +283,3 @@ acad6a5a3e5ce26933e372a3349e72a4 Assembly-CSharp.dll:.sui_demo_InputController
 491820d5e0224270f2832e19f25805ef Assembly-CSharp.dll:Suimono.Core.SuimonoModuleLib
 490abd4c02253c5ce6e721ec4ef63e91 Assembly-CSharp.dll:.Test
 09d91be4d332285157ef992e11ea8c50 Assembly-CSharp.dll:.Attack
-21e871d89bbce53c038fc75ad1b7c7f3 Assembly-CSharp.dll:.DangKyTK

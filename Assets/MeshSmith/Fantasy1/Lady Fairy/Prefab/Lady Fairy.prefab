@@ -1395,7 +1395,6 @@ MonoBehaviour:
   jumpSpeed: 5
   speedH: 2
   speedV: 2
-  flagMouse: 0
 --- !u!114 &571758553
 MonoBehaviour:
   m_ObjectHideFlags: 0
