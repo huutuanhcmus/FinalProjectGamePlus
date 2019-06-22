@@ -56,6 +56,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\1512183-Assets\Toon_RTS_demo\animations\KnightController.cs" />
+    <Compile Include="Assets\1512183-Assets\Toon_RTS_demo\animations\Move.cs" />
     <Compile Include="Assets\Code\AOESkill.cs" />
     <Compile Include="Assets\Code\Billboard.cs" />
     <Compile Include="Assets\Code\BuffAOE.cs" />
@@ -157,6 +158,7 @@
     <Compile Include="Assets\Scenes\ThietDinh.cs" />
     <Compile Include="Assets\Scenes\TienNhapDiaDo.cs" />
     <Compile Include="Assets\SUIMONO - WATER SYSTEM 2\_DEMO\GUI\guiFPS.cs" />
+    <Compile Include="Assets\SUIMONO - WATER SYSTEM 2\_DEMO\Menu.cs" />
     <Compile Include="Assets\SUIMONO - WATER SYSTEM 2\_DEMO\SCRIPTS\sui_demo_animBoat.cs" />
     <Compile Include="Assets\SUIMONO - WATER SYSTEM 2\_DEMO\SCRIPTS\sui_demo_animCharacter.cs" />
     <Compile Include="Assets\SUIMONO - WATER SYSTEM 2\_DEMO\SCRIPTS\sui_demo_ControllerBoat.cs" />

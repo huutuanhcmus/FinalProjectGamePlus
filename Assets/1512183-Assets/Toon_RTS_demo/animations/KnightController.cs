@@ -53,7 +53,7 @@ public class KnightController : MonoBehaviour
             }
         }
         rot += Input.GetAxis("Horizontal") * rotSpeed * Time.deltaTime;
-        transform.eulerAngles = new Vector3(0, rot, 0);
+        transform.eulerAngles = new Vector3(0, 0, rot);
         moveDir.y -= gravity * Time.deltaTime;
         controller.Move(moveDir * Time.deltaTime);
     }
