@@ -55,8 +55,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\1512183-Assets\Toon_RTS_demo\animations\KnightController.cs" />
-    <Compile Include="Assets\1512183-Assets\Toon_RTS_demo\animations\Move.cs" />
+    <Compile Include="Assets\1512183-Assets\BackMenu.cs" />
+    <Compile Include="Assets\1512183-Assets\Menu1.cs" />
+    <Compile Include="Assets\1512183-Assets\MenuFunction.cs" />
+    <Compile Include="Assets\1512183-Assets\StarfieldMaterials\Scripts\Move.cs" />
     <Compile Include="Assets\Code\AOESkill.cs" />
     <Compile Include="Assets\Code\Billboard.cs" />
     <Compile Include="Assets\Code\BuffAOE.cs" />
@@ -206,6 +208,8 @@
     <None Include="Assets\SUIMONO - WATER SYSTEM 2\_DEMO\OBJECTS\Shaders\Reflect-BumpSpec.shader" />
     <None Include="Assets\SUIMONO - WATER SYSTEM 2\RESOURCES\SUIMONO_PRESETS_Built-In Presets\SUIMONO_PRESET_Deep Dark Ocean.txt" />
     <None Include="Assets\NatureStarterKit2\Standard Assets\Effects\ImageEffects\Shaders\ShowAlphaChannel.shader" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
+    <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
     <None Include="Assets\SUIMONO - WATER SYSTEM 2\SHADERS\Suimono2_surface.shader" />
     <None Include="Assets\NatureStarterKit2\Standard Assets\Effects\ImageEffects\Shaders\SunShaftsComposite.shader" />
     <None Include="Assets\SUIMONO - WATER SYSTEM 2\RESOURCES\SUIMONO_PRESETS_Built-In Presets\SUIMONO_PRESET_Swimming Pool.txt" />
@@ -229,6 +233,7 @@
     <None Include="Assets\SUIMONO - WATER SYSTEM 2\RESOURCES\SUIMONO_PRESETS_Custom\SUIMONO_PRESET_Custom Example 1.txt" />
     <None Include="Assets\NatureStarterKit2\Standard Assets\Effects\ImageEffects\Shaders\Contrast Stretch\MinMaxReduction.shader" />
     <None Include="Assets\NatureStarterKit2\Standard Assets\Effects\ImageEffects\Shaders\_Antialiasing\SSAA.shader" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Properties.cginc" />
     <None Include="Assets\NatureStarterKit2\Standard Assets\Effects\ImageEffects\Shaders\RadialBlur.shader" />
     <None Include="Assets\NatureStarterKit2\Standard Assets\Effects\ImageEffects\Shaders\_DepthOfField\DepthOfFieldDX11.shader" />
     <None Include="Assets\NatureStarterKit2\Standard Assets\Effects\ImageEffects\Shaders\ContrastComposite.shader" />
@@ -240,6 +245,7 @@
     <None Include="Assets\SUIMONO - WATER SYSTEM 2\_DEMO\OBJECTS\Shaders\Suimono2_Demo_HairSpec.shader" />
     <None Include="Assets\NatureStarterKit2\Standard Assets\Effects\ImageEffects\Shaders\Contrast Stretch\Apply.shader" />
     <None Include="Assets\SUIMONO - WATER SYSTEM 2\RESOURCES\SUIMONO_PRESETS_Built-In Presets\SUIMONO_PRESET_Calm Clear.txt" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
     <None Include="Assets\NatureStarterKit2\Standard Assets\Effects\ImageEffects\Shaders\frag_ao.cginc" />
     <None Include="Assets\SUIMONO - WATER SYSTEM 2\SHADERS\Suimono2_FX_Fog.shader" />
     <None Include="Assets\SUIMONO - WATER SYSTEM 2\RESOURCES\SUIMONO_PRESETS_Built-In Presets\SUIMONO_PRESET_Buoyancy Scene Preset.txt" />
@@ -256,9 +262,12 @@
     <None Include="Assets\NatureStarterKit2\Standard Assets\Effects\ImageEffects\Shaders\NoiseEffectShaderYUV.shader" />
     <None Include="Assets\SUIMONO - WATER SYSTEM 2\_DEMO\TERRAIN\Shaders\suimono2_demo_flora_single.shader" />
     <None Include="Assets\NatureStarterKit2\Standard Assets\Effects\ImageEffects\Shaders\CreaseApply.shader" />
+    <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
     <None Include="Assets\SUIMONO - WATER SYSTEM 2\RESOURCES\SUIMONO_PRESETS_Built-In Presets\SUIMONO_PRESET_Demo River Example.txt" />
     <None Include="Assets\SUIMONO - WATER SYSTEM 2\SHADERS\Suimono2_particleAlpha.shader" />
+    <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
     <None Include="Assets\NatureStarterKit2\Standard Assets\Effects\ImageEffects\Shaders\ChromaticAberrationShader.shader" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Masking.shader" />
     <None Include="Assets\SUIMONO - WATER SYSTEM 2\_DEMO\TERRAIN\Shaders\suimono2_demo_flora_double.shader" />
     <None Include="Assets\SUIMONO - WATER SYSTEM 2\RESOURCES\SUIMONO_PRESETS_Built-In Presets\SUIMONO_PRESET_Calm Carribean Blue.txt" />
     <None Include="Assets\NatureStarterKit2\Standard Assets\Effects\ImageEffects\Shaders\GlobalFog.shader" />
@@ -270,6 +279,7 @@
     <None Include="Assets\MeshSmith\Fantasy1\Lady Fairy\readMe.txt" />
     <None Include="Assets\NatureStarterKit2\Standard Assets\Effects\ImageEffects\Shaders\ColorCorrectionSelective.shader" />
     <None Include="Assets\NatureStarterKit2\Standard Assets\Effects\ImageEffects\Shaders\_DepthOfField\Bokeh34.shader" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Mobile.shader" />
     <None Include="Assets\SUIMONO - WATER SYSTEM 2\SHADERS\Suimono2_FX_WakeMask.shader" />
     <None Include="Assets\NatureStarterKit2\Standard Assets\Effects\ImageEffects\Shaders\CameraMotionBlurDX11.shader" />
     <None Include="Assets\SUIMONO - WATER SYSTEM 2\SHADERS\Suimono2_surface_scale.shader" />
@@ -280,12 +290,14 @@
     <None Include="Assets\NatureStarterKit2\Standard Assets\Effects\ImageEffects\Shaders\BlurEffectConeTaps.shader" />
     <None Include="Assets\NatureStarterKit2\Standard Assets\Effects\ImageEffects\Shaders\CameraMotionBlur.shader" />
     <None Include="Assets\NatureStarterKit2\Standard Assets\Effects\ImageEffects\Shaders\_Antialiasing\DLAA.shader" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF Overlay.shader" />
     <None Include="Assets\SUIMONO - WATER SYSTEM 2\_Suimono2.1_ReadMe.txt" />
     <None Include="Assets\NatureStarterKit2\Standard Assets\Effects\ImageEffects\Shaders\NoiseAndGrainDX11.shader" />
     <None Include="Assets\NatureStarterKit2\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BrightPassFilter2.shader" />
     <None Include="Assets\NatureStarterKit2\Standard Assets\Effects\ImageEffects\Shaders\_DepthOfField\SeparableBlur.shader" />
     <None Include="Assets\NatureStarterKit2\Standard Assets\Effects\ImageEffects\Shaders\MotionBlurClear.shader" />
     <None Include="Assets\SUIMONO - WATER SYSTEM 2\RESOURCES\SUIMONO_PRESETS_Built-In Presets\SUIMONO_PRESET_Calm Refraction Only.txt" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Surface.cginc" />
     <None Include="Assets\NatureStarterKit2\Standard Assets\Effects\ImageEffects\Shaders\ColorCorrectionEffect.shader" />
     <None Include="Assets\NatureStarterKit2\Standard Assets\Effects\ImageEffects\Shaders\GrayscaleEffect.shader" />
     <None Include="Assets\NatureStarterKit2\Standard Assets\Effects\ImageEffects\Shaders\SepiaToneEffect.shader" />
@@ -293,6 +305,8 @@
     <None Include="Assets\NatureStarterKit2\Standard Assets\Effects\ImageEffects\Shaders\VortexEffect.shader" />
     <None Include="Assets\NatureStarterKit2\Standard Assets\Effects\ImageEffects\Shaders\Contrast Stretch\Adaptation.shader" />
     <None Include="Assets\SUIMONO - WATER SYSTEM 2\SHADERS\SuimonoUnderwaterFog.shader" />
+    <None Include="Assets\1512183-Assets\StarfieldMaterials\README\Readme.txt" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Overlay.shader" />
     <None Include="Assets\NatureStarterKit2\Standard Assets\Effects\ImageEffects\Shaders\NoiseAndGrain.shader" />
     <None Include="Assets\SUIMONO - WATER SYSTEM 2\SHADERS\Suimono2_clearfx.shader" />
     <None Include="Assets\NatureStarterKit2\Standard Assets\Effects\Projectors\Shaders\ProjectorMultiply.shader" />
@@ -301,6 +315,8 @@
     <None Include="Assets\NatureStarterKit2\Standard Assets\Effects\ImageEffects\Shaders\Tonemapper.shader" />
     <None Include="Assets\NatureStarterKit2\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BrightPassFilter.shader" />
     <None Include="Assets\NatureStarterKit2\Standard Assets\Effects\ImageEffects\Shaders\_Antialiasing\FXAA2.shader" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap.shader" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
     <None Include="Assets\NatureStarterKit2\Standard Assets\Effects\ImageEffects\Shaders\ColorCorrection3DLut.shader" />
     <None Include="Assets\NatureStarterKit2\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\LensFlareCreate.shader" />
     <None Include="Assets\SUIMONO - WATER SYSTEM 2\SHADERS\Suimono2_FX_Depth.shader" />
@@ -310,10 +326,14 @@
     <None Include="Assets\NatureStarterKit2\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\Blend.shader" />
     <None Include="Assets\NatureStarterKit2\Standard Assets\Effects\ImageEffects\Shaders\BlendModesOverlay.shader" />
     <None Include="Assets\SUIMONO - WATER SYSTEM 2\SHADERS\SuimonoDepthMask.shader" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF.shader" />
     <None Include="Assets\NatureStarterKit2\Standard Assets\Effects\ImageEffects\Shaders\SimpleClear.shader" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile.shader" />
     <None Include="Assets\NatureStarterKit2\Standard Assets\Effects\TessellationShaders\Shaders\BumpedSpecularDisplacement.shader" />
     <None Include="Assets\NatureStarterKit2\Standard Assets\Effects\ImageEffects\Shaders\_Antialiasing\FXAA3Console.shader" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Sprite.shader" />
     <None Include="Assets\SUIMONO - WATER SYSTEM 2\RESOURCES\SUIMONO_PRESETS_Built-In Presets\SUIMONO_PRESET_Mirror Reflection.txt" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface.shader" />
     <None Include="Assets\NatureStarterKit2\Standard Assets\Effects\ImageEffects\Shaders\_Antialiasing\FXAAPreset2.shader" />
     <None Include="Assets\NatureStarterKit2\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlurAndFlares.shader" />
     <None Include="Assets\SUIMONO - WATER SYSTEM 2\RESOURCES\SUIMONO_PRESETS_Built-In Presets\SUIMONO_PRESET_Blue Ocean with Waves.txt" />
