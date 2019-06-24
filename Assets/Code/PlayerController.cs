@@ -597,6 +597,7 @@ public class PlayerController : NetworkBehaviour
         var bulletTemp = (GameObject)Instantiate(buffSingleOb, bulletspawn.position, bulletspawn.rotation);
         bulletTemp.GetComponent<Rigidbody>().velocity = bulletspawn.forward * 6;
         bulletTemp.GetComponent<BuffSingle>().Phe = Phe;
+        bulletTemp.GetComponent<BuffSingle>().lv = lv;
         NetworkServer.Spawn(bulletTemp);
     }
 
@@ -606,6 +607,7 @@ public class PlayerController : NetworkBehaviour
         var bulletTemp = (GameObject)Instantiate(bullet, bulletspawn.position, bulletspawn.rotation);
         bulletTemp.GetComponent<Rigidbody>().velocity = bulletspawn.forward * 6;
         bulletTemp.GetComponent<Bullet>().Phe = Phe;
+        bulletTemp.GetComponent<Bullet>().lv = lv;
         NetworkServer.Spawn(bulletTemp);
     }
 
@@ -637,7 +639,9 @@ public class PlayerController : NetworkBehaviour
     void CmdJibunBuffHealth()
     {
         var CirCleWallTemp = (GameObject)Instantiate(jibunBuffHealthOb, circleWallspawn.position, circleWallspawn.rotation);
-        GetComponent<Health>().CmdPushHealth(10);
+        float dameTemp = 0;
+        dameTemp = 10 * (Mathf.Pow(1.1f, lv));
+        GetComponent<Health>().CmdPushHealth((int)dameTemp);
         NetworkServer.Spawn(CirCleWallTemp);
     }
 
@@ -704,6 +708,7 @@ public class PlayerController : NetworkBehaviour
         var SupperDameTemp = (GameObject)Instantiate(supperDame, bulletspawn.position, bulletspawn.rotation);
         SupperDameTemp.GetComponent<Rigidbody>().velocity = bulletspawn.forward * 6;
         SupperDameTemp.GetComponent<Bullet>().Phe = Phe;
+        SupperDameTemp.GetComponent<Bullet>().lv = lv;
         NetworkServer.Spawn(SupperDameTemp);
     }
     void PlaySupperDame()

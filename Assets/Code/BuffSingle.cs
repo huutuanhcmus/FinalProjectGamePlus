@@ -6,6 +6,7 @@ using UnityEngine.Networking;
 public class BuffSingle : NetworkBehaviour
 {
     [SyncVar] public int Phe;
+    [SyncVar] public int lv;
     public float time;
     public int HPHealth;
     //public Transform spawn;
@@ -56,9 +57,11 @@ public class BuffSingle : NetworkBehaviour
         {
             var hit = other.gameObject;
             var health = hit.GetComponent<HealthNPC>();
+            float dameTemp = 0;
+            dameTemp = HPHealth * (Mathf.Pow(1.1f, lv));
             if (health != null)
             {
-                health.CmdPushHealth(HPHealth);
+                health.CmdPushHealth((int)dameTemp);
             }
             Destroy(gameObject);
         }

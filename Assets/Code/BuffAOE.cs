@@ -5,6 +5,7 @@ using UnityEngine.Networking;
 
 public class BuffAOE : NetworkBehaviour
 {
+    [SyncVar] public int lv;
     [SyncVar] public int Phe;
     public float time;
     public int HPHealth;
@@ -37,10 +38,11 @@ public class BuffAOE : NetworkBehaviour
             Debug.Log(other.GetComponent<PlayerController>().Phe);
             var hit = other.gameObject;
             var health = hit.GetComponent<Health>();
+            float dameTemp = 0;
+            dameTemp = HPHealth * (Mathf.Pow(1.1f, lv));
             if (health != null)
             {
-                Debug.Log("222");
-                health.CmdPushHealth(HPHealth);
+                health.CmdPushHealth((int)dameTemp);
                 hit.GetComponent<PlayerController>().CmdStunPlayerSlow(speed);
             }
         }

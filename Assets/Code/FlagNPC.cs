@@ -20,6 +20,7 @@ public class FlagNPC : NetworkBehaviour
     public Thread countTotalTimeThread;
     public GameObject obANCLogo;
     public GameObject obHKMLogo;
+    public GameObject obHoa;
     // Start is called before the first frame update
     [SyncVar] public int ANCTime = 0;
     [SyncVar] public int HKMTime = 0;
@@ -82,6 +83,11 @@ public class FlagNPC : NetworkBehaviour
                 else if (ANCTime > HKMTime)
                 {
                     var temp = (GameObject)Instantiate(obANCLogo);
+                    NetworkServer.Spawn(temp);
+                }
+                else
+                {
+                    var temp = (GameObject)Instantiate(obHoa);
                     NetworkServer.Spawn(temp);
                 }
             }

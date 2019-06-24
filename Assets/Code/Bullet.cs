@@ -6,6 +6,7 @@ using UnityEngine.Networking;
 public class Bullet : NetworkBehaviour
 {
     [SyncVar]public int Phe;
+    [SyncVar]public int lv;
     public float time;
     public int dame;
     //public Transform spawn;
@@ -47,8 +48,18 @@ public class Bullet : NetworkBehaviour
             var health = hit.GetComponent<Health>();
             if (health != null)
             {
+                int distanceLv = lv - other.GetComponent<PlayerController>().lv;
+                float dameTemp = 0;
+                if(distanceLv >= 0)
+                {
+                    dameTemp = dame * (Mathf.Pow(1.1f, distanceLv));
+                }
+                else
+                {
+                    dameTemp = dame * (Mathf.Pow(0.9f, -distanceLv));
+                }
                 Debug.Log("bbb");
-                health.CmdTakeDame(dame);
+                health.CmdTakeDame((int)dameTemp);
             }
             Destroy(gameObject);
         }
