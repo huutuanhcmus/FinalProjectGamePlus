@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Threading;
 using UnityEngine;
 using UnityEngine.Networking;
@@ -9,9 +10,12 @@ using UnityEngine.UI;
 
 public class PlayerController : NetworkBehaviour
 {
+    [SyncVar] public int lv;
+    [SyncVar] public int ex;
     [SyncVar] public bool Ready = true;
     [SyncVar] public int dameOrBuff = 1;
     [SyncVar] public float speed = 1.0f;
+    string filename = "dataplayer.gd";
     public GameObject bullet;
     public GameObject Wall;
     public Transform bulletspawn;
@@ -123,6 +127,23 @@ public class PlayerController : NetworkBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+        if (!isLocalPlayer)
+        {
+            return;
+        }
+        if (lv != 0)
+        {
+            Debug.Log("---------------------");
+            foreach (GameObject go in Resources.FindObjectsOfTypeAll(typeof(GameObject)))
+            {
+                if (go.name == "LoginBackground")
+                {
+                    go.GetComponent<Canvas>().enabled = false;
+                    break;
+                }
+            }
+        }
         if (Input.GetMouseButton(1))
         {
             Cursor.visible = false;
@@ -132,10 +153,6 @@ public class PlayerController : NetworkBehaviour
         }
         else
             Cursor.visible = true;
-        if (!isLocalPlayer)
-        {
-            return;
-        }
         if (flagBaseDameSkill)
             textBaseSkill.text = ConvertTime(CDBaseSkill);
         else
@@ -546,8 +563,8 @@ public class PlayerController : NetworkBehaviour
                 }
                 else
                 {
-                    Player.GetComponent<Transform>().GetChild(1).GetChild(0).GetChild(0).GetComponent<ParticleSystem>().startColor = new Color(255,255,0);
-                    Player.GetComponent<Transform>().GetChild(1).GetChild(0).GetChild(1).GetComponent<ParticleSystem>().startColor = new Color(255,255,0);
+                    Player.GetComponent<Transform>().GetChild(1).GetChild(0).GetChild(0).GetComponent<ParticleSystem>().startColor = new Color(255, 255, 0);
+                    Player.GetComponent<Transform>().GetChild(1).GetChild(0).GetChild(1).GetComponent<ParticleSystem>().startColor = new Color(255, 255, 0);
 
                 }
             }
@@ -888,5 +905,38 @@ public class PlayerController : NetworkBehaviour
         GetComponent<Rigidbody>().useGravity = true;
         Thread.Sleep(1800);
         timeJump++;
+    }
+
+    public void LoginChar(string id, string Pass)
+    {
+        CmdLogin(id, Pass);
+    }
+
+    [Command]
+    void CmdLogin(string id, string Pass)
+    {
+        string[] readText = File.ReadAllLines(Application.persistentDataPath + "/" + filename);
+        for (int i = 0; i < readText.Length; i += 4)
+        {
+            Debug.Log(readText[i]);
+            Debug.Log(id);
+            if (readText[i] == id)
+            {
+                if (readText[i + 1] == Pass)
+                {
+                    int lvT = Convert.ToInt32(readText[i + 2]);
+                    int exT = Convert.ToInt32(readText[i + 3]);
+                    lv = lvT;
+                    ex = exT;
+                }
+            }
+        }
+
+    }
+
+    [TargetRpc]
+    public void TargetDoMagic(NetworkConnection target)
+    {
+        
     }
 }
