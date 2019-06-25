@@ -21,7 +21,7 @@ MonoBehaviour:
   m_ShowMode: 4
   m_Title: 
   m_RootView: {fileID: 2}
-  m_MinSize: {x: 950, y: 300}
+  m_MinSize: {x: 950, y: 548}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &2
 MonoBehaviour:
@@ -332,9 +332,9 @@ MonoBehaviour:
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -507.11707, y: 61.22813, z: 276.85095}
+    m_Target: {x: 425.71606, y: 242.40736, z: -65.35605}
     speed: 2
-    m_Value: {x: -507.11707, y: 61.22813, z: 276.85095}
+    m_Value: {x: 425.71606, y: 242.40736, z: -65.35605}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -362,13 +362,13 @@ MonoBehaviour:
       speed: 2
       m_Value: 0
   m_Rotation:
-    m_Target: {x: 0.17414735, y: -0.825307, z: 0.3627487, w: 0.39617488}
+    m_Target: {x: -0.0352151, y: 0.00035207163, z: 0.00000074374026, w: -0.99937975}
     speed: 2
-    m_Value: {x: 0.17414735, y: -0.825307, z: 0.3627487, w: 0.39617488}
+    m_Value: {x: -0.0352151, y: 0.00035207163, z: 0.00000074374026, w: -0.99937975}
   m_Size:
-    m_Target: -1.1004574
+    m_Target: 444.64484
     speed: 2
-    m_Value: -1.1004574
+    m_Value: 444.64484
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -409,9 +409,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
-      m_LastClickedID: 0
-      m_ExpandedIDs: 826efeffd06efeff40dbfeff8edbfeffb4c0ffff02c1ffffbcfbffff
+      m_SelectedIDs: 92ae0000
+      m_LastClickedID: 44690
+      m_ExpandedIDs: 3a84ffff5684ffff288effff388effffeae2ffff2cefffffd6fbffffa4540000265500007e55000020560000805700008a57000092570000a25700000eb0000092b10000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -579,20 +579,20 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/C
+    - Assets/Code
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/C
+  - Assets/Code
   m_LastFoldersGridSize: -1
   m_LastProjectPath: "E:\\H\u1ECDc t\u1EADp\\Final\\FinalProjectGamePlus3"
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 497}
-    m_SelectedIDs: bc330000
-    m_LastClickedID: 13244
-    m_ExpandedIDs: 00000000182a0000422b0000122d0000242d00003c2d0000ee2d0000de2e00000e2f0000302f0000502f00001430000030320000763200000233000024330000e03300005634000026350000843500001c36000072360000c0360000e6360000e237000066390000503a0000a43a0000a83a0000244b0000264b0000284b00002a4b00002c4b00002e4b0000304b0000324b000000ca9a3b
+    scrollPos: {x: 0, y: 449}
+    m_SelectedIDs: 422e0000
+    m_LastClickedID: 11842
+    m_ExpandedIDs: 00000000a0290000ca2a00009a2c0000ac2c0000c42c0000762d0000662e0000962e0000b82e0000d82e00009c2f0000b8310000fe3100008a320000ac32000068330000de330000ae3400000c350000a4350000fa350000483600006e3600006a370000ee380000d83900002c3a0000303a00008a4c00008c4c00008e4c0000904c0000924c0000944c0000964c0000984c000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -620,7 +620,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000182a0000422b0000122d0000242d00003c2d0000ee2d0000de2e00000e2f0000302f0000502f00001430000030320000763200000233000024330000e03300005634000026350000843500001c36000072360000c0360000e6360000e237000066390000503a0000a43a0000a83a0000244b0000264b0000284b00002a4b00002c4b00002e4b0000304b0000324b0000
+    m_ExpandedIDs: 00000000a0290000ca2a00009a2c0000ac2c0000c42c0000762d0000662e0000962e0000b82e0000d82e00009c2f0000b8310000fe3100008a320000ac32000068330000de330000ae3400000c350000a4350000fa350000483600006e3600006a370000ee380000d83900002c3a0000303a00008a4c00008c4c00008e4c0000904c0000924c0000944c0000964c0000984c0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -672,7 +672,7 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
     m_NewAssetIndexInList: -1
-    m_ScrollPosition: {x: 0, y: 0}
+    m_ScrollPosition: {x: 0, y: 33}
     m_GridSize: 64
   m_DirectoriesAreaWidth: 187
 --- !u!114 &18
@@ -703,7 +703,7 @@ MonoBehaviour:
   m_PersistentViewDataDictionary: {fileID: 0}
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 18446
+  m_LastSelectedObjectID: 21748
 --- !u!114 &19
 MonoBehaviour:
   m_ObjectHideFlags: 52
