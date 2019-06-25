@@ -15,11 +15,8 @@ public class ThietDinh : MonoBehaviour {
 		
 	}
 
-    private void OnMouseOver()
+    public void ButtonDown()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            menu.enabled = true;
-        }
+        menu.enabled = !menu.enabled;
     }
 }

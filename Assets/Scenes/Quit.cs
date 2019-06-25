@@ -17,15 +17,8 @@ public class Quit : MonoBehaviour {
 		
 	}
 
-    private void OnMouseOver()
+    public void QuitGame()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            Application.Quit();
-        }
+        Application.Quit();
     }
-
-
-
-
 }

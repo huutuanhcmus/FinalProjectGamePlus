@@ -1,7 +1,8 @@
 Win64
 PlayerPath?
-C:/Users/HuuTuan/Desktop/MaiHuuTuan/1512635.exe
+C:/Users/HuuTuan/Desktop/New folder (2)/1512635.exe
 SceneListBegin?
+Assets/SUIMONO - WATER SYSTEM 2/_DEMO/MenuGame.unity
 Assets/SUIMONO - WATER SYSTEM 2/_DEMO/Suimono2_Advanced_Demo.unity
 SceneListEnd?
 984dcc0ba3707b7691fbdca8ff508d28 Unity.TextMeshPro.dll:TMPro.TMP_SelectionCaret

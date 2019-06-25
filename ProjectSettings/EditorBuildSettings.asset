@@ -24,6 +24,9 @@ EditorBuildSettings:
     path: Assets/SUIMONO - WATER SYSTEM 2/_DEMO/Info-Team.unity
     guid: abf15578c15a498439a733daf51222ed
   - enabled: 1
+    path: Assets/SUIMONO - WATER SYSTEM 2/_DEMO/MenuGame.unity
+    guid: 770b73bfa8499194c882ce11bbb76337
+  - enabled: 1
     path: Assets/SUIMONO - WATER SYSTEM 2/_DEMO/Suimono2_Advanced_Demo.unity
     guid: 575c46aa944077d48aa7aedfcac6e0ff
   m_configObjects: {}

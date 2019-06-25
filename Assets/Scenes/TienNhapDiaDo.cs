@@ -19,6 +19,12 @@ public class TienNhapDiaDo : MonoBehaviour {
 		
 	}
 
+    public void PlayGame()
+    {
+        SceneManager.LoadScene(1, LoadSceneMode.Single);
+        SceneManager.UnloadSceneAsync(0);
+    }
+
     private void OnMouseOver()
     {
         if (Input.GetMouseButtonDown(0))

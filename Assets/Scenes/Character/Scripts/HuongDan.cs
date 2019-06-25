@@ -1046,6 +1046,7 @@ public class HuongDan : MonoBehaviour
 
     database readData()
     {
+        Debug.Log("aaaaaaaaaaaaaaaaaa");
         Debug.Log(Application.persistentDataPath + "/" + filename);
         database dataBase = new database(name, 0, 0, 1);
         if (File.Exists(Application.persistentDataPath + "/" + filename))
