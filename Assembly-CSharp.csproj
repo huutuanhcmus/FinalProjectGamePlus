@@ -78,6 +78,7 @@
     <Compile Include="Assets\Code\DameLogo.cs" />
     <Compile Include="Assets\Code\DangKyTK.cs" />
     <Compile Include="Assets\Code\DongTac.cs" />
+    <Compile Include="Assets\Code\ExBar.cs" />
     <Compile Include="Assets\Code\FlagNPC.cs" />
     <Compile Include="Assets\Code\Health.cs" />
     <Compile Include="Assets\Code\HealthBarMain.cs" />
