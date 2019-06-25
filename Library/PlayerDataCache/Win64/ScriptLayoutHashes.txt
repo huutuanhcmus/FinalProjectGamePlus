@@ -166,7 +166,8 @@ c08ee204c43044b9314883f8654f6e1a Assembly-CSharp.dll:.sui_demo_trigger
 e113b9d17139ddc8b67fb840e2b12ecf Assembly-CSharp.dll:.HPPlayerManager
 9c537c7a686723578c91300fbcafaa5e Assembly-CSharp.dll:.DameLogo
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:Suimono.Core.fx_causticObject
-040ce2f25a360705cf7323609b242ae5 Assembly-CSharp.dll:.ManachacracterBar
+6ca4ef75a80a3db620967808017758eb Assembly-CSharp.dll:.ManachacracterBar
+8bebcac6822ddb49e4400e148d4d8c99 Assembly-CSharp.dll:.ExBar
 4ce7d8907c4c7d7689ecd87feecd1c82 Assembly-CSharp.dll:.Health
 740e2a55bf8d3a2560b90ee495ddf640 Assembly-CSharp.dll:.sui_demo_LightHandler
 79fa27ed07a0e7c53f109868161a5791 Assembly-CSharp.dll:.HealthNPC
@@ -220,7 +221,7 @@ ad9173d3a69d99153f38ed4b62226129 UnityEngine.Networking.dll:UnityEngine.Networki
 6013a2beb5fb9f70ac79e6d31668ea0c Assembly-CSharp.dll:.Stun
 510fefd6a544e16a3ffefa557ddcba39 Unity.TextMeshPro.dll:TMPro.PackageResourceImporterWindow
 95b7d12cfc7c40520139c92136aeae0c Assembly-CSharp.dll:Suimono.Core.fx_EffectObject
-040ce2f25a360705cf7323609b242ae5 Assembly-CSharp.dll:.HealthBarMain
+04d518ff412c9743e385c90bbe547235 Assembly-CSharp.dll:.HealthBarMain
 21fc9e8fcfeabb0f3ce420aedd6e76d3 Assembly-CSharp.dll:.sui_demo_animBoat
 d7f470660e8e5bf322a5c170b752eff8 Assembly-CSharp.dll:UnityStandardAssets.ImageEffects.CreaseShading
 aa82b3ce4c0c9b227036c0337315c5d3 Unity.TextMeshPro.dll:TMPro.TMP_FontAsset
