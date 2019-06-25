@@ -171,7 +171,7 @@ e113b9d17139ddc8b67fb840e2b12ecf Assembly-CSharp.dll:.HPPlayerManager
 79fa27ed07a0e7c53f109868161a5791 Assembly-CSharp.dll:.HealthNPC
 e7186d0c84540107dd6dc64e8a4a43f0 Assembly-CSharp.dll:.Bullet
 b3ab2106268377ffe25dd18ac23dca28 Unity.TextMeshPro.dll:TMPro.TMP_Asset
-b983535c8dc27b2ab5ab25e5001dd011 Assembly-CSharp.dll:.PlayerController
+7aef72291f48e70ed7e39f14dd929488 Assembly-CSharp.dll:.PlayerController
 3a3324b73792dde0ff97dae69b3a3dfb Assembly-CSharp.dll:UnityStandardAssets.ImageEffects.SunShafts
 c1fb5fa27e739b05514ea7d68b24c684 Assembly-CSharp.dll:.utility_AdjustCulling
 4e86c3ef3b0a84abedeeb1f0a6785778 Assembly-CSharp.dll:Suimono.Core.SuimonoModuleFX

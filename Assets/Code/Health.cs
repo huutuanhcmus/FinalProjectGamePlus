@@ -6,8 +6,8 @@ using UnityEngine.UI;
 
 public class Health : NetworkBehaviour
 {
-    public int maxHealth = 100;
-    public int showMaxHealth;
+    [SyncVar] public int maxHealth = 100;
+    [SyncVar] public int showMaxHealth;
     [SyncVar] public int currentHealth;
     public Transform healthBar;
     public List<GameObject> flagList;

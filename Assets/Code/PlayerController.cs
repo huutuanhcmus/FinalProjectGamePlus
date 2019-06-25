@@ -10,6 +10,7 @@ using UnityEngine.UI;
 
 public class PlayerController : NetworkBehaviour
 {
+    [SyncVar] public string id;
     [SyncVar] public int lv;
     [SyncVar] public int ex;
     [SyncVar] public bool Ready = true;
@@ -933,6 +934,9 @@ public class PlayerController : NetworkBehaviour
                     int exT = Convert.ToInt32(readText[i + 3]);
                     lv = lvT;
                     ex = exT;
+                    GetComponent<Health>().maxHealth = (int)(100 * Mathf.Pow(1.1f, lv));
+                    GetComponent<Health>().currentHealth = GetComponent<Health>().maxHealth;
+                    GetComponent<Health>().showMaxHealth = GetComponent<Health>().maxHealth;
                 }
             }
         }

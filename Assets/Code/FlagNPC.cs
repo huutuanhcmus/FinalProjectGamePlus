@@ -79,16 +79,19 @@ public class FlagNPC : NetworkBehaviour
                 {
                     var temp = (GameObject)Instantiate(obHKMLogo);
                     NetworkServer.Spawn(temp);
+                    Win(1);
                 }
                 else if (ANCTime > HKMTime)
                 {
                     var temp = (GameObject)Instantiate(obANCLogo);
                     NetworkServer.Spawn(temp);
+                    Win(2);
                 }
                 else
                 {
                     var temp = (GameObject)Instantiate(obHoa);
                     NetworkServer.Spawn(temp);
+                    Win(0);
                 }
             }
         }
@@ -241,6 +244,81 @@ public class FlagNPC : NetworkBehaviour
             Thread.Sleep(totalTime * 1000);
             flagTotal = true;
             Debug.Log("------////--");
+        }
+    }
+
+    //[ClientRpc]
+    public void Win(int PheThang)
+    {
+        if(PheThang == 1)
+        {
+            foreach (GameObject Player in Resources.FindObjectsOfTypeAll(typeof(GameObject)))
+            {
+                if (Player.tag == "Player")
+                {
+                    if (Player.GetComponent<PlayerController>().Phe == 1)
+                    {
+                        Player.GetComponent<PlayerController>().ex += 50;
+                        if (Player.GetComponent<PlayerController>().ex >= (int)(100 * Mathf.Pow(1.1f, Player.GetComponent<PlayerController>().lv)))
+                        {
+                            Player.GetComponent<PlayerController>().ex = Player.GetComponent<PlayerController>().ex - (int)(500 * Mathf.Pow(1.1f, Player.GetComponent<PlayerController>().lv));
+                            Player.GetComponent<PlayerController>().lv += 1;
+                        }
+                    }
+                    else
+                    {
+                        Player.GetComponent<PlayerController>().ex += 20;
+                        if (Player.GetComponent<PlayerController>().ex >= (int)(100 * Mathf.Pow(1.1f, Player.GetComponent<PlayerController>().lv)))
+                        {
+                            Player.GetComponent<PlayerController>().ex = Player.GetComponent<PlayerController>().ex - (int)(500 * Mathf.Pow(1.1f, Player.GetComponent<PlayerController>().lv));
+                            Player.GetComponent<PlayerController>().lv += 1;
+                        }
+                    }
+                } 
+            }
+        }
+        else if (PheThang == 2)
+        {
+            foreach (GameObject Player in Resources.FindObjectsOfTypeAll(typeof(GameObject)))
+            {
+                if (Player.tag == "Player")
+                {
+                    if (Player.GetComponent<PlayerController>().Phe == 1)
+                    {
+                        Player.GetComponent<PlayerController>().ex += 20;
+                        if (Player.GetComponent<PlayerController>().ex >= (int)(100 * Mathf.Pow(1.1f, Player.GetComponent<PlayerController>().lv)))
+                        {
+                            Player.GetComponent<PlayerController>().ex = Player.GetComponent<PlayerController>().ex - (int)(500 * Mathf.Pow(1.1f, Player.GetComponent<PlayerController>().lv));
+                            Player.GetComponent<PlayerController>().lv += 1;
+                        }
+                    }
+                    else
+                    {
+                        Player.GetComponent<PlayerController>().ex += 50;
+                        if (Player.GetComponent<PlayerController>().ex >= (int)(100 * Mathf.Pow(1.1f, Player.GetComponent<PlayerController>().lv)))
+                        {
+                            Player.GetComponent<PlayerController>().ex = Player.GetComponent<PlayerController>().ex - (int)(500 * Mathf.Pow(1.1f, Player.GetComponent<PlayerController>().lv));
+                            Player.GetComponent<PlayerController>().lv += 1;
+                        }
+                    }
+                }
+            }
+        }
+        else
+        {
+            foreach (GameObject Player in Resources.FindObjectsOfTypeAll(typeof(GameObject)))
+            {
+                if (Player.tag == "Player")
+                {
+
+                    Player.GetComponent<PlayerController>().ex += 35;
+                    if (Player.GetComponent<PlayerController>().ex >= (int)(100 * Mathf.Pow(1.1f, Player.GetComponent<PlayerController>().lv)))
+                    {
+                        Player.GetComponent<PlayerController>().ex = Player.GetComponent<PlayerController>().ex - (int)(500 * Mathf.Pow(1.1f, Player.GetComponent<PlayerController>().lv));
+                        Player.GetComponent<PlayerController>().lv += 1;
+                    }
+                }
+            }
         }
     }
 }
