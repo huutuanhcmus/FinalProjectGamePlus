@@ -1320,9 +1320,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62296b86399581f46a2a429471c215ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 
-  lv: 1
-  ex: -375
+  id: 0
+  lv: 0
+  ex: 0
   Ready: 0
   dameOrBuff: 1
   speed: 1

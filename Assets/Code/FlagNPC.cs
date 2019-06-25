@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Threading;
 using UnityEngine;
 using UnityEngine.Networking;
@@ -35,7 +36,7 @@ public class FlagNPC : NetworkBehaviour
     public int numberHKMPlayer = 0;
     public List<GameObject> listPlayerHKM;
     public List<GameObject> listPlayerANC;
-
+    string filename = "dataplayer.gd";
     public override void OnStartServer()
     {
         base.OnStartServer();
@@ -93,6 +94,7 @@ public class FlagNPC : NetworkBehaviour
                     NetworkServer.Spawn(temp);
                     Win(0);
                 }
+                saveDataChar();
             }
         }
         else
@@ -320,5 +322,26 @@ public class FlagNPC : NetworkBehaviour
                 }
             }
         }
+    }
+
+    void saveDataChar()
+    {
+        string[] readText = File.ReadAllLines(Application.persistentDataPath + "/" + filename);
+        foreach (GameObject Player in Resources.FindObjectsOfTypeAll(typeof(GameObject)))
+        {
+            if (Player.tag == "Player")
+            {
+                for (int i = 0; i < readText.Length; i += 4)
+                {
+                    if (readText[i] == Player.GetComponent<PlayerController>().id)
+                    {
+                        readText[i + 2] = Player.GetComponent<PlayerController>().lv.ToString();
+                        readText[i + 3] = Player.GetComponent<PlayerController>().ex.ToString();
+                        break;
+                    }
+                }
+            }
+        }
+        File.WriteAllLines(Application.persistentDataPath + "/" + filename, readText);
     }
 }

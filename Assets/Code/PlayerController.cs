@@ -919,14 +919,14 @@ public class PlayerController : NetworkBehaviour
     }
 
     [Command]
-    void CmdLogin(string id, string Pass)
+    void CmdLogin(string idT, string Pass)
     {
         string[] readText = File.ReadAllLines(Application.persistentDataPath + "/" + filename);
         for (int i = 0; i < readText.Length; i += 4)
         {
             Debug.Log(readText[i]);
             Debug.Log(id);
-            if (readText[i] == id)
+            if (readText[i] == idT)
             {
                 if (readText[i + 1] == Pass)
                 {
@@ -934,6 +934,7 @@ public class PlayerController : NetworkBehaviour
                     int exT = Convert.ToInt32(readText[i + 3]);
                     lv = lvT;
                     ex = exT;
+                    id = readText[i];
                     GetComponent<Health>().maxHealth = (int)(100 * Mathf.Pow(1.1f, lv));
                     GetComponent<Health>().currentHealth = GetComponent<Health>().maxHealth;
                     GetComponent<Health>().showMaxHealth = GetComponent<Health>().maxHealth;
