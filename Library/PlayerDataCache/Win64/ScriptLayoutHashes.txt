@@ -292,3 +292,4 @@ acad6a5a3e5ce26933e372a3349e72a4 Assembly-CSharp.dll:.sui_demo_InputController
 491820d5e0224270f2832e19f25805ef Assembly-CSharp.dll:Suimono.Core.SuimonoModuleLib
 490abd4c02253c5ce6e721ec4ef63e91 Assembly-CSharp.dll:.Test
 09d91be4d332285157ef992e11ea8c50 Assembly-CSharp.dll:.Attack
+71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.water
