@@ -26,23 +26,25 @@ public class HealthScript : MonoBehaviour
     {
         soundFX3 = GetComponentInChildren<CharacterSoundFX>();
     }
-
+   
     public void ApplyDamege(float damege)
     {
-        if(shieldActivated)
-        {
-            return;
-        }
+
         health -= damege;
-        
-        if(health_UI != null)
+
+        //if (shieldActivated)
+        //{
+        //    health += 10f;
+        //    return;
+        //}
+        if (health_UI != null)
         {
             health_UI.fillAmount = health / 100f;
-            
         }
-        if(health <= 0)
+        
+        if (health <= 0)
         {
-            //soundFX3.Die();
+            soundFX3.Die();
             GetComponent<Animator>().enabled = false;
                 StartCoroutine(AllowRotate());
                 if (isPlayer)

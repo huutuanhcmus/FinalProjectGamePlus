@@ -73,16 +73,18 @@ public class EnemyController : MonoBehaviour
         attack_Timer += Time.deltaTime;
         if(attack_Timer > wait_Before_Attack_Timer)
         {
-            if (Random.Range(0, 2) > 0)
-            {
-                enemy_Anim.Attack1(true);
-                soundFX4.Attack_1();
-            }
-            else
-            {
-                enemy_Anim.Attack2(true);
-                soundFX4.Attack_2();
-            }
+            //if (Random.Range(0, 1) > 0)
+            //{
+            //    enemy_Anim.Attack1(true);
+            //    soundFX4.Attack_1();
+            //}
+            //else
+            //{
+            //    enemy_Anim.Attack2(true);
+            //    soundFX4.Attack_2();
+            //}
+            enemy_Anim.Attack1(true);
+            soundFX4.Attack_1();
             attack_Timer = 0f;
         }
 

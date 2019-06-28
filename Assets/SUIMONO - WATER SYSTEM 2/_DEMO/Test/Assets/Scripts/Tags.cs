@@ -24,6 +24,6 @@ public class AnimationTags
     public const string ATTACK5_PARATEMER = "Attack5";
     public const string ATTACK6_PARATEMER = "Attack6";
     public const string ATTACK7_PARATEMER = "Attack7";
-   
-    //public const string Die_PARATEMER = "Die";
+
+    public const string Die_PARATEMER = "Die";
 }
