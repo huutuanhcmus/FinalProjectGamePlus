@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
-
+using UnityEngine.SceneManagement;
 public class HealthScript : MonoBehaviour
 {
     public float health = 100f;
@@ -47,18 +47,20 @@ public class HealthScript : MonoBehaviour
             soundFX3.Die();
             GetComponent<Animator>().enabled = false;
                 StartCoroutine(AllowRotate());
-                if (isPlayer)
-                {
-                    GetComponent<PlayerMoving>().enabled = false;
-                    GetComponent<PlayerAttackInput>().enabled = false;  // nhan vat khong the di chuyen hay tan cong sau khi chet
-                    Camera.main.transform.SetParent(null);   // camera ko bi thay doi sau khi nhan vat die
-                    GameObject.FindGameObjectWithTag(Tags.ENEMY_TAG).GetComponent<EnemyController>().enabled = false; // enemy ngung tan cong
-                    
-                } else
-                {
-                    GetComponent<EnemyController>().enabled = false;  // enemy ngung tan cong
-                    GetComponent<NavMeshAgent>().enabled = false;
-                }
+            if (isPlayer)
+            {
+                GetComponent<PlayerMoving>().enabled = false;
+                GetComponent<PlayerAttackInput>().enabled = false;  // nhan vat khong the di chuyen hay tan cong sau khi chet
+                Camera.main.transform.SetParent(null);   // camera ko bi thay doi sau khi nhan vat die
+                GameObject.FindGameObjectWithTag(Tags.ENEMY_TAG).GetComponent<EnemyController>().enabled = false; // enemy ngung tan cong
+
+            }
+            else
+            {
+                GetComponent<EnemyController>().enabled = false;  // enemy ngung tan cong
+                GetComponent<NavMeshAgent>().enabled = false; // 
+            }
+            SceneManager.LoadScene("MapGuide2");
         } // Apply damege
     }
 

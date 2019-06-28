@@ -6,27 +6,36 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 0
-    path: Assets/SUIMONO - WATER SYSTEM 2/_DEMO/SplashScreen.unity
-    guid: efeb6916ff2c52943bf8ad32cfa53283
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 0
-    path: Assets/SUIMONO - WATER SYSTEM 2/_DEMO/Menu.unity
-    guid: 83db1dfba58fc14478cdb8ac2cd18225
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 0
-    path: Assets/SUIMONO - WATER SYSTEM 2/_DEMO/Map-Jungle.unity
-    guid: d847209df9a73f345ba9732a6ae53898
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 0
-    path: Assets/SUIMONO - WATER SYSTEM 2/_DEMO/Options.unity
-    guid: 9c15c1edb15a02e4793e62115183523a
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 0
-    path: Assets/SUIMONO - WATER SYSTEM 2/_DEMO/Support.unity
-    guid: b6a43b855518e144e8a5819accb43d62
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 0
-    path: Assets/SUIMONO - WATER SYSTEM 2/_DEMO/Info-Team.unity
-    guid: abf15578c15a498439a733daf51222ed
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/SUIMONO - WATER SYSTEM 2/_DEMO/MenuGame.unity
     guid: 770b73bfa8499194c882ce11bbb76337
   - enabled: 1
     path: Assets/SUIMONO - WATER SYSTEM 2/_DEMO/Suimono2_Advanced_Demo.unity
     guid: 575c46aa944077d48aa7aedfcac6e0ff
+  - enabled: 1
+    path: Assets/SUIMONO - WATER SYSTEM 2/_DEMO/Test/Test.unity
+    guid: 1a0e1ff2ddbf8124aa82e9f8c98f7096
+  - enabled: 1
+    path: Assets/SUIMONO - WATER SYSTEM 2/_DEMO/Support.unity
+    guid: cc128faba6c2e7648bba39e85a6f9011
+  - enabled: 1
+    path: Assets/SUIMONO - WATER SYSTEM 2/_DEMO/MapGuide2.unity
+    guid: 2645fa15a2102b347958985b8618b323
   m_configObjects: {}

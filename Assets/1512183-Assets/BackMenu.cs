@@ -7,7 +7,7 @@ public class BackMenu : MonoBehaviour
     // Start is called before the first frame update
     public void Back()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene("MenuGame");
     }
 
     // Update is called once per frame
