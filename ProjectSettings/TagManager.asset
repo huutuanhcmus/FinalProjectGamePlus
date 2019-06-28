@@ -10,6 +10,7 @@ TagManager:
   - NPC
   - ServerController
   - NPCMain
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -27,7 +28,7 @@ TagManager:
   - Skill
   - Character
   - SkillOver
-  - 
+  - Enemy
   - 
   - 
   - 

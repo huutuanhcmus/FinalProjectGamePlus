@@ -34,6 +34,22 @@ public class CharacterAnimations : MonoBehaviour
     {
         anim.SetBool(AnimationTags.ATTACK4_PARATEMER, attack4);
     }
+    public void Attack5(bool attack5)
+    {
+        anim.SetBool(AnimationTags.ATTACK5_PARATEMER, attack5);
+    }
+    public void Attack6(bool attack6)
+    {
+        anim.SetBool(AnimationTags.ATTACK6_PARATEMER, attack6);
+    }
+    public void Attack7(bool attack7)
+    {
+        anim.SetBool(AnimationTags.ATTACK7_PARATEMER, attack7);
+    }
+    //public void Die(bool Die)
+    //{
+    //    anim.SetBool(AnimationTags.Die_PARATEMER, Die);
+    //}
     void FreezeAnimation()
     {
         anim.speed = 0f;

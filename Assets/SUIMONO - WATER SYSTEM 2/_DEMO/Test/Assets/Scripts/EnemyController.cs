@@ -20,7 +20,8 @@ public class EnemyController : MonoBehaviour
     public float wait_Before_Attack_Timer = 3f;
     private float attack_Timer;
     private EnemyState enemy_State;
-    public GameObject attackPoint;
+    public GameObject AttackPoint;
+    private CharacterSoundFX soundFX4;
     void Awake()
     {
         enemy_Anim = GetComponent<CharacterAnimations>();
@@ -28,6 +29,7 @@ public class EnemyController : MonoBehaviour
         
 
         playerTarget = GameObject.FindGameObjectWithTag(Tags.PLAYER_TAG).transform;
+        soundFX4 = GetComponentInChildren<CharacterSoundFX>();
 
     }
     void Start()
@@ -74,10 +76,12 @@ public class EnemyController : MonoBehaviour
             if (Random.Range(0, 2) > 0)
             {
                 enemy_Anim.Attack1(true);
+                soundFX4.Attack_1();
             }
             else
             {
                 enemy_Anim.Attack2(true);
+                soundFX4.Attack_2();
             }
             attack_Timer = 0f;
         }
@@ -90,15 +94,15 @@ public class EnemyController : MonoBehaviour
     }
     void Activate_AttackPoint()
     {
-        attackPoint.SetActive(true);
+        AttackPoint.SetActive(true);
 
     }
     void Deactivate_AttackPoint()
     {
-        if (attackPoint.activeInHierarchy)
+        if (AttackPoint.activeInHierarchy)
 
         {
-            attackPoint.SetActive(false);
+           AttackPoint.SetActive(false);
         }
     }
 }

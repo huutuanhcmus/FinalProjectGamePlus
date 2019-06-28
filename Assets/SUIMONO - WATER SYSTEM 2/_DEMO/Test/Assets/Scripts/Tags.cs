@@ -11,6 +11,7 @@ public class Axis
 public class Tags
 {
     public const string PLAYER_TAG = "Player";
+    public const string ENEMY_TAG = "Enemy";
 }
 public class AnimationTags
 {
@@ -20,4 +21,9 @@ public class AnimationTags
     public const string ATTACK2_PARATEMER = "Attack2";
     public const string ATTACK3_PARATEMER = "Attack3";
     public const string ATTACK4_PARATEMER = "Attack4";
+    public const string ATTACK5_PARATEMER = "Attack5";
+    public const string ATTACK6_PARATEMER = "Attack6";
+    public const string ATTACK7_PARATEMER = "Attack7";
+   
+    //public const string Die_PARATEMER = "Die";
 }
