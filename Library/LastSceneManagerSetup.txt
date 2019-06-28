@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/SUIMONO - WATER SYSTEM 2/_DEMO/Test/Test.unity
+- path: Assets/SUIMONO - WATER SYSTEM 2/_DEMO/MapGuide2.unity
   isLoaded: 1
   isActive: 1

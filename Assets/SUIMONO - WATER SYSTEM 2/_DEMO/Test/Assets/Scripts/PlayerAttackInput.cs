@@ -42,6 +42,7 @@ public class PlayerAttackInput : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             playerAnimations1.Attack1(true);
+            CDSkill1 = 5;
             soundFX1.Attack_1();
         }
         if(Input.GetKeyDown(KeyCode.Alpha2))
