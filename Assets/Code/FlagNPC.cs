@@ -37,6 +37,7 @@ public class FlagNPC : NetworkBehaviour
     public List<GameObject> listPlayerHKM;
     public List<GameObject> listPlayerANC;
     string filename = "dataplayer.gd";
+
     public override void OnStartServer()
     {
         base.OnStartServer();
@@ -240,13 +241,10 @@ public class FlagNPC : NetworkBehaviour
 
     void countTimeTotal()
     {
-        while (true)
-        {
-            
-            Thread.Sleep(totalTime * 1000);
-            flagTotal = true;
-            Debug.Log("------////--");
-        }
+
+           Thread.Sleep(totalTime * 1000);
+           flagTotal = true;
+           Debug.Log("------////--");
     }
 
     //[ClientRpc]

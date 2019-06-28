@@ -554,7 +554,7 @@ public class PlayerController : NetworkBehaviour
                     }
                 }
             }
-            else if (Player.tag == "NPC")
+            else if (Player.tag == "NPC" || Player.tag == "NPCMain")
             {
                 if (Player.GetComponent<NPCControler>().Phe != Phe)
                 {
@@ -684,6 +684,7 @@ public class PlayerController : NetworkBehaviour
     {
         var AoeSkillTemp = (GameObject)Instantiate(aoeSkill, aoespawn.transform.position, aoespawn.transform.rotation);
         AoeSkillTemp.GetComponent<AOESkill>().Phe = Phe;
+        AoeSkillTemp.GetComponent<AOESkill>().lv = lv;
         NetworkServer.Spawn(AoeSkillTemp);
     }
 
@@ -692,6 +693,7 @@ public class PlayerController : NetworkBehaviour
     {
         var AoeSkillTemp = (GameObject)Instantiate(buffAOEOb, aoespawn.transform.position, aoespawn.transform.rotation);
         AoeSkillTemp.GetComponent<BuffAOE>().Phe = Phe;
+        AoeSkillTemp.GetComponent<BuffAOE>().lv = lv;
         NetworkServer.Spawn(AoeSkillTemp);
     }
 
@@ -921,27 +923,50 @@ public class PlayerController : NetworkBehaviour
     [Command]
     void CmdLogin(string idT, string Pass)
     {
-        string[] readText = File.ReadAllLines(Application.persistentDataPath + "/" + filename);
-        for (int i = 0; i < readText.Length; i += 4)
+        if (File.Exists(Application.persistentDataPath + "/" + filename))
         {
-            Debug.Log(readText[i]);
-            Debug.Log(id);
-            if (readText[i] == idT)
+            string[] readText = File.ReadAllLines(Application.persistentDataPath + "/" + filename);
+            for (int i = 0; i < readText.Length; i += 4)
             {
-                if (readText[i + 1] == Pass)
+                Debug.Log(readText[i]);
+                Debug.Log(id);
+                if (readText[i] == idT)
                 {
-                    int lvT = Convert.ToInt32(readText[i + 2]);
-                    int exT = Convert.ToInt32(readText[i + 3]);
-                    lv = lvT;
-                    ex = exT;
-                    id = readText[i];
-                    GetComponent<Health>().maxHealth = (int)(100 * Mathf.Pow(1.1f, lv));
-                    GetComponent<Health>().currentHealth = GetComponent<Health>().maxHealth;
-                    GetComponent<Health>().showMaxHealth = GetComponent<Health>().maxHealth;
+                    if (readText[i + 1] == Pass)
+                    {
+                        int lvT = Convert.ToInt32(readText[i + 2]);
+                        int exT = Convert.ToInt32(readText[i + 3]);
+                        lv = lvT;
+                        ex = exT;
+                        id = readText[i];
+                        GetComponent<Health>().maxHealth = (int)(100 * Mathf.Pow(1.1f, lv));
+                        GetComponent<Health>().currentHealth = GetComponent<Health>().maxHealth;
+                        GetComponent<Health>().showMaxHealth = GetComponent<Health>().maxHealth;
+                    }
                 }
             }
         }
-
+        else
+        {
+            string[] dataWrite = new string[16];
+            dataWrite[0] = "user0";
+            dataWrite[1] = "1234";
+            dataWrite[2] = "10";
+            dataWrite[3] = "10";
+            dataWrite[4] = "user1";
+            dataWrite[5] = "1234";
+            dataWrite[6] = "20";
+            dataWrite[7] = "20";
+            dataWrite[8] = "user2";
+            dataWrite[9] = "1234";
+            dataWrite[10] = "30";
+            dataWrite[11] = "30";
+            dataWrite[12] = "user3";
+            dataWrite[13] = "1234";
+            dataWrite[14] = "40";
+            dataWrite[15] = "40";
+            File.WriteAllLines(Application.persistentDataPath + "/" + filename, dataWrite);
+        }
     }
 
     [TargetRpc]

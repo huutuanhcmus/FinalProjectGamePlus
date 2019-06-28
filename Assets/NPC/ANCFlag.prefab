@@ -34,7 +34,7 @@ RectTransform:
   - {fileID: 7053660964424273875}
   - {fileID: 3583142668998306869}
   m_Father: {fileID: 4879189857093855841}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -98.44301, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -5699,8 +5699,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 9116542927880720696}
   - {fileID: 367428529785486032}
+  - {fileID: 9116542927880720696}
   - {fileID: 767613363465504115}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -5813,7 +5813,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fd2b64119e4def4fbde6aaa4a4d0559, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Phe: 21
+  Phe: 2
   PheDich: {fileID: 5015981443416784428, guid: 2528b96978b24e746a437547a8b8f8ec, type: 3}
 --- !u!114 &6172077192750239608
 MonoBehaviour:
@@ -5827,9 +5827,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebfcc936da9d2794a8b956d92e1973c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 1
-  showMaxHealth: 1
-  currentHealth: 1
+  maxHealth: 600
+  showMaxHealth: 600
+  currentHealth: 600
   healthBar: {fileID: 3583142668998306869}
 --- !u!1 &7386411942142500888
 GameObject:
@@ -15197,5 +15197,5 @@ Transform:
   m_Children:
   - {fileID: 7265906172497565017}
   m_Father: {fileID: 4879189857093855841}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

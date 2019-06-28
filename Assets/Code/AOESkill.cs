@@ -10,6 +10,7 @@ public class AOESkill : NetworkBehaviour
     public int dame;
     public float speed;
     public float timeStun;
+    public float lv;
     // Start is called before the first frame update
     void Start()
     {
@@ -40,8 +41,10 @@ public class AOESkill : NetworkBehaviour
             var stun = hit.GetComponent<PlayerController>();
             if (health != null && stun != null)
             {
+                float dameTemp = 0;
+                dameTemp = dame * (Mathf.Pow(1.1f, lv));
                 Debug.Log("222");
-                health.CmdTakeDame(dame);
+                health.CmdTakeDame((int)dameTemp);
                 stun.CmdStunPlayerSlow(speed);
             }
         }

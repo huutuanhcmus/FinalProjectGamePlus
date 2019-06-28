@@ -103,7 +103,7 @@ Transform:
   m_Children:
   - {fileID: 1442357935394768970}
   m_Father: {fileID: 2365197099003900399}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1442357935394804840
 GameObject:
@@ -13956,8 +13956,8 @@ Transform:
   m_LocalPosition: {x: -399.40845, y: -22.29, z: 107.5992}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children:
-  - {fileID: 1442357935394768968}
   - {fileID: 2294783080142741310}
+  - {fileID: 1442357935394768968}
   - {fileID: 6141218228274867620}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -14084,9 +14084,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebfcc936da9d2794a8b956d92e1973c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 1
-  showMaxHealth: 1
-  currentHealth: 1
+  maxHealth: 200
+  showMaxHealth: 200
+  currentHealth: 200
   healthBar: {fileID: 6019651774184965951}
 --- !u!1 &2673731770493210913
 GameObject:
@@ -15120,7 +15120,7 @@ RectTransform:
   - {fileID: 8434679861911086881}
   - {fileID: 6019651774184965951}
   m_Father: {fileID: 2365197099003900399}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -98.44301, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
